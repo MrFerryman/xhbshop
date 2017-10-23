@@ -69,6 +69,8 @@ class XHShopSettingController: UIViewController,  ZLPhotoPickerViewControllerDel
                 var urlArr: [String] = []
                 for url in model.shop_icons_Arr {
                     var urlStr = url.replacingOccurrences(of: "[", with: "")
+                    urlStr = urlStr.replacingOccurrences(of: "Optional(", with: "")
+                    urlStr = urlStr.replacingOccurrences(of: ")", with: "")
                     urlStr = urlStr.replacingOccurrences(of: "]", with: "")
                     let whitespace = NSCharacterSet.whitespacesAndNewlines
                     urlStr = urlStr.trimmingCharacters(in: whitespace)
@@ -119,7 +121,7 @@ class XHShopSettingController: UIViewController,  ZLPhotoPickerViewControllerDel
             paraDict["yysj"] = dataArr?[1].content?[2].subTitle ?? ""
             paraDict["jianjie"] = dataArr?[1].content?[3].subTitle ?? ""
             paraDict["shop_id"] = settingModel?.id ?? "0"
-            if footerView.iconUrlsArr.count != 0 || settingModel?.shop_icons_Arr.count != 0 {
+            if footerView.iconUrlsArr.count != 0 {
                 paraDict["pic"] = String(describing: footerView.iconUrlsArr.count == 0 ? settingModel?.shop_icons_Arr : footerView.iconUrlsArr)
             }
             XHShopSettingViewModel.openShopInfo(paraDict, self, dataArrClosure: { (result) in

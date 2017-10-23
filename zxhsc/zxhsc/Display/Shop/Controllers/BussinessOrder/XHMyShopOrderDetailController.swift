@@ -60,22 +60,6 @@ class XHMyShopOrderDetailController: UIViewController {
         }
         let paraDict = ["page": "\(page)", "status": status]
         cancelRequest = XHMyShopViewModel.getMyShopOrderList(paraDict, self) { [weak self] (result) in
-            if self?.tableView.mj_header != nil {
-                self?.tableView.mj_header.endRefreshing()
-            }
-            
-            if self?.tableView.mj_footer != nil {
-                if let modelList = result  as? [XHMyShopOrderModel] {
-                    if modelList.count == 0 {
-                        self?.tableView.mj_footer.endRefreshingWithNoMoreData()
-                        self?.showHintInKeywindow(hint: "暂无更多数据~")
-                    }else {
-                        self?.tableView.mj_footer.endRefreshing()
-                    }
-                }else {
-                    self?.tableView.mj_footer.endRefreshing()
-                }
-            }
             
             if result is [XHMyShopOrderModel] {
                 self?.orderList.append(contentsOf: result as! [XHMyShopOrderModel])
@@ -87,6 +71,23 @@ class XHMyShopOrderDetailController: UIViewController {
                 }
             }else {
                 XHAlertController.showAlertSigleAction(title: "提示", message: "\(result)", confirmTitle: "确定", confirmComplete: nil)
+            }
+            
+            if self?.tableView.mj_header != nil {
+                self?.tableView.mj_header.endRefreshing()
+            }
+            
+            if self?.tableView.mj_footer != nil {
+                if let modelList = result  as? [XHMyShopOrderModel] {
+                    if modelList.count == 0 {
+                        self?.showHintInKeywindow(hint: "暂无更多数据~")
+                        self?.tableView.mj_footer.endRefreshingWithNoMoreData()
+                    }else {
+                        self?.tableView.mj_footer.endRefreshing()
+                    }
+                }else {
+                    self?.tableView.mj_footer.endRefreshing()
+                }
             }
         }
     }
@@ -104,7 +105,10 @@ class XHMyShopOrderDetailController: UIViewController {
         tableView.register(UINib(nibName: "XHBussinessOrderCell", bundle: nil), forCellReuseIdentifier: reuseId_shop)
         
         tableView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(headerRefresh))
-        tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(footerRefresh))
+        tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: { [weak self] in
+            self?.footerRefresh()
+        })
+//        (refreshingTarget: self, refreshingAction: #selector())
     }
 
     // MARK:- 布局空页面

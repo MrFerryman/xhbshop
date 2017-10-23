@@ -187,8 +187,6 @@ class XHFukuanStyleController: UIViewController {
             case .shopping_order, .shopping_pay:
                 let url = baseURL + "shop_fukuan.php?&order_id=" + (orderId)!
                 webView.urlStr = url
-//            default:
-//                break
             }
             navigationController?.pushViewController(webView, animated: true)
         case "联动优势支付":
@@ -202,8 +200,6 @@ class XHFukuanStyleController: UIViewController {
                 order_ID = (orderId)! + "_cl"
             case .shopping_order, .shopping_pay:
                 order_ID = (orderId)! + "_dl"
-//            default:
-//                break
             }
             
             let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
@@ -264,11 +260,12 @@ class XHFukuanStyleController: UIViewController {
                     paraDict["style"] = "1"
                     paraDict["dmd_type_oid"] = orderId!
                     paraDict["zhifupass"] = secretTextField.text!
-                default:
-                    break
                 }
-                XHFukuanStyleViewModel.payment_Banlance(paraDict, self, dataArrClosure: { (result) in
-                    XHAlertController.showAlertSigleAction(title: "提示", message:  result as? String, confirmTitle: "确定", confirmComplete: nil)
+                XHFukuanStyleViewModel.payment_Banlance(paraDict, self, dataArrClosure: { [weak self] (result) in
+                    XHAlertController.showAlertSigleAction(title: "提示", message:  result as? String, confirmTitle: "确定", confirmComplete: {
+                        let myOrder = XHMyOrderController()
+                        self?.navigationController?.pushViewController(myOrder, animated: true)
+                    })
                 })
             }else {
                 showHint(in: view, hint: "请输入正确的支付密码")
@@ -458,9 +455,9 @@ extension XHFukuanStyleController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = listDatas[indexPath.row]
-        currentZhifuStyle = model.title!
         if indexPath.section == 1 {
+            let model = listDatas[indexPath.row]
+            currentZhifuStyle = model.title!
             for fuM in listDatas {
                 if fuM.title != model.title {
                     fuM.isSelected = false
@@ -518,6 +515,7 @@ extension XHFukuanStyleController: UITableViewDelegate, UITableViewDataSource {
     }
     
     fileprivate func setupSecretCell(cell: UITableViewCell) {
+        cell.selectionStyle = .none
         cell.addSubview(secretImgView)
         secretImgView.snp.makeConstraints { (make) in
             make.left.equalTo(16)

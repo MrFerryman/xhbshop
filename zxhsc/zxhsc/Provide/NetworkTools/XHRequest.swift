@@ -2960,6 +2960,8 @@ extension XHRequest {
             if let text = (response as! [String: Any])["status"]{
                 if (text as! NSNumber) == 1 {
                     success("恭喜您，支付成功!")
+                }else {
+                    success((response as! [String: Any])["text"] as! String)
                 }
             }else {
                 success("未知错误")

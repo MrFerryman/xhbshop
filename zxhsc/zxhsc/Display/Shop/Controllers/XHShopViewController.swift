@@ -195,7 +195,7 @@ class XHShopViewController: UIViewController {
     
     private lazy var footerView: XHShopFooterView = {
         let view: XHShopFooterView = Bundle.main.loadNibNamed("XHShopFooterView", owner: self, options: nil)?.last as! XHShopFooterView
-        view.frame = CGRect(x: 0, y: 0, width: kUIScreenWidth, height: (KUIScreenHeight - 64 - 44 - 155))
+        view.frame = CGRect(x: 0, y: 0, width: kUIScreenWidth, height: (KUIScreenHeight - 64 - 155))
         return view
     }()
 }
