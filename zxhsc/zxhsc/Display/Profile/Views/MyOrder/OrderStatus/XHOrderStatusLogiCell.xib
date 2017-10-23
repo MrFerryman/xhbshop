@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KGk-i7-Jjw" customClass="XHOrderStatusLogiCell" customModule="zxhsc" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="51.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order_detail_logistics" translatesAutoresizingMaskIntoConstraints="NO" id="lab-JJ-PVN">
+                        <rect key="frame" x="15" y="13" width="15" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="htd-Ym-FlJ"/>
+                            <constraint firstAttribute="height" constant="11" id="uZa-KD-J9T"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快递信息最近的一条" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOu-I6-hx6">
+                        <rect key="frame" x="38" y="10.5" width="241" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-08-01 14:22:22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOQ-tj-rzZ">
+                        <rect key="frame" x="38" y="29.5" width="102.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="OOQ-tj-rzZ" firstAttribute="leading" secondItem="eOu-I6-hx6" secondAttribute="leading" id="HD2-A1-Owm"/>
+                    <constraint firstAttribute="trailing" secondItem="eOu-I6-hx6" secondAttribute="trailing" constant="8" id="Nj6-X9-iTD"/>
+                    <constraint firstItem="eOu-I6-hx6" firstAttribute="centerY" secondItem="lab-JJ-PVN" secondAttribute="centerY" id="Tk8-ya-AeP"/>
+                    <constraint firstItem="lab-JJ-PVN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="WW1-JD-cNo"/>
+                    <constraint firstItem="eOu-I6-hx6" firstAttribute="leading" secondItem="lab-JJ-PVN" secondAttribute="trailing" constant="8" id="YLW-EX-hNZ"/>
+                    <constraint firstAttribute="bottom" secondItem="OOQ-tj-rzZ" secondAttribute="bottom" constant="10" id="l8Y-Cf-SVE"/>
+                    <constraint firstItem="OOQ-tj-rzZ" firstAttribute="top" secondItem="eOu-I6-hx6" secondAttribute="bottom" constant="2" id="mSS-CW-94A"/>
+                    <constraint firstItem="lab-JJ-PVN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="yz6-gr-Khg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="timeL" destination="OOQ-tj-rzZ" id="ayv-er-fKJ"/>
+                <outlet property="titleL" destination="eOu-I6-hx6" id="6u3-Ud-uSF"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="order_detail_logistics" width="15" height="11"/>
+    </resources>
+</document>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>icon_name</key>
+		<string>home_platform_shangjia</string>
+		<key>title</key>
+		<string>商家入驻</string>
+		<key>subtitle</key>
+		<string>商家捐赠可获得循环奖励，实现跨界经营，整合产品和人脉资源。</string>
+		<key>isOpen</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>icon_name</key>
+		<string>home_platform_shizhe</string>
+		<key>title</key>
+		<string>循环使者</string>
+		<key>subtitle</key>
+		<string>注册即成为循环使者（即顾客），消费满100元即获得一颗循环宝。</string>
+		<key>isOpen</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>icon_name</key>
+		<string>home_platform_dashi</string>
+		<key>title</key>
+		<string>循环大使</string>
+		<key>subtitle</key>
+		<string>缴纳365元年费的循环使者即成为循环大使，享有推荐商家及顾客消费激励。</string>
+		<key>isOpen</key>
+		<false/>
+	</dict>
+</array>
+</plist>

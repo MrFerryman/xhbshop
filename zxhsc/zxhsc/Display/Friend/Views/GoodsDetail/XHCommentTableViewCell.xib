@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="149" id="KGk-i7-Jjw" customClass="XHCommentTableViewCell" customModule="zxhsc" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="174"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="173.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loding_icon" translatesAutoresizingMaskIntoConstraints="NO" id="lBS-rQ-NcE">
+                        <rect key="frame" x="16" y="8" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Nb5-UN-pIb"/>
+                            <constraint firstAttribute="width" constant="40" id="yRP-dq-Ujm"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiX-kQ-KJi">
+                        <rect key="frame" x="64" y="14" width="49.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-08-06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5W-T0-Pvt">
+                        <rect key="frame" x="64" y="30.5" width="59" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评价详情评价详情评价详情，评价详情评价详情，评价详情评价详情评价详情评价详情伙伴吧。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwr-It-Y6e">
+                        <rect key="frame" x="16" y="56" width="288" height="35.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hv-ai-sWI" customClass="XHCheckPendingImageView" customModule="zxhsc" customModuleProvider="target">
+                        <rect key="frame" x="16" y="91.5" width="288" height="76"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="76" id="4hS-bX-qqR"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好评" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzV-gc-scf">
+                        <rect key="frame" x="271" y="18.5" width="33" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.91764705879999997" green="0.12549019610000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reputation_good1" translatesAutoresizingMaskIntoConstraints="NO" id="VMK-gq-zzj">
+                        <rect key="frame" x="239" y="16" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="L3y-sk-u1i"/>
+                            <constraint firstAttribute="height" constant="24" id="ZQK-hl-KeR"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="MiX-kQ-KJi" firstAttribute="leading" secondItem="lBS-rQ-NcE" secondAttribute="trailing" constant="8" id="3wU-Fs-Rw3"/>
+                    <constraint firstItem="X5W-T0-Pvt" firstAttribute="leading" secondItem="MiX-kQ-KJi" secondAttribute="leading" id="4dD-tZ-47F"/>
+                    <constraint firstItem="lBS-rQ-NcE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="A64-iP-Qyh"/>
+                    <constraint firstAttribute="trailing" secondItem="8hv-ai-sWI" secondAttribute="trailing" constant="16" id="AM0-3R-QG4"/>
+                    <constraint firstItem="8hv-ai-sWI" firstAttribute="top" secondItem="Jwr-It-Y6e" secondAttribute="bottom" id="Irg-22-kdS"/>
+                    <constraint firstAttribute="bottom" secondItem="8hv-ai-sWI" secondAttribute="bottom" constant="6" id="Kfe-6g-nVN"/>
+                    <constraint firstItem="MiX-kQ-KJi" firstAttribute="top" secondItem="lBS-rQ-NcE" secondAttribute="top" constant="6" id="LNW-hW-TWO"/>
+                    <constraint firstAttribute="trailing" secondItem="Jwr-It-Y6e" secondAttribute="trailing" constant="16" id="Niy-oz-0ON"/>
+                    <constraint firstItem="8hv-ai-sWI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Qv4-zF-7gf"/>
+                    <constraint firstItem="Jwr-It-Y6e" firstAttribute="top" secondItem="lBS-rQ-NcE" secondAttribute="bottom" constant="8" id="cAd-b8-P7P"/>
+                    <constraint firstItem="lBS-rQ-NcE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="cVe-2Y-41D"/>
+                    <constraint firstItem="NzV-gc-scf" firstAttribute="leading" secondItem="VMK-gq-zzj" secondAttribute="trailing" constant="8" id="d8H-cr-799"/>
+                    <constraint firstItem="X5W-T0-Pvt" firstAttribute="top" secondItem="MiX-kQ-KJi" secondAttribute="bottom" constant="2" id="jcF-k6-RL6"/>
+                    <constraint firstItem="NzV-gc-scf" firstAttribute="centerY" secondItem="lBS-rQ-NcE" secondAttribute="centerY" id="kUd-Gm-Nd1"/>
+                    <constraint firstAttribute="trailing" secondItem="NzV-gc-scf" secondAttribute="trailing" constant="16" id="o7E-VL-Mf5"/>
+                    <constraint firstItem="Jwr-It-Y6e" firstAttribute="leading" secondItem="lBS-rQ-NcE" secondAttribute="leading" id="qyK-ky-hLW"/>
+                    <constraint firstItem="VMK-gq-zzj" firstAttribute="centerY" secondItem="lBS-rQ-NcE" secondAttribute="centerY" id="xgO-oi-2NK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="commentDetailL" destination="Jwr-It-Y6e" id="wvQ-zk-z6U"/>
+                <outlet property="dateL" destination="X5W-T0-Pvt" id="lNl-I6-03e"/>
+                <outlet property="imagesView" destination="8hv-ai-sWI" id="LAJ-TN-3JS"/>
+                <outlet property="imgsViewHeightCon" destination="4hS-bX-qqR" id="bFK-Ty-o4p"/>
+                <outlet property="userIconView" destination="lBS-rQ-NcE" id="DMp-Nl-JZd"/>
+                <outlet property="userNameL" destination="MiX-kQ-KJi" id="JCg-e3-euh"/>
+                <outlet property="valueIconView" destination="VMK-gq-zzj" id="SWx-93-MxF"/>
+                <outlet property="valueL" destination="NzV-gc-scf" id="QIZ-fm-arh"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="90"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="loding_icon" width="172" height="172"/>
+        <image name="reputation_good1" width="24" height="24"/>
+    </resources>
+</document>

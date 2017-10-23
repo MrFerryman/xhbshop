@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>mg_title</key>
+		<string>帮助中心</string>
+		<key>mg_icon</key>
+		<string>12icon_bangzhu</string>
+		<key>mg_targetVc</key>
+		<string>XHHelpCenterController</string>
+	</dict>
+	<dict>
+		<key>mg_title</key>
+		<string>平台公告</string>
+		<key>mg_icon</key>
+		<string>13icon_gonggao</string>
+		<key>mg_targetVc</key>
+		<string>XHNoticeController</string>
+	</dict>
+	<dict>
+		<key>mg_title</key>
+		<string>新闻动态</string>
+		<key>mg_icon</key>
+		<string>09icon_news</string>
+		<key>mg_targetVc</key>
+		<string>XHNewsViewController</string>
+	</dict>
+	<dict>
+		<key>mg_title</key>
+		<string>物料下载</string>
+		<key>mg_icon</key>
+		<string>11icon_download</string>
+		<key>mg_targetVc</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

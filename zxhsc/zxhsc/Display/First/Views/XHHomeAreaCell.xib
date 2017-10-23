@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="290" id="KGk-i7-Jjw" customClass="XHHomeAreaCell" customModule="zxhsc" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="417" height="290"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="417" height="289.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_5beijili" translatesAutoresizingMaskIntoConstraints="NO" id="fnP-aS-dCc">
+                        <rect key="frame" x="14" y="14" width="189.5" height="261.5"/>
+                    </imageView>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_qiche" translatesAutoresizingMaskIntoConstraints="NO" id="tw0-sM-RvD">
+                        <rect key="frame" x="213.5" y="14" width="189" height="125.5"/>
+                    </imageView>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_fangqichan" translatesAutoresizingMaskIntoConstraints="NO" id="i9x-NH-wbm">
+                        <rect key="frame" x="213.5" y="149.5" width="189.5" height="125.5"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="i9x-NH-wbm" secondAttribute="bottom" constant="14" id="3uc-dc-0Yk"/>
+                    <constraint firstItem="tw0-sM-RvD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="4is-jM-Y0I"/>
+                    <constraint firstItem="fnP-aS-dCc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="4wk-es-3Jc"/>
+                    <constraint firstAttribute="trailing" secondItem="i9x-NH-wbm" secondAttribute="trailing" constant="14" id="B1i-Qa-Brg"/>
+                    <constraint firstItem="tw0-sM-RvD" firstAttribute="leading" secondItem="fnP-aS-dCc" secondAttribute="trailing" constant="10" id="Djw-hk-KQK"/>
+                    <constraint firstItem="i9x-NH-wbm" firstAttribute="leading" secondItem="fnP-aS-dCc" secondAttribute="trailing" constant="10" id="FJg-aS-7aY"/>
+                    <constraint firstAttribute="trailing" secondItem="tw0-sM-RvD" secondAttribute="trailing" constant="14" id="SPG-7R-2t6"/>
+                    <constraint firstAttribute="bottom" secondItem="fnP-aS-dCc" secondAttribute="bottom" constant="14" id="bOG-Ih-hgN"/>
+                    <constraint firstItem="i9x-NH-wbm" firstAttribute="height" secondItem="tw0-sM-RvD" secondAttribute="height" id="cqj-8Y-68h"/>
+                    <constraint firstItem="tw0-sM-RvD" firstAttribute="width" secondItem="fnP-aS-dCc" secondAttribute="width" id="e6N-GD-bot"/>
+                    <constraint firstItem="i9x-NH-wbm" firstAttribute="top" secondItem="tw0-sM-RvD" secondAttribute="bottom" constant="10" id="gE0-5M-EUQ"/>
+                    <constraint firstItem="fnP-aS-dCc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="ofc-5U-33Z"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="carImgView" destination="tw0-sM-RvD" id="ANs-0U-kDS"/>
+                <outlet property="houseImgView" destination="i9x-NH-wbm" id="Flh-X6-5f7"/>
+                <outlet property="rebateImgView" destination="fnP-aS-dCc" id="gXJ-05-xWW"/>
+            </connections>
+            <point key="canvasLocation" x="82.5" y="195"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="home_5beijili" width="171" height="208"/>
+        <image name="home_fangqichan" width="171" height="100"/>
+        <image name="home_qiche" width="171" height="100"/>
+    </resources>
+</document>
