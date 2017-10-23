@@ -108,7 +108,6 @@ class XHMyShopOrderDetailController: UIViewController {
         tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: { [weak self] in
             self?.footerRefresh()
         })
-//        (refreshingTarget: self, refreshingAction: #selector())
     }
 
     // MARK:- 布局空页面
