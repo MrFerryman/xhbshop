@@ -14,6 +14,8 @@ class XHSettingDetailConfController: UIViewController {
     
     @IBOutlet weak var saveButton: UIButton! // 保存按钮
     
+    fileprivate let viewName = "个人中心_设置个人资料页面"
+    
     var comeFromType: configType = .nickname
     
     var userModel: XHMemberDetailModel?
@@ -34,6 +36,16 @@ class XHSettingDetailConfController: UIViewController {
         case .nickname:
             textField.text = userModel?.nickname
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
 
 

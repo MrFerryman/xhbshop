@@ -34,6 +34,9 @@ class XHMyBankModel: Mappable {
     
     var bankDetal: XHBankDetailModel?
     
+    /// 是否能够更改身份信息 0 - 未提现过 都可以更改 1 - 提现过 不可更改身份信息
+    var canBeModified: String?
+    
     init() {}
     
     required init?(map: Map) {}
@@ -46,6 +49,7 @@ class XHMyBankModel: Mappable {
         name <- map["name"]
         idCardNum <- map["zhengid"]
         bank_Code <- map["cnaps"]
+        canBeModified <- map["stat"]
     }
 }
 

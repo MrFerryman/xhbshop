@@ -17,11 +17,18 @@ class XHAuthenIdentiferController: UIViewController {
     
     @IBOutlet weak var nextBtn: UIButton!
     
+    var myBankModel: XHMyBankModel?
+    
+    fileprivate let viewName = "认证设置_设置个人信息页面"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         nextBtn.layer.cornerRadius = 6
         nextBtn.layer.masksToBounds = true
+        
+        nameTF.text = myBankModel?.name
+        idenNumTF.text = myBankModel?.idCardNum
         
         setupNav()
     }
@@ -31,13 +38,24 @@ class XHAuthenIdentiferController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+    
     @IBAction func nextButtonClicked(_ sender: UIButton) {
         if judge() == true {
             let bankV = XHAuthenBankController()
-            let myBankM = XHMyBankModel()
-            myBankM.name = nameTF.text
-            myBankM.idCardNum = idenNumTF.text
-            bankV.bankModel = myBankM
+//            let myBankM = XHMyBankModel()
+            myBankModel = myBankModel == nil ? XHMyBankModel() : myBankModel
+            myBankModel?.name = nameTF.text
+            myBankModel?.idCardNum = idenNumTF.text
+            bankV.bankModel = myBankModel
             navigationController?.pushViewController(bankV, animated: true)
         }
     }

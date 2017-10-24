@@ -32,6 +32,8 @@ class XHAuthenBankController: UIViewController {
     /// 营业网点名称
     fileprivate var bankBranchCode: String?
     
+    fileprivate let viewName = "认证设置_设置银行卡页面"
+    
     fileprivate var banksArr: Array<XHBankListModel> = []
     fileprivate var bankNameArr: Array<String> = []
     
@@ -61,6 +63,17 @@ class XHAuthenBankController: UIViewController {
         title = "银行卡认证"
     }
 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+    
     // MARK:- 选择开户地区按钮点击事件
     @IBAction func openAreaButtonClicked(_ sender: UIButton) {
         XHPickerViewManager.instance.show()

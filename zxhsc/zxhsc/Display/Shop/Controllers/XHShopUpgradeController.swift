@@ -25,6 +25,8 @@ class XHShopUpgradeController: UIViewController, ZLPhotoPickerViewControllerDele
     
     @IBOutlet weak var detailL: UILabel!
     
+    fileprivate let viewName = "店铺升级设置页"
+    
     /// 执照照片
     private var licenseImg: UIImage?
     
@@ -46,9 +48,14 @@ class XHShopUpgradeController: UIViewController, ZLPhotoPickerViewControllerDele
         setupImageView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 上传营业执照视图手势事件

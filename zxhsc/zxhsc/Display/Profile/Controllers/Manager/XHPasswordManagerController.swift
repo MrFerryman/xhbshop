@@ -12,6 +12,8 @@ class XHPasswordManagerController: UIViewController {
 
     fileprivate let dataArr = ["修改登录密码", "修改支付密码", "找回支付密码"]
     fileprivate let reuseId = "XHPasswordManagerController_reuseid"
+    fileprivate let viewName = "个人中心_密码管理页面"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +22,16 @@ class XHPasswordManagerController: UIViewController {
         setupTableView()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

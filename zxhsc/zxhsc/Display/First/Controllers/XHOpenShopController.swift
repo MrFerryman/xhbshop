@@ -13,6 +13,7 @@ class XHOpenShopController: UIViewController {
     fileprivate let reuseId = "XHOpenShopController_reuseId"
     fileprivate let reuseId_explain = "XHOpenShopController_reuseId_explain"
     
+    fileprivate let viewName = "开通店铺页面"
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -24,6 +25,17 @@ class XHOpenShopController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+
     
     // MARK:- ======== 界面相关 =======
     private func setupTableView() {

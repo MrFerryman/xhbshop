@@ -12,6 +12,7 @@ class XHFactorJoinController: UIViewController {
 
     fileprivate let reuseId = "XHFactorJoinController_reuseId"
     
+    fileprivate let viewName = "运营商加盟开通页面"
     fileprivate var explainModel: XHHTMLModel? // 体系说明
     fileprivate var flowModel: XHHTMLModel? // 申请流程
     fileprivate var contractModel: XHHTMLModel? // 联系方式
@@ -54,6 +55,16 @@ class XHFactorJoinController: UIViewController {
             self?.tableView.reloadSections([2], with: .automatic)
             NSKeyedArchiver.archiveRootObject(htmlModel, toFile:contractPath)
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
 
     override func didReceiveMemoryWarning() {

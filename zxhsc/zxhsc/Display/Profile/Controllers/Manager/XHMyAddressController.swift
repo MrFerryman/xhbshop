@@ -17,6 +17,7 @@ class XHMyAddressController: UIViewController {
     
     /// tableView cell 的复用标志
     fileprivate let reuseId = "XHMyAddressController_cell_reuseId"
+    fileprivate let viewName = "地址管理页面"
     
     fileprivate var dataArr: [XHMyAdressModel] = []
     
@@ -41,6 +42,17 @@ class XHMyAddressController: UIViewController {
         
         loadData()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+
   
     // MARK:- 添加收货地址
     @objc private func addAddress() {

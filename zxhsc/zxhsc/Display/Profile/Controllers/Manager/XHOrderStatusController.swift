@@ -60,6 +60,7 @@ class XHOrderStatusController: UIViewController {
     fileprivate let reuseId_OrderDetail = "XHOrderStatusController_reuseId_OrderDetail" // 订单详情
     fileprivate let reuseId_OrderDetail_obligation = "XHOrderStatusController_reuseId_OrderDetail_obligation"  // 待付款
     fileprivate let reuseId_UserPhone = "XHOrderStatusController_reuseId_UserPhone"
+    fileprivate let viewName = "我的订单_订单详情页面"
     
     /// 用来控制cell的样式
     fileprivate var cellStylesArr: [cellStyle] = []
@@ -83,6 +84,16 @@ class XHOrderStatusController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     private func loadData() {

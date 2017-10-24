@@ -39,6 +39,11 @@ class XHMyCollectionsController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin("商品收藏")
+    }
+    
     @objc private func editButtonClicked(_ sender: UIBarButtonItem) {
         let collectionVC = controllers[currentViewController]
         if sender.title == "编辑" {
@@ -67,7 +72,6 @@ class XHMyCollectionsController: UIViewController {
     fileprivate func setupNav() {
         
         let editButton = UIBarButtonItem(title: "编辑", style: .plain, target: self, action: #selector(editButtonClicked(_:)))
-//            UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonClicked(_:)))
         editButton.setTitleTextAttributes([NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14)], for: .normal)
         
         navigationItem.rightBarButtonItem = editButton
@@ -95,9 +99,13 @@ extension XHMyCollectionsController: XHPageViewControllerDelegate {
         case 0:
             controller.collectionsType = .goods
             currentViewController = 0
+            TalkingData.trackPageBegin("商品收藏页面")
+            TalkingData.trackPageEnd("店铺收藏页面")
         case 1:
             controller.collectionsType = .shop
             currentViewController = 1
+            TalkingData.trackPageEnd("商品收藏页面")
+            TalkingData.trackPageBegin("店铺收藏页面")
         default:
             break
         }

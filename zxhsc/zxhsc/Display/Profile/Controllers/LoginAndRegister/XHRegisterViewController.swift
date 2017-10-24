@@ -99,6 +99,7 @@ class XHRegisterViewController: UIViewController {
                 let str = string as! String
                 self?.showHint(in: (self?.view)!, hint: str)
                 if str == "注册成功" {
+                    TalkingData.onRegister((self?.phoneNumberTF.text)!, type: TDAccountType.registered, name: (self?.nicknameTF.text)!)
                     let time: TimeInterval = 0.5
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
                         self?.login()
@@ -127,6 +128,7 @@ class XHRegisterViewController: UIViewController {
                     let model = userModel as! XHUserModel
                     if model.loginStatus == .success {
                         self?.showHint(in: (self?.view)!, hint: "登录成功~")
+                        TalkingData.onLogin(self?.phoneNumberTF.text, type: TDAccountType.type1, name: (self?.nicknameTF.text)!)
                         let time: TimeInterval = 1.0
                         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
                             //code

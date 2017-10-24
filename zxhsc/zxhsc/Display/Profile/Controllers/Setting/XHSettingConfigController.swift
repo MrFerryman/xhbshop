@@ -23,6 +23,8 @@ class XHSettingConfigController: UIViewController {
 
     fileprivate let reuseId = "XHSettingConfigController_tableView_CELL"
     
+    fileprivate let viewName = "设置个人资料页面"
+    
     /// 标题数组
     fileprivate let titlesArr = ["会员头像", "会员id","手机号", "会员昵称", "姓名", "身份证号"]
     
@@ -48,6 +50,17 @@ class XHSettingConfigController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+    
     
     // MARK:- 请求用户详情
     private func loadData() {

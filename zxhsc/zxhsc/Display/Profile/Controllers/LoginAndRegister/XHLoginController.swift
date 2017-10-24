@@ -96,6 +96,7 @@ class XHLoginController: UIViewController {
                     let model = userModel as! XHUserModel
                     if model.loginStatus == .success {
                         self?.showHint(in: (self?.view)!, hint: "登录成功~")
+                        TalkingData.onLogin(self?.phoneNumberTF.text, type: TDAccountType.type1, name: nil)
                         let time: TimeInterval = 1.0
                         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
                             //code

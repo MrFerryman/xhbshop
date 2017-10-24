@@ -15,6 +15,7 @@ class XHLogisticsDetailController: UIViewController {
     fileprivate let reuseId_header = "XHLogisticsDetailController_header"
     fileprivate let reuseId_detail = "XHLogisticsDetailController_detail"
     
+    fileprivate let viewName = "物流详情页面"
     var orderModel: XHMyOrderModel? {
         didSet {
             loadData()
@@ -30,6 +31,16 @@ class XHLogisticsDetailController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     private func loadData() {

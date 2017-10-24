@@ -14,6 +14,7 @@ class XHIntegral_PaymentController: UIViewController {
     
     fileprivate var orderModel: XHMyOrderModel?
     fileprivate var integralStr: String?
+    fileprivate let viewName = "积分商品_选择付款方式页"
 
     var comeFrom: ConfirmOrderFrom = .integral_goods
     
@@ -34,9 +35,14 @@ class XHIntegral_PaymentController: UIViewController {
         setupTableView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 获取订单详情

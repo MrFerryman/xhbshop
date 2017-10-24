@@ -13,7 +13,7 @@ class XHOpenAmbassadorController: UIViewController {
     fileprivate let reuseId = "XHOpenAmbassadorController_reuseID"
     fileprivate let reuseId_explain = "XHOpenAmbassadorController_reuseID_reuseId_explain"
     
-    
+    fileprivate let viewName = "开通循环大使页面"
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -22,9 +22,14 @@ class XHOpenAmbassadorController: UIViewController {
         setupTableView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 数据请求

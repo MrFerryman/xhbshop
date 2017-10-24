@@ -29,6 +29,8 @@ class XHRecommendController: UIViewController {
     
     @IBOutlet weak var activityView: UIActivityIndicatorView!
     
+    fileprivate let viewName = "荐码页面"
+    
     private var userModel: XHMemberDetailModel?
     
     override func viewDidLoad() {
@@ -55,6 +57,16 @@ class XHRecommendController: UIViewController {
         loadData()
         loadMemberDetail()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+    
     
     /// MARK:- 返回按钮点击事件
     @objc private func rightBarButtonClicked() {

@@ -18,6 +18,8 @@ import UIKit
 
 class XHConfirmOrderController: UIViewController {
    
+    fileprivate let viewName = "确认订单页面"
+    
     var ordersArr: [XHShoppingCartModel] = [] {
         didSet {
             var totalPrice: CGFloat = 0.0
@@ -71,6 +73,16 @@ class XHConfirmOrderController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 获取默认收件人信息

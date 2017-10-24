@@ -12,6 +12,7 @@ class XHShoppingCartController: UIViewController, UIGestureRecognizerDelegate, U
 
     fileprivate let reuseId_normal = "XHShoppingCartController_reuseId_normal"
     fileprivate let reuseId_editting = "XHShoppingCartController_reuseId_editting"
+    fileprivate let viewName = "购物车页面"
     
     /// 控制是否是编辑状态
     fileprivate var isCellEditting: Bool = false
@@ -46,6 +47,12 @@ class XHShoppingCartController: UIViewController, UIGestureRecognizerDelegate, U
     override func viewDidDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         automaticallyAdjustsScrollViewInsets = true
+        TalkingData.trackPageEnd(viewName)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
     }
     
     // MARK:- 获取网络数据

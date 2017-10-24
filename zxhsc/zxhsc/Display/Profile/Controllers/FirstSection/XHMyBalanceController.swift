@@ -12,6 +12,7 @@ class XHMyBalanceController: UIViewController {
 
     fileprivate let reuseId_user = "XHMyBalanceController_reuseId_user"
     fileprivate let reuseId_detail = "XHMyBalanceController_reuseId_detail"
+    fileprivate let viewName = "钱包余额详情页面"
     
     fileprivate var userEarningModel: XHUserEarningModel? {
         didSet {
@@ -31,9 +32,14 @@ class XHMyBalanceController: UIViewController {
         loadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 设置tableView

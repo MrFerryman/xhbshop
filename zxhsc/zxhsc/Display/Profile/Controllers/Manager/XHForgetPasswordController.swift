@@ -18,8 +18,13 @@ class XHForgetPasswordController: UIViewController {
     
     @IBOutlet weak var getVerCodeButton: UIButton!
     
+    fileprivate var viewName = ""
     /// 是否是修改支付密码
-    var isPaymentPassword: Bool = false
+    var isPaymentPassword: Bool = false {
+        didSet {
+            viewName = isPaymentPassword == true ? "修改支付密码页面" : "忘记登录密码页面"
+        }
+    }
     
     /// 定时器和计数
     private lazy var count:Int = 60
@@ -38,6 +43,16 @@ class XHForgetPasswordController: UIViewController {
         }else {
             newPasswordTF.placeholder = "请输入新密码(英文字符加数字组合)"
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
 
     override func didReceiveMemoryWarning() {

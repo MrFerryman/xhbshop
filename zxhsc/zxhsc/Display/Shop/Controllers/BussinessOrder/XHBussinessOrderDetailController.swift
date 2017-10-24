@@ -14,6 +14,8 @@ class XHBussinessOrderDetailController: UIViewController {
     fileprivate let reuseId_customer = "XHBussinessOrderDetailController_reuseId_customer"
     fileprivate let reuseId_shop = "XHBussinessOrderDetailController_reuseId_shop"
     
+    fileprivate let viewName = "店铺_商家订单_订单详情页面"
+    
     var order_id: String? {
         didSet {
             loadData()
@@ -32,6 +34,17 @@ class XHBussinessOrderDetailController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+    
     
     private func loadData() {
         

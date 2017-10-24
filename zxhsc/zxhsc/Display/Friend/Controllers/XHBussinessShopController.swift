@@ -15,6 +15,8 @@ class XHBussinessShopController: UIViewController {
     fileprivate let reuseId_goods = "XHBussinessShopController_goods"
     fileprivate let reuseId_headerView = "XHBussinessShopController_headerView"
     
+    fileprivate let viewName = "商家店铺页面"
+    
     fileprivate var shopDetailModel: XHShopDetailModel?
     fileprivate var goodsArr: [XHGoodsListModel] = []
     
@@ -52,6 +54,16 @@ class XHBussinessShopController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadShopDetail()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 数据请求
