@@ -13,6 +13,7 @@ class XHQRCoderPaymentController: UIViewController {
     
     fileprivate let reuseId_img = "XHQRCoderPaymentController_reuseId_img"
     fileprivate let reuseId_order = "XHQRCoderPaymentController_reuseId_order"
+    fileprivate let viewName = "选择付款方式_二维码支付页"
     
     fileprivate var saveButton: UIBarButtonItem?
     
@@ -48,9 +49,14 @@ class XHQRCoderPaymentController: UIViewController {
         setupTableView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 保存图片

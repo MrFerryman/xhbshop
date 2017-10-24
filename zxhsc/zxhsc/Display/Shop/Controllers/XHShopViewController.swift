@@ -12,6 +12,8 @@ import MJRefresh
 class XHShopViewController: UIViewController {
 
     fileprivate let reuseId = "XHShopViewController_reuseId"
+    fileprivate let viewName = "tab_店铺页"
+    
     fileprivate var shopModel: XHMyShopModel?
     
     override func viewDidLoad() {
@@ -33,6 +35,16 @@ class XHShopViewController: UIViewController {
         
         tabBarController?.tabBar.isHidden = false
         loadMyShop()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 获取我的店铺信息

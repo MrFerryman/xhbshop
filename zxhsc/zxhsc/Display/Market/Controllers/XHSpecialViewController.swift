@@ -17,6 +17,8 @@ class XHSpecialViewController: UIViewController {
     fileprivate let reuseId = "XHSpecialViewController_collectionView_Reuse" // collectionView的cell的复用标志
     fileprivate let reuseId_reuseView = "XHSpecialViewController_collectionView_headerView" // collectionView的header的复用标志
     
+    fileprivate let viewName = "精选推荐专区商品列表页"
+    
     fileprivate var sessionModel: XHSessionModel = XHSessionModel()
     
     fileprivate var page: Int = 0
@@ -39,9 +41,14 @@ class XHSpecialViewController: UIViewController {
         setupCollectionView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     private func loadData() {

@@ -14,6 +14,8 @@ class XHFriendViewController: UIViewController, UISearchBarDelegate, PYSearchVie
     fileprivate let reuseId = "XHFriendViewController_tableViewCell_reuseId"
     fileprivate let reuseId_classes = "XHFriendViewController_tableViewCell_reuseId_classes"
     
+    fileprivate let viewName = "tab_商盟页"
+    
     /// 第一组的展开与否
     fileprivate var firstSectionIsFlod: Bool = false
     
@@ -54,6 +56,17 @@ class XHFriendViewController: UIViewController, UISearchBarDelegate, PYSearchVie
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        searchBar.resignFirstResponder()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
         searchBar.resignFirstResponder()
     }
     

@@ -13,6 +13,8 @@ class XHHelpCenterController: UIViewController {
     
     fileprivate let reuseId = "XHHelpCenterController_cell"
     
+    fileprivate let viewName = "帮助中心页面"
+    
     fileprivate var dataArr: [XHHelpModel] = []
     
     override func viewDidLoad() {
@@ -27,6 +29,16 @@ class XHHelpCenterController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNav()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     override func didReceiveMemoryWarning() {

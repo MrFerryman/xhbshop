@@ -21,6 +21,7 @@ class XHMyShopOrderDetailController: UIViewController {
     }
     
     fileprivate let reuseId_shop = "XHMyShopOrderDetailController_reuseId_shop"
+    fileprivate let viewName = "店铺_商家订单页面"
     fileprivate var cancelRequest: XHCancelRequest?
     fileprivate var page: Int = 0
     fileprivate var orderList: [XHMyShopOrderModel] = []
@@ -29,6 +30,16 @@ class XHMyShopOrderDetailController: UIViewController {
 
         setupEmptyUI()
         loadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     @objc private func headerRefresh() {

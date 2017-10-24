@@ -17,6 +17,8 @@ class XHMyEvaluationController: UIViewController {
     
     /// 子标题
     private lazy var subTitleArr: [String] = ["待评价", "待审核", "已评价"]
+    
+    fileprivate let viewName = "我的评价页面"
     /// 子控制器
     var controllers: [XHEvaluationController] = [XHEvaluationController(), XHEvaluationController(), XHEvaluationController()]
     
@@ -33,6 +35,16 @@ class XHMyEvaluationController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- ======= 界面相关 ========

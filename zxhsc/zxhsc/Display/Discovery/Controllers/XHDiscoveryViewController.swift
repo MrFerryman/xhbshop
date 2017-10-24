@@ -14,6 +14,8 @@ class XHDiscoveryViewController: UIViewController {
     fileprivate let reuseId_lottery = "XHDiscoveryViewController_lottery"
     fileprivate let reuseId_integral = "XHDiscoveryViewController_integral"
     
+    fileprivate let viewName = "tab_发现页"
+    
     /// 抽奖列表
     fileprivate var lottoryList: Array<XHLottoryModel> = []
     /// 积分商品列表
@@ -86,6 +88,12 @@ class XHDiscoveryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.tabBar.isHidden = false
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
 //    // MARK:- 获取抽奖列表

@@ -36,6 +36,8 @@ class XHPersonalOrderDetailController: UIViewController {
     fileprivate let reuseId_logisticsNum = "XHPersonalOrderDetailController_reuseId_logisticsNum"
     fileprivate let reuseId_logistics = "XHPersonalOrderDetailController_reuseId_logistics"
     
+    fileprivate let viewName = "店铺_用户订单_订单详情页面"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav()
@@ -49,6 +51,17 @@ class XHPersonalOrderDetailController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+    
     
     private func loadData() {
         let paraDict = ["orderid": orderId!]

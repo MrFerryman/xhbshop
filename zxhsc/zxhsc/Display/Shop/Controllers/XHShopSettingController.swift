@@ -14,6 +14,8 @@ class XHShopSettingController: UIViewController,  ZLPhotoPickerViewControllerDel
     fileprivate let reuseId = "XHShopSettingController_reuseId"
     fileprivate let reuseId_image = "XHShopSettingController_reuseId_image"
     
+    fileprivate let viewName = "店铺_店铺设置页"
+    
     fileprivate let dataArr = XHShopSettingViewModel().dataSourceArr
     fileprivate var settingModel: XHMyShop_settingModel?
     fileprivate var classListArr: Array<String> = []
@@ -47,6 +49,17 @@ class XHShopSettingController: UIViewController,  ZLPhotoPickerViewControllerDel
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+    
 
     // MARK:- 请求店铺信息
     private func loadData() {

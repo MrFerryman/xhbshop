@@ -12,6 +12,7 @@ class XHNewsViewController: UIViewController {
 
     fileprivate var dataArr: [XHNewsModel] = []
     fileprivate var reuseId = "XHNewsViewController_cell_reuseId"
+    fileprivate let viewName = "新闻中心页面"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,16 @@ class XHNewsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNav()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     override func didReceiveMemoryWarning() {

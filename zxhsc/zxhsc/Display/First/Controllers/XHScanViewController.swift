@@ -36,6 +36,7 @@ class XHScanViewController: LBXScanViewController {
     //我的二维码
     var btnMyQR:UIButton = UIButton()
     
+    fileprivate let viewName = "二维码扫描页面"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +52,13 @@ class XHScanViewController: LBXScanViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        TalkingData.trackPageBegin(viewName)
         drawBottomItems()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     override func handleCodeResult(arrayResult: [LBXScanResult]) {

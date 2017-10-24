@@ -72,7 +72,7 @@ class XHHomeHeaderView: UIView, SDCycleScrollViewDelegate {
         }else {
             customCell.bgImgView.image = UIImage(named: XHPlaceholdImage_LONG)
             if dataImgArr[index].icon != nil {
-                customCell.bgImgView.sd_setImage(with: URL(string: XHImageBaseURL + (dataImgArr[index].icon)!), placeholderImage: UIImage(named: XHPlaceholdImage), options: .progressiveDownload)
+                customCell.bgImgView.sd_setImage(with: URL(string: XHImageBaseURL + (dataImgArr[index].icon)!), placeholderImage: UIImage(named: XHPlaceholdImage_LONG), options: .progressiveDownload)
             }
         }
     }

@@ -17,6 +17,8 @@ class XHHotClassifyViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
+    fileprivate let viewName = "热门分类商品列表页"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav()
@@ -26,9 +28,14 @@ class XHHotClassifyViewController: UIViewController, UISearchBarDelegate {
         searchResultV.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:))))
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 搜索框的代理方法

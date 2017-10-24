@@ -16,6 +16,7 @@ class XHSalesReturnReasonController: UIViewController {
     
     /// 当前选中的原因
     fileprivate var currentReason: String?
+    fileprivate let viewName = "填写退货原因页面"
     
     
     var orderModel: XHMyOrderModel?
@@ -31,6 +32,16 @@ class XHSalesReturnReasonController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     private func setupTableView() {

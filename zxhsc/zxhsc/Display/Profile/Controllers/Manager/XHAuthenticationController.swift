@@ -35,6 +35,8 @@ class XHAuthenticationController: UIViewController {
     
     fileprivate var myBankModel: XHMyBankModel?
     
+    fileprivate let viewName = "认证设置页面"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,6 +53,16 @@ class XHAuthenticationController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,9 +112,16 @@ class XHAuthenticationController: UIViewController {
     }
     
     @IBAction func changeBankCardButtonClicked(_ sender: UIButton) {
-        let idenVc = XHAuthenBankController()
-        idenVc.bankModel = myBankModel
-        navigationController?.pushViewController(idenVc, animated: true)
+        if myBankModel?.canBeModified == "1" {
+            let idenVc = XHAuthenBankController()
+            idenVc.bankModel = myBankModel
+            navigationController?.pushViewController(idenVc, animated: true)
+            return
+        }
+        
+       let idAuthenV = XHAuthenIdentiferController()
+        idAuthenV.myBankModel = myBankModel
+        navigationController?.pushViewController(idAuthenV, animated: true)
     }
     
     @objc func jumpToIDAuthen() {

@@ -14,6 +14,9 @@ class XHFukuanStyleController: UIViewController {
     fileprivate let reuseId = "XHFukuanStyleController_reuseId"
     fileprivate let reuseId_explain = "XHFukuanStyleController_reuseId_explain"
     fileprivate let reuseId_secret = "XHFukuanStyleController_reuseId_secret"
+    
+    fileprivate let viewName = "付款_选择付款方式页"
+    
     /// 标识支付方式
     fileprivate var currentZhifuStyle: String = "易宝支付"
     
@@ -78,9 +81,14 @@ class XHFukuanStyleController: UIViewController {
         getEffectiveBanlance()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 获取支付方式列表

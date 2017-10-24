@@ -20,7 +20,13 @@ class XHPostPersonalRedPackedsController: UIViewController {
     @IBOutlet weak var putInButton: UIButton!
     
     /// 是否是个人红包
-    var isPersonalRedPacketes: Bool = true
+    var isPersonalRedPacketes: Bool = true {
+        didSet {
+            viewName = isPersonalRedPacketes == true ? "发送个人红包页面" : "发送群红包页面"
+        }
+    }
+    
+    fileprivate var viewName = ""
     
     
     override func viewDidLoad() {
@@ -40,6 +46,16 @@ class XHPostPersonalRedPackedsController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 按钮点击事件

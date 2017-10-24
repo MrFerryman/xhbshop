@@ -74,8 +74,12 @@ class XHMyOrderController: UIViewController, XHPageViewControllerDelegate {
     @objc private func segmentControlValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
            setupPageView()
+            TalkingData.trackPageBegin("线上订单页面")
+            TalkingData.trackPageEnd("线下订单页面")
         }else {
             setupOfflineView()
+            TalkingData.trackPageBegin("线下订单页面")
+            TalkingData.trackPageEnd("线上订单页面")
             loadData()
         }
     }

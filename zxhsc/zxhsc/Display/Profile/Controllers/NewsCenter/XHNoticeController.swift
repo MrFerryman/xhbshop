@@ -11,6 +11,7 @@ import UIKit
 class XHNoticeController: UIViewController {
 
     fileprivate let reuseId = "XHNoticeController_cell"
+    fileprivate let viewName = "平台公告页面"
     
     fileprivate var dataArr: [XHHelpModel] = []
     
@@ -32,6 +33,16 @@ class XHNoticeController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 获取数据

@@ -11,6 +11,7 @@ import UIKit
 class XHShopProtocolController: UIViewController {
 
     fileprivate let reuseId = "XHShopProtocolController_reuseId"
+    fileprivate let viewName = "开通店铺_开通协议页"
     
     fileprivate var protocolModel: XHHTMLModel? {
         didSet {
@@ -26,6 +27,16 @@ class XHShopProtocolController: UIViewController {
         setupNav()
         
         loadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     private func loadData() {

@@ -27,6 +27,8 @@ class XHShopOrderDetailController: UIViewController {
     fileprivate let reuseId_shop = "XHShopOrderDetailController_reuseId_shop"
     fileprivate let reuseId_offline = "XHShopOrderDetailController_reuseId_shop_offline"
     
+    fileprivate let viewName = "店铺_用户订单页面"
+    
     fileprivate var dataArr: [XHShop_customerOrdersModel] = []
     fileprivate var offlineDataArr: [XHShopOfflineOrderModel] = []
     fileprivate var page: Int = 0
@@ -71,6 +73,16 @@ class XHShopOrderDetailController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         filterButton.removeFromSuperview()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     private func loadData() {

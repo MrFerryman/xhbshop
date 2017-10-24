@@ -37,6 +37,8 @@ class XHSearchResultController: UIViewController, YBPopupMenuDelegate {
     
     @IBOutlet weak var excitationButton: UIButton!
     
+    fileprivate let viewName = "商品搜索结果页面"
+    
     /// 商品格子的点击事件回调
     var goodsItemClickedClosure: ((_ model: XHSpecialFavModel) -> ())?
     /// collectionView的滑动事件回调
@@ -113,6 +115,16 @@ class XHSearchResultController: UIViewController, YBPopupMenuDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 执行网络操作

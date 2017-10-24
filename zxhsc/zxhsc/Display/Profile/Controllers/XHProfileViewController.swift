@@ -23,6 +23,8 @@ class XHProfileViewController: UIViewController {
     
     fileprivate let reuseIdentifier = "XHProfileViewControllerReuseIdentifier"
     
+    fileprivate let viewName = "tab_个人中心页"
+    
     fileprivate var styleArr: [String] = ["earning", "manager", "news", "connect"]  // cell的样式
     fileprivate let sectionMargin: CGFloat = 5
     
@@ -105,7 +107,14 @@ class XHProfileViewController: UIViewController {
         // 设置导航栏
         setupNav()
         tabBarController?.tabBar.isHidden = false
+        TalkingData.trackPageBegin(viewName)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+    
 
     // MARK:- 判断是否设置过支付密码
     private func judgeIfSettedPayPsw() {

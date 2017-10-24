@@ -15,6 +15,7 @@ class XHClassifyController: UIViewController {
 
     // MARK:- 私有属性
     fileprivate let reuseId_left = "XHClassifyController_reuseId_left"
+    fileprivate let viewName = "类目页"
     
     fileprivate var classesListArr: Array<XHClassifyModel> = []
     fileprivate var recommendPage: Int = 0
@@ -86,6 +87,16 @@ class XHClassifyController: UIViewController {
         tabBarController?.tabBar.isHidden = false
         UIApplication.shared.statusBarStyle = .default
         setupNav()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 通知事件

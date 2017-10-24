@@ -31,6 +31,9 @@ class XHDoCommentController: UIViewController, ZLPhotoPickerViewControllerDelega
     
     /// 当前选中的评论按钮 默认是好评 1001-- 好评      1002 -- 中评  1003 -- 差评
     private var currentButtonTag: Int = 1001
+    
+    fileprivate let viewName = "做出评价页面"
+    
     /// 上传的图片数组
     private var iconUrlsArr: [String] = []
     
@@ -58,6 +61,16 @@ class XHDoCommentController: UIViewController, ZLPhotoPickerViewControllerDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 上传评论

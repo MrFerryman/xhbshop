@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSHRegisterDelegate {
 
@@ -70,6 +71,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSH
         JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self)
         // 初始化JPush
         JPUSHService.setup(withOption: launchOptions, appKey: "12f32b53ef28aa053d5414ef", channel: "App Store", apsForProduction: false)
+        
+        /* 界面统计相关 */
+        TalkingData.sessionStarted("apicloud_A6991570638622", withChannelId: "App Store")
+        TalkingData.setExceptionReportEnabled(true)
         
         return true
     }

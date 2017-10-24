@@ -17,6 +17,8 @@ class XHSettingPayPswController: UIViewController {
     
     @IBOutlet weak var commitButton: UIButton! // 提交按钮
     
+    fileprivate let viewName = "首次设置支付密码页面"
+    
     var isResigter: Bool = false
     
     override func viewDidLoad() {
@@ -28,6 +30,16 @@ class XHSettingPayPswController: UIViewController {
         setupNav()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

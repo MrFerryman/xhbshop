@@ -14,6 +14,8 @@ class XHScaleRankController: UIViewController {
     fileprivate let reuseId = "XHScaleRankController_reuseId"
     fileprivate var scaleList: [XHScaleRankModel] = []
     
+    fileprivate let viewName = "每日指数排行页面"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -22,9 +24,14 @@ class XHScaleRankController: UIViewController {
         loadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 加载数据

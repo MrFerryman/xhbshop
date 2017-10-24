@@ -28,6 +28,7 @@ class XHFirstViewController: UIViewController, UISearchBarDelegate {
     
     fileprivate let reuseId_section1_img = "XHMarketViewController_tableView_section1_image"
     fileprivate let reuseId_section1_wine = "XHMarketViewController_tableView_section1_wine"
+    fileprivate let viewName = "首页"
     
     fileprivate var loopStrArr: [String] = []
     
@@ -196,12 +197,14 @@ class XHFirstViewController: UIViewController, UISearchBarDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.tabBar.isHidden = false
+        TalkingData.trackPageBegin(viewName)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 //        lottoryImageView.removeFromSuperview()
 //        loopView.removeFromSuperview()
+        TalkingData.trackPageEnd(viewName)
     }
     
     @objc private func loadData() {

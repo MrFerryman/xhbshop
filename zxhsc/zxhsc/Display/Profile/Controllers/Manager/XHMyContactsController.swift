@@ -13,6 +13,8 @@ class XHMyContactsController: UIViewController {
     // tableView的重用标志
     fileprivate let reuseId = "XHMyContactsController_reuseId"
     
+    fileprivate let viewName = "我的人脉页面"
+    
     fileprivate var dataArr: [XHMyContactsModel] = []
     
     override func viewDidLoad() {
@@ -28,6 +30,16 @@ class XHMyContactsController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 获取数据

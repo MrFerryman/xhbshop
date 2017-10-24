@@ -67,10 +67,10 @@ class XHGoodsDetailController: UIViewController, UIGestureRecognizerDelegate {
         view.backgroundColor = .white
         setupNav()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(goodsDetailModel?.detailData?.title)
     }
     
     private func loadData() {
@@ -95,6 +95,7 @@ class XHGoodsDetailController: UIViewController, UIGestureRecognizerDelegate {
             if sth is XHGoodsDetailModel {
                 self?.goodsDetailModel = sth as? XHGoodsDetailModel
                 self?.bottomView.goodsModel = (sth as? XHGoodsDetailModel)?.detailData
+                TalkingData.trackPageBegin(self?.goodsDetailModel?.detailData?.title)
                 self?.setupCollectionView()
                 self?.collectionView.reloadData()
             }

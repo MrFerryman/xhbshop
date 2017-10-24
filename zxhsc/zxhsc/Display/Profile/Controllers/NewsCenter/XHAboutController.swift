@@ -13,6 +13,8 @@ class XHAboutController: UIViewController {
     fileprivate let dataArr = ["给个好评", "客服热线", "版本号"]
     fileprivate let reuseId = "XHAboutController_cell_reuseId"
     
+    fileprivate let viewName = "关于页面"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +24,16 @@ class XHAboutController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     private func setupTableView() {

@@ -13,6 +13,8 @@ class XHMyRedPackectsController: UIViewController {
     /// 子控制器
     var controllers: [XHMyRPDetailController] = [XHMyRPDetailController(), XHMyRPDetailController()]
     
+    fileprivate let viewName = "我的红包列表视图"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -23,6 +25,16 @@ class XHMyRedPackectsController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     private func setupPageView() {
@@ -52,7 +64,16 @@ class XHMyRedPackectsController: UIViewController {
 extension XHMyRedPackectsController: XHPageViewControllerDelegate {
     func xh_MenuPageCurrentSubController(index: NSInteger, menuPageController: XHPageViewController) {
         let controller = controllers[index]
-        
+        switch index {
+        case 0:
+            TalkingData.trackPageBegin("发出的红包列表视图")
+            TalkingData.trackPageEnd("收到的红包列表视图")
+        case 1:
+            TalkingData.trackPageEnd("发出的红包列表视图")
+            TalkingData.trackPageBegin("收到的红包列表视图")
+        default:
+            break
+        }
     }
 }
 

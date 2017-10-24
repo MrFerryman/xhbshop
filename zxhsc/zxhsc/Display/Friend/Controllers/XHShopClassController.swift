@@ -12,6 +12,7 @@ import MJRefresh
 class XHShopClassController: UIViewController {
 
     fileprivate let reuseId = "XHShopClassController_tableView_cell"
+    fileprivate let viewName = "店铺列表页面"
     
     private let isEmpty: Bool = false
     
@@ -42,9 +43,14 @@ class XHShopClassController: UIViewController {
         view.backgroundColor = .white
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- 刷新

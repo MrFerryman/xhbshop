@@ -16,6 +16,7 @@ class XHCenterDistributeController: UIViewController {
 
     /// 子标题
     private lazy var subTitleArr: [String] = ["商家分布地图", "运营中心分布地图"]
+    fileprivate let viewName = "商家分布和运营中心分布地图页面"
     
     /// 子控制器
     var controllers: [XHCenterDistributeMapController] = [XHCenterDistributeMapController(), XHCenterDistributeMapController()]
@@ -27,10 +28,15 @@ class XHCenterDistributeController: UIViewController {
         view.backgroundColor = .white
         setupPageView()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     // MARK:- ==== 界面相关 ======

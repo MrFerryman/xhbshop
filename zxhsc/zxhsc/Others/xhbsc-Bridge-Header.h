@@ -36,6 +36,7 @@
 #import "CCZTrotingLabel.h"
 #import "UIImage+ZYQAddition.h"
 #import "LMJScrollTextView2.h"
+#import "TalkingData.h"
 
 // MD5加密所需模块
 #import <CommonCrypto/CommonDigest.h>
