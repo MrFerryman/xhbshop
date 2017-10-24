@@ -44,6 +44,54 @@ class XHMyShop_QRCodeController: UIViewController {
         }
     }
     
+    // MARK:- 保存按钮点击事件
+    @objc private func saveButtonClicked() {
+        savePhotoToLibrary()
+    }
+    
+    // 保存图片到相册
+    private func savePhotoToLibrary() {
+        let image = captureImage(fromView: self.view)
+        
+        let library = ALAssetsLibrary()
+        let data = UIImageJPEGRepresentation(image, 1.0)
+        library.writeImage(toSavedPhotosAlbum: UIImage(data: data!)?.cgImage, metadata: nil) { [weak self] (url, error) in
+            if error == nil {
+                self?.qrcodeImgView.image = image
+                UIApplication.shared.keyWindow?.addSubview((self?.qrcodeImgView)!)
+                self?.qrcodeImgView.frame = CGRect(origin: CGPoint(x: kUIScreenWidth / 4, y: KUIScreenHeight / 4), size: CGSize(width:  0, height: 0))
+                UIView.animate(withDuration: 0.3, animations: {
+                    self?.qrcodeImgView.frame = CGRect(origin: CGPoint(x: kUIScreenWidth / 4, y: KUIScreenHeight / 4), size: CGSize(width:  kUIScreenWidth / 2, height: KUIScreenHeight / 2))
+                })
+                
+                let time: TimeInterval = 0.5
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + time) {
+                    UIView.animate(withDuration: 1.0, animations: {
+                        self?.qrcodeImgView.frame = CGRect(origin: CGPoint(x: kUIScreenWidth - 40, y: 32), size: CGSize.zero)
+                    }, completion: { (finished) in
+                        self?.qrcodeImgView.removeFromSuperview()
+                        let alertView: UIAlertView = UIAlertView(title: "提示", message: "截取屏幕成功，请到相册查看", delegate: nil, cancelButtonTitle: "确定")
+                        alertView.show()
+                    })
+                }
+            }else {
+                let alertView: UIAlertView = UIAlertView(title: "截取屏幕失败", message: nil, delegate: nil, cancelButtonTitle: "确定")
+                alertView.show()
+            }
+        }
+    }
+    
+    // 截图功能
+    private func captureImage(fromView view: UIView) -> UIImage {
+        let screenRect = view.bounds
+        UIGraphicsBeginImageContextWithOptions(screenRect.size, false, 0.0)
+        let ctx = UIGraphicsGetCurrentContext()
+        view.layer.render(in: ctx!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+    
     // MARK:- 界面相关
     private func setupTableView() {
         view.addSubview(tableView)
@@ -58,6 +106,9 @@ class XHMyShop_QRCodeController: UIViewController {
     
     private func setupNav() {
         title = "店铺二维码"
+        let rightItem = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(saveButtonClicked))
+        rightItem.setTitleTextAttributes([NSAttributedStringKey.font : UIFont.systemFont(ofSize: 13), NSAttributedStringKey.foregroundColor : XHRgbColorFromHex(rgb: 0xea2000)], for: .normal)
+        navigationItem.rightBarButtonItem = rightItem
     }
 
     // MARK:- ====== 懒加载 ============
@@ -71,6 +122,8 @@ class XHMyShop_QRCodeController: UIViewController {
         tableView.estimatedRowHeight = 80
         return tableView
     }()
+    
+    private lazy var qrcodeImgView: UIImageView = UIImageView()
 }
 
 extension XHMyShop_QRCodeController: UITableViewDelegate, UITableViewDataSource {

@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSH
 //
 //                self?.modifyTabbarIcon(0, tabbarC: tabbarC, img_normal: iconsList[0].home_unselected, img_selected: iconsList[0].home_selected, imgName: "home_icon")
 //
-//                self?.modifyTabbarIcon(1, tabbarC: tabbarC, img_normal: iconsList[0].class_unselected, img_selected: iconsList[0].class_selected, imgName: "class_icon")
+////                self?.modifyTabbarIcon(1, tabbarC: tabbarC, img_normal: iconsList[0].class_unselected, img_selected: iconsList[0].class_selected, imgName: "class_icon")
 //
 //                self?.modifyTabbarIcon(2, tabbarC: tabbarC, img_normal: iconsList[0].shop_unselected, img_selected: iconsList[0].shop_selected, imgName: "shop_icon")
 //
@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSH
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: URL(string: imgURL)!)
             let normal_img = UIImage(data: data!)
-            let filePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first! + img_normal!
+            let filePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first! + "/" + img_normal!
            
             if ((try? UIImagePNGRepresentation(normal_img!)?.write(to: URL(fileURLWithPath: filePath), options: .atomic)) != nil) {
                 tabbarC.childViewControllers[index].tabBarItem.image = UIImage(contentsOfFile: filePath)
