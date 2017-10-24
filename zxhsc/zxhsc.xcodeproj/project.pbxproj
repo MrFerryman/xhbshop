@@ -151,6 +151,7 @@
 		41F494181F9D7EC6008B3E4B /* XHMyRPDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F494171F9D7EC6008B3E4B /* XHMyRPDetailController.swift */; };
 		41F4941B1F9D80A3008B3E4B /* XHMyRPDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F494191F9D80A3008B3E4B /* XHMyRPDetailCell.swift */; };
 		41F4941C1F9D80A3008B3E4B /* XHMyRPDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F4941A1F9D80A3008B3E4B /* XHMyRPDetailCell.xib */; };
+		41F4A7171F9ED5E000F6007B /* libTalkingData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F4A7151F9ED5E000F6007B /* libTalkingData.a */; };
 		41F522931F8DC8680092C271 /* XHHome_VerticalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F522911F8DC8680092C271 /* XHHome_VerticalCell.swift */; };
 		41F522941F8DC8680092C271 /* XHHome_VerticalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F522921F8DC8680092C271 /* XHHome_VerticalCell.xib */; };
 		41F5229D1F8DEE6E0092C271 /* XHHomeLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F5229C1F8DEE6E0092C271 /* XHHomeLoopView.swift */; };
@@ -702,6 +703,8 @@
 		41F494171F9D7EC6008B3E4B /* XHMyRPDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHMyRPDetailController.swift; sourceTree = "<group>"; };
 		41F494191F9D80A3008B3E4B /* XHMyRPDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHMyRPDetailCell.swift; sourceTree = "<group>"; };
 		41F4941A1F9D80A3008B3E4B /* XHMyRPDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XHMyRPDetailCell.xib; sourceTree = "<group>"; };
+		41F4A7151F9ED5E000F6007B /* libTalkingData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTalkingData.a; sourceTree = "<group>"; };
+		41F4A7161F9ED5E000F6007B /* TalkingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingData.h; sourceTree = "<group>"; };
 		41F522911F8DC8680092C271 /* XHHome_VerticalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHHome_VerticalCell.swift; sourceTree = "<group>"; };
 		41F522921F8DC8680092C271 /* XHHome_VerticalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XHHome_VerticalCell.xib; sourceTree = "<group>"; };
 		41F5229C1F8DEE6E0092C271 /* XHHomeLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHHomeLoopView.swift; sourceTree = "<group>"; };
@@ -1161,6 +1164,7 @@
 				41F87F2F1F39795000D054C6 /* libsqlite3.tbd in Frameworks */,
 				41F87F2D1F39793C00D054C6 /* JavaScriptCore.framework in Frameworks */,
 				41F87F2B1F39793400D054C6 /* libstdc++.tbd in Frameworks */,
+				41F4A7171F9ED5E000F6007B /* libTalkingData.a in Frameworks */,
 				66DD3A9780A3F4BC73D00EF8 /* Pods_zxhsc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1322,6 +1326,15 @@
 				41F407ED1F4ACDEF00D5AC68 /* XHNewsModel.swift */,
 			);
 			path = NewsCenter;
+			sourceTree = "<group>";
+		};
+		41F4A7141F9ED5C300F6007B /* TalkingData */ = {
+			isa = PBXGroup;
+			children = (
+				41F4A7151F9ED5E000F6007B /* libTalkingData.a */,
+				41F4A7161F9ED5E000F6007B /* TalkingData.h */,
+			);
+			path = TalkingData;
 			sourceTree = "<group>";
 		};
 		41F71A2C1F3A9B70008A6D96 /* ShoppingCart */ = {
@@ -2138,6 +2151,7 @@
 		735DF45E1F172AB3001D0D65 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				41F4A7141F9ED5C300F6007B /* TalkingData */,
 				41BDD2B71F8E0DA3003231A1 /* LMJScrollTextView2 */,
 				41147C021F7A2660009AED3C /* QRCode */,
 				41063B811F53EE71009A3348 /* AngelWalker */,
@@ -3666,6 +3680,7 @@
 					"$(PROJECT_DIR)/zxhsc/Provide/Libs/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/zxhsc/Provide/Libs/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/zxhsc/Provide/Libs/SharedSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/zxhsc/Provide/Libs/TalkingData",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -3821,6 +3836,7 @@
 					"$(PROJECT_DIR)/zxhsc/Provide/Libs/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/zxhsc/Provide/Libs/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/zxhsc/Provide/Libs/SharedSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/zxhsc/Provide/Libs/TalkingData",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
