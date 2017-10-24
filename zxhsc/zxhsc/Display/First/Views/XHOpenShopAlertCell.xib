@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="164" id="KGk-i7-Jjw" customClass="XHOpenShopAlertCell" customModule="zxhsc" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="164"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="163.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1、开通个人店铺需上传身份证，收益为让利额的一倍" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tX-T7-Ost">
+                        <rect key="frame" x="14" y="8" width="292" height="31.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2、开通或升级成为品牌店铺，当让利额大于或等于15%，收益为让利额的二倍" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uq8-LN-Y5L">
+                        <rect key="frame" x="14" y="44.5" width="292" height="31.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3、开通或升级成为品牌店铺，需要提交营业执照和店面门头照片" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gew-7L-pck">
+                        <rect key="frame" x="14" y="81" width="292" height="31.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kwI-92-gyq">
+                        <rect key="frame" x="0.0" y="122.5" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.95686274509803915" green="0.96470588235294119" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="jAC-Kw-AjS"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="openShop_user" translatesAutoresizingMaskIntoConstraints="NO" id="Jp0-DR-Dp7">
+                        <rect key="frame" x="14" y="135.5" width="15" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="Xxg-b3-maP"/>
+                            <constraint firstAttribute="width" constant="15" id="h9i-4v-5e8"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luq-zm-QfL">
+                        <rect key="frame" x="36" y="135" width="43" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gew-7L-pck" firstAttribute="top" secondItem="uq8-LN-Y5L" secondAttribute="bottom" constant="5" id="3Wg-ZI-4Yg"/>
+                    <constraint firstItem="3tX-T7-Ost" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ODe-In-R4z"/>
+                    <constraint firstItem="gew-7L-pck" firstAttribute="leading" secondItem="uq8-LN-Y5L" secondAttribute="leading" id="aHz-Qw-Po8"/>
+                    <constraint firstItem="gew-7L-pck" firstAttribute="trailing" secondItem="uq8-LN-Y5L" secondAttribute="trailing" id="bXm-vt-4JZ"/>
+                    <constraint firstItem="3tX-T7-Ost" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="f8p-uH-Kjk"/>
+                    <constraint firstItem="uq8-LN-Y5L" firstAttribute="trailing" secondItem="3tX-T7-Ost" secondAttribute="trailing" id="fe3-3B-qp4"/>
+                    <constraint firstItem="Jp0-DR-Dp7" firstAttribute="top" secondItem="kwI-92-gyq" secondAttribute="bottom" constant="12" id="hQc-dj-ebq"/>
+                    <constraint firstAttribute="bottom" secondItem="luq-zm-QfL" secondAttribute="bottom" constant="11.5" id="hiG-77-MWa"/>
+                    <constraint firstItem="kwI-92-gyq" firstAttribute="top" secondItem="gew-7L-pck" secondAttribute="bottom" constant="10" id="ige-vJ-i47"/>
+                    <constraint firstItem="luq-zm-QfL" firstAttribute="centerY" secondItem="Jp0-DR-Dp7" secondAttribute="centerY" id="kQ0-aW-b79"/>
+                    <constraint firstAttribute="trailing" secondItem="3tX-T7-Ost" secondAttribute="trailing" constant="14" id="nB5-bn-Qvf"/>
+                    <constraint firstItem="uq8-LN-Y5L" firstAttribute="top" secondItem="3tX-T7-Ost" secondAttribute="bottom" constant="5" id="o94-9f-R4b"/>
+                    <constraint firstItem="Jp0-DR-Dp7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="q1e-QS-fCv"/>
+                    <constraint firstItem="kwI-92-gyq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="rRh-Dh-ifD"/>
+                    <constraint firstAttribute="trailing" secondItem="kwI-92-gyq" secondAttribute="trailing" id="uiW-Km-1gY"/>
+                    <constraint firstItem="uq8-LN-Y5L" firstAttribute="leading" secondItem="3tX-T7-Ost" secondAttribute="leading" id="wyO-aB-WBR"/>
+                    <constraint firstItem="luq-zm-QfL" firstAttribute="leading" secondItem="Jp0-DR-Dp7" secondAttribute="trailing" constant="7" id="xrh-ma-TCT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="accountL" destination="luq-zm-QfL" id="hfQ-dK-rb5"/>
+                <outlet property="firstLineL" destination="3tX-T7-Ost" id="k8C-bA-QSO"/>
+                <outlet property="secondLineL" destination="uq8-LN-Y5L" id="80i-OC-8ah"/>
+                <outlet property="thirdLineL" destination="gew-7L-pck" id="4xs-vJ-7c0"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="46"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="openShop_user" width="15" height="16"/>
+    </resources>
+</document>

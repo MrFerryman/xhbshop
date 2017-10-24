@@ -1,0 +1,6 @@
+framework module Pods_zxhsc {
+  umbrella header "Pods-zxhsc-umbrella.h"
+
+  export *
+  module * { export * }
+}

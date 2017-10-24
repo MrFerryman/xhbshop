@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XHShakeLuckyController" customModule="zxhsc" customModuleProvider="target">
+            <connections>
+                <outlet property="downImgView" destination="LPk-P2-x3X" id="Xab-KQ-OK3"/>
+                <outlet property="upImgView" destination="xHU-V9-9ix" id="TaZ-1C-p37"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shake_down" translatesAutoresizingMaskIntoConstraints="NO" id="LPk-P2-x3X">
+                    <rect key="frame" x="0.0" y="355.5" width="375" height="311.5"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shake_up" translatesAutoresizingMaskIntoConstraints="NO" id="xHU-V9-9ix">
+                    <rect key="frame" x="0.0" y="44" width="375" height="311.5"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="LPk-P2-x3X" secondAttribute="bottom" id="4bS-hr-Kh0"/>
+                <constraint firstItem="LPk-P2-x3X" firstAttribute="top" secondItem="xHU-V9-9ix" secondAttribute="bottom" id="5hr-jL-9Fd"/>
+                <constraint firstItem="LPk-P2-x3X" firstAttribute="top" secondItem="xHU-V9-9ix" secondAttribute="bottom" id="ITT-vn-IZd"/>
+                <constraint firstItem="LPk-P2-x3X" firstAttribute="height" secondItem="xHU-V9-9ix" secondAttribute="height" id="LNy-PP-cEP"/>
+                <constraint firstItem="xHU-V9-9ix" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="N3K-Jy-6EH"/>
+                <constraint firstAttribute="trailing" secondItem="LPk-P2-x3X" secondAttribute="trailing" id="V9C-2q-Dl7"/>
+                <constraint firstItem="xHU-V9-9ix" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="Yc6-tM-iuG"/>
+                <constraint firstItem="LPk-P2-x3X" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="c9n-kk-U3M"/>
+                <constraint firstAttribute="trailing" secondItem="xHU-V9-9ix" secondAttribute="trailing" id="fzQ-kl-tOI"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="117.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="shake_down" width="375" height="301"/>
+        <image name="shake_up" width="375" height="301"/>
+    </resources>
+</document>
