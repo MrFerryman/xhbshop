@@ -8,7 +8,7 @@
 
 import UIKit
 
-class XHRegisterViewController: UIViewController {
+class XHRegisterViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var recommenderTF: UITextField! // 推荐人
     
@@ -34,7 +34,8 @@ class XHRegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        recommenderTF.delegate = self
+        phoneNumberTF.delegate = self
     }
     
     override func viewWillLayoutSubviews() {
@@ -53,6 +54,20 @@ class XHRegisterViewController: UIViewController {
     
     deinit {
         timer.invalidate()
+    }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == phoneNumberTF || textField == recommenderTF {
+            if NSString(string: string).length == 0 {  return true }
+            let existedLength = NSString(string: textField.text!).length
+            let selectedLength = range.length
+            let replaceLength = NSString(string: string).length
+            if existedLength - selectedLength + replaceLength > 11 {
+                return false
+            }
+        }
+        return true
     }
     
     // MARK:- ======== 事件相关 =========
