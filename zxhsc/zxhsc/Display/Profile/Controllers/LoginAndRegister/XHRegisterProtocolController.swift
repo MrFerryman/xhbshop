@@ -11,6 +11,7 @@ import UIKit
 class XHRegisterProtocolController: UIViewController {
 
     fileprivate let reuseId = "XHRegisterProtocolController_reuseid"
+    fileprivate let viewName = "注册协议页面"
     
     /// 用户协议 
     fileprivate var userProtocol: XHHTMLModel?
@@ -29,6 +30,16 @@ class XHRegisterProtocolController: UIViewController {
         loadData()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+    
     private func loadData() {
         let userDict = ["helpid": "44"]
         _ = XHGetProtocolViewModel.getProtocol(paraDict: userDict, self) { [weak self] (htmlModel) in

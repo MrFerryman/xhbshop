@@ -18,6 +18,7 @@ class XHWinningMsgController: UIViewController {
     
     fileprivate let reuseID_mine = "XHWinningMsgController_reuseID_mine"
     fileprivate let reuseID_announce = "XHWinningMsgController_reuseID_announce"
+    fileprivate let viewName = "获奖信息列表页"
     fileprivate var haveMyLucky: Bool = false
     
     fileprivate var myWinningArr: Array<XHMyWinningModel> = [] {
@@ -41,6 +42,17 @@ class XHWinningMsgController: UIViewController {
         
         setupTableView()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

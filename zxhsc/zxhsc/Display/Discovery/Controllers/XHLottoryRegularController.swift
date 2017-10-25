@@ -12,6 +12,7 @@ import UITableView_FDTemplateLayoutCell
 class XHLottoryRegularController: UIViewController {
 
     fileprivate let reuseId = "XHLottoryRegularController_reuseId"
+    fileprivate let viewName = "活动规则页"
     fileprivate var regularStr: String?
     
     override func viewDidLoad() {
@@ -28,6 +29,17 @@ class XHLottoryRegularController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
+    }
+    
     
     private func getLottoryRegular() {
         XHDiscoveryViewModel.getIntegralLottoryRegular(self) { [weak self] (result) in

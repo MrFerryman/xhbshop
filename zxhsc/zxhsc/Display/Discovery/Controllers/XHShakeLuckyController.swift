@@ -15,6 +15,8 @@ class XHShakeLuckyController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet weak var downImgView: UIImageView!
     
+    fileprivate let viewName = "幸运摇一摇页"
+    
     /// 播放器
     fileprivate var player: AVAudioPlayer?
     
@@ -39,6 +41,16 @@ class XHShakeLuckyController: UIViewController, AVAudioPlayerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
     
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {

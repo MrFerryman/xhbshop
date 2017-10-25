@@ -16,6 +16,7 @@ class XHRedPacketController: UIViewController {
     
     @IBOutlet weak var redWidthCon: NSLayoutConstraint!
     
+    fileprivate let viewName = "红包首页面"
     
     @IBOutlet weak var personalButton: UIButton!
     
@@ -30,6 +31,16 @@ class XHRedPacketController: UIViewController {
         personalButton.adjustsImageWhenHighlighted = true
         
         setupNav()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        TalkingData.trackPageBegin(viewName)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        TalkingData.trackPageEnd(viewName)
     }
 
     // MARK:- 个人红包按钮点击事件
