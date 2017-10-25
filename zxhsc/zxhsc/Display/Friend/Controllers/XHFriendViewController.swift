@@ -57,6 +57,7 @@ class XHFriendViewController: UIViewController, UISearchBarDelegate, PYSearchVie
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         searchBar.resignFirstResponder()
+        searchBar.resignFirstResponder()
     }
     
     override func viewDidAppear(_ animated: Bool) {

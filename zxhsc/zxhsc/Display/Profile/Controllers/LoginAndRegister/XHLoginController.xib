@@ -115,7 +115,6 @@
                             <state key="normal" title="登录">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <state key="highlighted" backgroundImage="profile_login_icon_highlighted"/>
                             <connections>
                                 <action selector="login:" destination="-1" eventType="touchUpInside" id="i6x-iR-39m"/>
                             </connections>
@@ -185,6 +184,5 @@
         <image name="Profile_login_nosee" width="20" height="14"/>
         <image name="Profile_login_see" width="20" height="12"/>
         <image name="profile_header_icon" width="70" height="70"/>
-        <image name="profile_login_icon_highlighted" width="351" height="52"/>
     </resources>
 </document>
