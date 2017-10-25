@@ -113,7 +113,6 @@ class XHOrderDetailController: UIViewController {
                 if self?.tableView.mj_footer != nil {
                     if arr.count == 0 {
                         self?.tableView.mj_footer.endRefreshingWithNoMoreData()
-                        self?.showHint(in: (self?.view)!, hint: "没有更多数据了~")
                     }else {
                         self?.tableView.mj_footer.endRefreshing()
                     }

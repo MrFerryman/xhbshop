@@ -8,7 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-
+import SSKeychain
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSHRegisterDelegate {
@@ -27,7 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSH
         //键盘
         IQKeyboardManager.sharedManager().enable = true
         
-        XHShoppingCartViewModel.getShoppingCartList((UIApplication.shared.keyWindow?.rootViewController)!) { (result) in}
+        let token = SSKeychain.password(forService: userTokenName, account: "TOKEN")
+        let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
+        
+        if token != nil, userid != nil {
+            XHShoppingCartViewModel.getShoppingCartList((UIApplication.shared.keyWindow?.rootViewController)!) { (result) in}
+        }
         
         setupSharedSDK()
         

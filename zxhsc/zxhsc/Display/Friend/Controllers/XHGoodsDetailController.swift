@@ -10,6 +10,7 @@ import UIKit
 import ObjectMapper
 import MBProgressHUD
 import HUPhotoBrowser
+import SSKeychain
 
 class XHGoodsDetailController: UIViewController, UIGestureRecognizerDelegate {
 
@@ -361,8 +362,17 @@ class XHGoodsDetailController: UIViewController, UIGestureRecognizerDelegate {
         
         // 购物车
         bottomView.buyCarButtonClickedClosure = { [weak self] sender in
-            let shoppingCart = XHShoppingCartController()
-            self?.navigationController?.pushViewController(shoppingCart, animated: true)
+            let token = SSKeychain.password(forService: userTokenName, account: "TOKEN")
+            let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
+            
+            if token != nil, userid != nil {
+                let shoppingCart = XHShoppingCartController()
+                self?.navigationController?.pushViewController(shoppingCart, animated: true)
+            }else {
+                let login = XHLoginController()
+                let nav = XHNavigationController(rootViewController: login)
+                self?.present(nav, animated: true, completion: nil)
+            }
         }
         
         // 收藏按钮
