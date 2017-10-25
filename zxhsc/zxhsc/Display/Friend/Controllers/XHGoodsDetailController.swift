@@ -9,6 +9,7 @@
 import UIKit
 import ObjectMapper
 import MBProgressHUD
+import HUPhotoBrowser
 
 class XHGoodsDetailController: UIViewController, UIGestureRecognizerDelegate {
 
@@ -308,6 +309,11 @@ class XHGoodsDetailController: UIViewController, UIGestureRecognizerDelegate {
             self?.goodsNum = "\(goodsNum)"
             self?.collectionView.reloadItems(at: [IndexPath(item: 0, section: 0)])
         }
+        
+        /// 属性视图中产品图片的点击事件回调
+        propertyView.productIconViewClickedClosure = { imgView, icon in
+            HUPhotoBrowser.show(from: imgView, withURLStrings: [icon], placeholderImage: UIImage(named: XHPlaceholdImage), at: 0, dismiss: nil)
+        }
     }
     
     // MARK:- == 手势事件的代理方法
@@ -489,7 +495,6 @@ extension XHGoodsDetailController: UICollectionViewDelegate, UICollectionViewDat
                 default:
                     break
                 }
-               
             }
             return cell
         }

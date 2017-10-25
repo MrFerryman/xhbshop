@@ -8,6 +8,7 @@
 
 import UIKit
 import MJRefresh
+import HUPhotoBrowser
 
 class XHShopViewController: UIViewController {
 
@@ -112,6 +113,9 @@ class XHShopViewController: UIViewController {
             self?.navigationController?.pushViewController(up, animated: true)
         }
         
+        headerView.shopIconViewClickedClosure = { shopIconView, iconName in
+            HUPhotoBrowser.show(from: shopIconView, withURLStrings: [iconName], placeholderImage: UIImage(named: XHPlaceholdImage), at: 0, dismiss: nil)
+        }
         
         tableView.tableFooterView = footerView
         footerView.footerButtonClickedClosure = { [weak self] sender in

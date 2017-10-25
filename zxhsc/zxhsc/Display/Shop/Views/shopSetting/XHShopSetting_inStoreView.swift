@@ -17,7 +17,7 @@ class XHShopSetting_inStoreView: UIView {
     /// 添加图片点击事件回调
     var addImagesCellClickedClosure: ((_ imagsArr: [String]) -> ())?
     /// 图片点击事件回调
-    var imagesViewClickedClosure: ((_ imagesArr: [String], _ clickedIdx: Int) -> ())?
+    var imagesViewClickedClosure: ((_ imageView: UIImageView, _ clickedIdx: Int) -> ())?
     /// 关闭按钮点击事件回调
     var closeButtonClickedClosure: ((_ index: Int) -> ())?
     
@@ -59,8 +59,8 @@ class XHShopSetting_inStoreView: UIView {
         }
         
         /// 图片点击事件回调
-        collectionView.imagesViewClickedClosure = { [weak self] images, index in
-            self?.imagesViewClickedClosure?(images, index)
+        collectionView.imagesViewClickedClosure = { [weak self] imageView, index in
+            self?.imagesViewClickedClosure?(imageView, index)
         }
         
         /// 关闭按钮点击事件回调

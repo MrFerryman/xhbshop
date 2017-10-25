@@ -31,6 +31,8 @@ class XHBussFirstSectionCell: UITableViewCell {
     var collectionButtonClickedClosure: ((_ sender: UIButton) -> ())?
     /// 打电话按钮点击事件
     var callPhoneNumberClickedClosure: ((_ shopModel: XHShopDetailModel) -> ())?
+    /// 图片的点击事件回调
+    var iconViewClickedClosure: ((_ iconView: UIImageView, _ iconString: String) -> ())?
     
     var shopModel: XHShopDetailModel? {
         didSet {
@@ -84,6 +86,8 @@ class XHBussFirstSectionCell: UITableViewCell {
         selectionStyle = .none
         
         collectionBtn.addTarget(self, action: #selector(collectionButtonClicked(_:)), for: .touchUpInside)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(shopIconViewClicked))
+        shopIcon.addGestureRecognizer(tap)
     }
     
     @objc private func collectionButtonClicked(_ sender: UIButton) {
@@ -95,5 +99,9 @@ class XHBussFirstSectionCell: UITableViewCell {
         if shopModel != nil {
             callPhoneNumberClickedClosure?(shopModel!)
         }
+    }
+    
+    @objc private func shopIconViewClicked() {
+        iconViewClickedClosure?(shopIcon, XHImageBaseURL + (shopModel?.icon ?? ""))
     }
 }

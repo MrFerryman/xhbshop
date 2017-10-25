@@ -50,10 +50,14 @@ class XHShopHeaderView: UIView {
     
     /// 升级店铺按钮点击事件回调
     var upShopButtonClickedClosure: (() -> ())?
+    /// 店铺图片点击事件回调
+    var shopIconViewClickedClosure: ((_ iconView: UIImageView, _ iconString: String) -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(shopIconViewClicked))
+        iconView.isUserInteractionEnabled = true
+        iconView.addGestureRecognizer(tap)
     }
     
     // MARK:- 升级店铺按钮点击事件
@@ -63,5 +67,10 @@ class XHShopHeaderView: UIView {
         }
     }
     
+    // MARK:- 店铺图标的点击事件
+    @objc private func shopIconViewClicked() {
+        let logo = XHPlaceholdImage + (shopModel?.logo ?? "")
+        shopIconViewClickedClosure?(iconView, logo)
+    }
 
 }

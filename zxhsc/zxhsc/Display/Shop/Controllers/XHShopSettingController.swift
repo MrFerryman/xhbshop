@@ -8,6 +8,7 @@
 
 import UIKit
 import ALCameraViewController
+import HUPhotoBrowser
 
 class XHShopSettingController: UIViewController,  ZLPhotoPickerViewControllerDelegate {
 
@@ -311,8 +312,13 @@ class XHShopSettingController: UIViewController,  ZLPhotoPickerViewControllerDel
         }
         
         /// 图片点击事件回调
-        footerView.imagesViewClickedClosure = { [weak self] images, index in
-            
+        footerView.imagesViewClickedClosure = { [weak self] imageView, index in
+            var footerUrl: [String] = []
+            for name in (self?.footerView.iconUrlsArr)! {
+                let url = XHPlaceholdImage + name
+                footerUrl.append(name)
+            }
+            HUPhotoBrowser.show(from: imageView, withURLStrings: footerUrl, placeholderImage: UIImage(named: XHPlaceholdImage), at: index, dismiss: nil)
         }
         
         /// 关闭按钮点击事件回调

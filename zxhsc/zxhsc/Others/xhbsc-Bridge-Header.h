@@ -18,6 +18,7 @@
 #import <WZLBadge/WZLBadgeImport.h>
 #import "YZTagList.h"
 #import <SKTagView/SKTagView.h>
+#import <HUPhotoBrowser/HUPhotoBrowser.h>
 
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>

@@ -8,6 +8,7 @@
 
 import UIKit
 import SSKeychain
+import HUPhotoBrowser
 
 class XHBussinessShopController: UIViewController {
 
@@ -314,6 +315,10 @@ extension XHBussinessShopController: UITableViewDelegate, UITableViewDataSource 
                 }else {
                     XHAlertController.showAlertSigleAction(title: "提示", message: "该店铺暂无相关联系电话", confirmTitle: "确定", confirmComplete: nil)
                 }
+            }
+            
+            cell.iconViewClickedClosure = { iconView, iconString in
+                HUPhotoBrowser.show(from: iconView, withURLStrings: [iconString], placeholderImage: UIImage(named: XHPlaceholdImage), at: 0, dismiss: nil)
             }
             
             return cell

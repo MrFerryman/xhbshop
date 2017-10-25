@@ -22,7 +22,7 @@ class XHGoodsDetail_tableView_HeaderView: UIView, SDCycleScrollViewDelegate {
             cycleScrollView.imageURLStringsGroup = imgsArr
         }
     }
-    var cycleScrollViewDidClickedClosure: ((_ index: Int) -> ())?
+    var cycleScrollViewDidClickedClosure: ((_ index: Int, _ imageView: SDCycleScrollView) -> ())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,7 +44,7 @@ class XHGoodsDetail_tableView_HeaderView: UIView, SDCycleScrollViewDelegate {
     }
     
     func cycleScrollView(_ cycleScrollView: SDCycleScrollView!, didSelectItemAt index: Int) {
-        cycleScrollViewDidClickedClosure?(index)
+        cycleScrollViewDidClickedClosure?(index, cycleScrollView)
     }
     
     private lazy var cycleScrollView: SDCycleScrollView = {

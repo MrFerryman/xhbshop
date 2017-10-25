@@ -26,6 +26,9 @@ class XHGoodsDetail_goodsPropertyView: UIView {
     /// 属性选择之后的回调
     var propertySelectedClosure: ((_ property1: XHGoodsPropertyModel?, _ property2: XHGoodsPropertyModel?, _ count: Int) -> ())?
     
+    /// 商品图片的点击事件回调
+    var productIconViewClickedClosure: ((_ iconView: UIImageView, _ iconName: String) -> ())?
+    
     /// 是否是循环宝商城产品
     var isIntegralGoods: Bool = false {
         didSet {
@@ -177,6 +180,12 @@ class XHGoodsDetail_goodsPropertyView: UIView {
         closeButtonClosure?()
     }
     
+    // MARK:- 商品图片的点击事件
+    @objc private func productIconClicked() {
+        let icon = XHImageBaseURL + (goodsModel?.detailData?.icon ?? "")
+        productIconViewClickedClosure?(imgView, icon)
+    }
+    
     // MARK:- ====== 界面相关 ========
     private func setupUI() {
         addSubview(imgView)
@@ -291,6 +300,9 @@ class XHGoodsDetail_goodsPropertyView: UIView {
         let imgView = UIImageView(image: UIImage(named: "loding_icon"))
         imgView.layer.cornerRadius = 6
         imgView.layer.masksToBounds = true
+        imgView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(productIconClicked))
+        imgView.addGestureRecognizer(tap)
         return imgView
     }()
     

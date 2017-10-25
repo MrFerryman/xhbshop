@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import HUPhotoBrowser
 
-class XHGoodsDetailCollCell: UICollectionViewCell {
+class XHGoodsDetailCollCell: UICollectionViewCell, ZLPhotoPickerBrowserViewControllerDelegate {
     
     fileprivate let reuseId = "XHGoodsDetailCollCell_tableView_cell"
     fileprivate let reuseId_firstSection = "XHGoodsDetailCollCell_tableView_firstSection" // 产品基本信息
@@ -17,6 +18,7 @@ class XHGoodsDetailCollCell: UICollectionViewCell {
     fileprivate let reuseId_content = "XHGoodsDetailCollCell_tableView_cell_content" // 店铺
     
     fileprivate var webViewHeight: CGFloat = 100.0
+    fileprivate var urlStrings: [String] = []
     
     /// tableViewCell的点击事件回调
     var goodsTableViewCellClickedClosure: ((_ indexPath: IndexPath) -> ())?
@@ -34,6 +36,11 @@ class XHGoodsDetailCollCell: UICollectionViewCell {
     var goodsDetailModel: XHGoodsDetailModel? {
         didSet {
             setupTableView()
+            urlStrings.removeAll()
+            for name in (goodsDetailModel?.iconArr)! {
+                let url = XHImageBaseURL + name
+                urlStrings.append(url)
+            }
         }
     }
     
@@ -67,6 +74,12 @@ class XHGoodsDetailCollCell: UICollectionViewCell {
         
         tableView.tableHeaderView = headerView
         headerView.dataImgArr = (goodsDetailModel?.iconArr)!
+        headerView.cycleScrollViewDidClickedClosure = { [weak self] idx, imgView in
+            let imageView = UIImageView()
+            imageView.sd_setImage(with: URL(string: (self?.goodsDetailModel?.iconArr[idx])!))
+            imgView.frame = imgView.frame
+            HUPhotoBrowser.show(from: imageView, withURLStrings: self?.urlStrings, placeholderImage: UIImage(named: XHPlaceholdImage_LONG), at: idx, dismiss: nil)
+        }
         
         tableView.tableFooterView = footerView
         footerView.title = "我也是有底线的~"
