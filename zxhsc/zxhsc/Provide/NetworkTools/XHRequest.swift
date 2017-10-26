@@ -1076,7 +1076,7 @@ extension XHRequest {
             return nil
         }
         
-        let url = xhbaseURL + "withdraw_append" + "&c=" + "Balance"
+        let url = "http://appback.zxhshop.cn/app.php?do=" + "withdraw_append" + "&c=" + "Balance"
         
         let token = SSKeychain.password(forService: userTokenName, account: "TOKEN")
         let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
