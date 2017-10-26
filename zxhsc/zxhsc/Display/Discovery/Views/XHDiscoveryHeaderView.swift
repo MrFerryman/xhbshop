@@ -10,7 +10,7 @@ import UIKit
 
 class XHDiscoveryHeaderView: UIView, SDCycleScrollViewDelegate {
 
-    private var dataImgArr: Array<String> = ["bunse_banner", "lottory_banner", "discovery_shop"]
+    private var dataImgArr: Array<String> = ["discovery_shop"]
     
     /// 图片轮播点击事件回调
     var cycleImgViewClickedClosure: ((_ index: Int) -> ())?

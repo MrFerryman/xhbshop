@@ -158,22 +158,11 @@ class XHDiscoveryViewController: UIViewController {
         tableView.tableHeaderView = headerView
         headerView.cycleImgViewClickedClosure = { [weak self] index in
             switch index {
-            case 0:
-                self?.setupChildViewController()
-                let winning = XHWinningMsgController()
-//                winning.type = self?.lottoryList[0].type
-                self?.navigationController?.pushViewController(winning, animated: true)
-            case 1:
-//                self?.setupChildViewController()
-//                let integralV = XHIntegralController()
-//                self?.navigationController?.pushViewController(integralV, animated: true)
-                self?.regularButtonClicked()
-            case 2:
+               
+            default:
                 let shake = XHIntegralController()
                 self?.setupChildViewController()
                 self?.navigationController?.pushViewController(shake, animated: true)
-            default:
-                break
             }
         }
         
