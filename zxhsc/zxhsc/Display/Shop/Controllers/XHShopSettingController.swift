@@ -315,8 +315,8 @@ class XHShopSettingController: UIViewController,  ZLPhotoPickerViewControllerDel
         footerView.imagesViewClickedClosure = { [weak self] imageView, index in
             var footerUrl: [String] = []
             for name in (self?.footerView.iconUrlsArr)! {
-                let url = XHPlaceholdImage + name
-                footerUrl.append(name)
+                let url = XHImageBaseURL + name
+                footerUrl.append(url)
             }
             HUPhotoBrowser.show(from: imageView, withURLStrings: footerUrl, placeholderImage: UIImage(named: XHPlaceholdImage), at: index, dismiss: nil)
         }

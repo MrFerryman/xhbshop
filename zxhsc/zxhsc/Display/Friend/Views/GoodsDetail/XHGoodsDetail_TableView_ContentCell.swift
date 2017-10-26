@@ -77,7 +77,7 @@ class XHGoodsDetail_TableView_ContentCell: UITableViewCell, UIWebViewDelegate {
         webView.backgroundColor = .white
         webView.scrollView.backgroundColor = .white
         webView.scrollView.bounces = false
-        webView.scrollView.isScrollEnabled = false
+        webView.scrollView.isScrollEnabled = true
         return webView
     }()
     

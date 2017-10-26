@@ -163,6 +163,10 @@ class XHFirstViewController: UIViewController, UISearchBarDelegate {
                 let shopV = XHBussinessShopController()
                 shopV.shopId = bannerModel.id
                 self?.navigationController?.pushViewController(shopV, animated: true)
+            case 6:
+                let webView = XHWebViewController()
+                webView.urlStr = "http://" + (bannerModel.httpUrl ?? "")
+                self?.navigationController?.pushViewController(webView, animated: true)
             default:
                 break
             }
@@ -453,6 +457,11 @@ class XHFirstViewController: UIViewController, UISearchBarDelegate {
             setupChildViewController()
             let integralV = XHIntegralController()
             navigationController?.pushViewController(integralV, animated: true)
+        case 6:
+            setupChildViewController()
+            let webView = XHWebViewController()
+            webView.urlStr = "http://" + (sessionModel.httpUrl ?? "")
+            navigationController?.pushViewController(webView, animated: true)
         case 7:
             setupChildViewController()
             let goodsDetailV = XHGoodsDetailController()

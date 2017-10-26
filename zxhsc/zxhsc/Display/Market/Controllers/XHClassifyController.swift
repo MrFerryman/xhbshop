@@ -398,6 +398,10 @@ class XHClassifyController: UIViewController {
                 let shopV = XHBussinessShopController()
                 shopV.shopId = bannerModel.id
                 self?.navigationController?.pushViewController(shopV, animated: true)
+            case 6:
+                let webView = XHWebViewController()
+                webView.urlStr = "http://" + (bannerModel.httpUrl ?? "")
+                self?.navigationController?.pushViewController(webView, animated: true)
             default:
                 break
             }

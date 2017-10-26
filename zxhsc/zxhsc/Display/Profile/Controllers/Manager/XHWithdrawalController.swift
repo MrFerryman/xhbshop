@@ -62,6 +62,13 @@ class XHWithdrawalController: UIViewController {
         }
     }
     
+    @IBAction func allMoneyWithdrawButtonClicked(_ sender: UIButton) {
+        let money = NSString(string: withDrawalL.text ?? "0").integerValue
+        if money != 0 {
+            moneyTF.text = withDrawalL.text
+        }
+    }
+    
     // MARK:- 提现申请
     private func applyForWithdraw() {
         

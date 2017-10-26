@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -47,7 +47,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="现金额必须为100的倍数" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHW-Mv-A1z">
-                            <rect key="frame" x="56.5" y="7" width="302.5" height="42"/>
+                            <rect key="frame" x="56.5" y="7" width="244.5" height="42"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="lxX-IA-Xq4"/>
                             </constraints>
@@ -80,13 +80,29 @@
                             <color key="textColor" red="0.91764705879999997" green="0.12549019610000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdz-7H-yVV">
+                            <rect key="frame" x="301" y="8" width="58" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="58" id="DYH-Yx-Nq7"/>
+                                <constraint firstAttribute="height" constant="40" id="OdM-Sm-b3W"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="全部提现">
+                                <color key="titleColor" red="0.91764705879999997" green="0.12549019610000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="allMoneyWithdrawButtonClicked:" destination="-1" eventType="touchUpInside" id="7bc-d8-SLC"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="DUN-vm-JMl" secondAttribute="trailing" constant="16" id="0Ku-3g-As5"/>
                         <constraint firstAttribute="height" constant="92" id="5ek-a9-YGW"/>
                         <constraint firstItem="AJF-ST-gop" firstAttribute="leading" secondItem="AI3-Uw-dSK" secondAttribute="trailing" id="5jb-9P-JKl"/>
+                        <constraint firstAttribute="trailing" secondItem="kdz-7H-yVV" secondAttribute="trailing" constant="16" id="B35-EF-fH2"/>
                         <constraint firstItem="rHW-Mv-A1z" firstAttribute="leading" secondItem="Y84-IQ-amH" secondAttribute="trailing" constant="10" id="FuH-rL-jct"/>
+                        <constraint firstItem="kdz-7H-yVV" firstAttribute="leading" secondItem="rHW-Mv-A1z" secondAttribute="trailing" id="GHu-fX-fdb"/>
                         <constraint firstItem="AJF-ST-gop" firstAttribute="centerY" secondItem="0Uf-Dl-GlG" secondAttribute="centerY" id="Imj-3g-hPB"/>
                         <constraint firstItem="DUN-vm-JMl" firstAttribute="leading" secondItem="6ad-5I-ZqV" secondAttribute="leading" constant="16" id="JMs-E6-ZsL"/>
                         <constraint firstItem="DUN-vm-JMl" firstAttribute="top" secondItem="rHW-Mv-A1z" secondAttribute="bottom" constant="10" id="MbG-Xm-1OO"/>
@@ -94,10 +110,10 @@
                         <constraint firstItem="Y84-IQ-amH" firstAttribute="top" secondItem="6ad-5I-ZqV" secondAttribute="top" constant="10" id="Pfl-2g-dp5"/>
                         <constraint firstItem="0Uf-Dl-GlG" firstAttribute="leading" secondItem="6ad-5I-ZqV" secondAttribute="leading" constant="15" id="UMI-DO-1Df"/>
                         <constraint firstItem="AI3-Uw-dSK" firstAttribute="centerY" secondItem="0Uf-Dl-GlG" secondAttribute="centerY" id="YB9-T4-Ro4"/>
+                        <constraint firstItem="kdz-7H-yVV" firstAttribute="centerY" secondItem="rHW-Mv-A1z" secondAttribute="centerY" id="YQi-TY-mIJ"/>
                         <constraint firstItem="AI3-Uw-dSK" firstAttribute="leading" secondItem="0Uf-Dl-GlG" secondAttribute="trailing" id="dCr-iy-8f3"/>
                         <constraint firstItem="Y84-IQ-amH" firstAttribute="leading" secondItem="6ad-5I-ZqV" secondAttribute="leading" constant="16" id="mtw-Nd-Rhc"/>
                         <constraint firstItem="rHW-Mv-A1z" firstAttribute="centerY" secondItem="Y84-IQ-amH" secondAttribute="centerY" id="nvI-3p-ziQ"/>
-                        <constraint firstAttribute="trailing" secondItem="rHW-Mv-A1z" secondAttribute="trailing" constant="16" id="xaN-bN-gyD"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3q7-yb-qXf">
@@ -136,7 +152,6 @@
                         <constraint firstAttribute="height" constant="44" id="k1C-pS-QXw"/>
                     </constraints>
                     <state key="normal" title="提交申请"/>
-                    <state key="highlighted" backgroundImage="manage_confirm_highlighted"/>
                     <connections>
                         <action selector="conformButtonClicked:" destination="-1" eventType="touchUpInside" id="poT-9S-eCE"/>
                     </connections>
@@ -194,6 +209,5 @@
     </objects>
     <resources>
         <image name="manage_alert" width="12" height="12"/>
-        <image name="manage_confirm_highlighted" width="351" height="52"/>
     </resources>
 </document>
