@@ -101,6 +101,7 @@ class XHEditMyAddressController: UIViewController {
     @objc private func locationClicked() {
         nameTF.resignFirstResponder()
         phoneNumTF.resignFirstResponder()
+        detailLocationTV.resignFirstResponder()
         XHPickerViewManager.instance.show()
         XHPickerViewManager.instance.pichkerViewReturnClosure = { [weak self] province, city in
             self?.locationL.text = province + " " + city
