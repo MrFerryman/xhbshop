@@ -137,7 +137,6 @@
 		414989401F4EEA3700D80139 /* XHSpecialFavCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149893E1F4EEA3700D80139 /* XHSpecialFavCollCell.swift */; };
 		414989411F4EEA3700D80139 /* XHSpecialFavCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4149893F1F4EEA3700D80139 /* XHSpecialFavCollCell.xib */; };
 		416BE34B1F8B4F2A005D5B80 /* XHMyElavation_CheckPendingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416BE34A1F8B4F2A005D5B80 /* XHMyElavation_CheckPendingModel.swift */; };
-		417665AD1F7CF74600D1F8D1 /* 抽奖浮窗2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 417665AC1F7CF5FE00D1F8D1 /* 抽奖浮窗2.gif */; };
 		41829DCF1F8CC1CF0061E6EF /* XHDiscoveryMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41829DCE1F8CC1CF0061E6EF /* XHDiscoveryMaskView.swift */; };
 		41829DD11F8CC1EA0061E6EF /* XHDiscoveryMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41829DD01F8CC1EA0061E6EF /* XHDiscoveryMaskView.xib */; };
 		41A18DB01F5D33B2007C0284 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A18DAF1F5D33B2007C0284 /* WebKit.framework */; };
@@ -251,7 +250,6 @@
 		41F8BCEF1F6F9802005C1CDF /* XHDiscoveryIntegralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F8BCED1F6F9802005C1CDF /* XHDiscoveryIntegralCell.swift */; };
 		41F8BCF01F6F9802005C1CDF /* XHDiscoveryIntegralCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F8BCEE1F6F9802005C1CDF /* XHDiscoveryIntegralCell.xib */; };
 		41F8BCF21F6F9A37005C1CDF /* XHDiscoveryGoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F8BCF11F6F9A37005C1CDF /* XHDiscoveryGoodsModel.swift */; };
-		41F8BCF41F6FA4F6005C1CDF /* XHLottoryRegularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F8BCF31F6FA4F6005C1CDF /* XHLottoryRegularController.swift */; };
 		41F8BCF71F6FAE8D005C1CDF /* XHLottoryRegularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F8BCF51F6FAE8D005C1CDF /* XHLottoryRegularCell.swift */; };
 		41F8BCF81F6FAE8D005C1CDF /* XHLottoryRegularCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F8BCF61F6FAE8D005C1CDF /* XHLottoryRegularCell.xib */; };
 		41F946051F5F9A770037041B /* XHOrderStatusSalesReturnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F946031F5F9A770037041B /* XHOrderStatusSalesReturnCell.swift */; };
@@ -333,7 +331,6 @@
 		41FC1D061F4D474600A2EA72 /* XHGoodsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FC1D051F4D474600A2EA72 /* XHGoodsListModel.swift */; };
 		41FC1D081F4D606C00A2EA72 /* XHGoodsDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FC1D071F4D606C00A2EA72 /* XHGoodsDetailModel.swift */; };
 		41FC1D0A1F4D81AE00A2EA72 /* XHGoodsDetail_TableView_ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FC1D091F4D81AE00A2EA72 /* XHGoodsDetail_TableView_ContentCell.swift */; };
-		41FE00161F70B3F000E96EE5 /* XHWinningMsgController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE00151F70B3F000E96EE5 /* XHWinningMsgController.swift */; };
 		41FE00191F70B92900E96EE5 /* XHWinning_mineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE00171F70B92900E96EE5 /* XHWinning_mineCell.swift */; };
 		41FE001A1F70B92900E96EE5 /* XHWinning_mineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41FE00181F70B92900E96EE5 /* XHWinning_mineCell.xib */; };
 		41FE001C1F70C53300E96EE5 /* XHMyWinningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE001B1F70C53300E96EE5 /* XHMyWinningModel.swift */; };
@@ -342,8 +339,6 @@
 		41FE00231F70DF6600E96EE5 /* XHWinning_luckyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE00211F70DF6600E96EE5 /* XHWinning_luckyCell.swift */; };
 		41FE00241F70DF6600E96EE5 /* XHWinning_luckyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41FE00221F70DF6600E96EE5 /* XHWinning_luckyCell.xib */; };
 		41FE00261F70E06900E96EE5 /* XHLuckyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE00251F70E06900E96EE5 /* XHLuckyModel.swift */; };
-		41FE002B1F70EEBE00E96EE5 /* XHShakeLuckyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE00291F70EEBE00E96EE5 /* XHShakeLuckyController.swift */; };
-		41FE002C1F70EEBE00E96EE5 /* XHShakeLuckyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41FE002A1F70EEBE00E96EE5 /* XHShakeLuckyController.xib */; };
 		41FE00301F70F20200E96EE5 /* rock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41FE002E1F70F20200E96EE5 /* rock.mp3 */; };
 		41FE00311F70F20200E96EE5 /* rock_end.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41FE002F1F70F20200E96EE5 /* rock_end.mp3 */; };
 		41FE00331F70FEF700E96EE5 /* XHShakeLuckyMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FE00321F70FEF700E96EE5 /* XHShakeLuckyMaskView.swift */; };
@@ -707,7 +702,6 @@
 		4149893E1F4EEA3700D80139 /* XHSpecialFavCollCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHSpecialFavCollCell.swift; sourceTree = "<group>"; };
 		4149893F1F4EEA3700D80139 /* XHSpecialFavCollCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHSpecialFavCollCell.xib; sourceTree = "<group>"; };
 		416BE34A1F8B4F2A005D5B80 /* XHMyElavation_CheckPendingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHMyElavation_CheckPendingModel.swift; sourceTree = "<group>"; };
-		417665AC1F7CF5FE00D1F8D1 /* 抽奖浮窗2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "抽奖浮窗2.gif"; sourceTree = "<group>"; };
 		41829DCE1F8CC1CF0061E6EF /* XHDiscoveryMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHDiscoveryMaskView.swift; sourceTree = "<group>"; };
 		41829DD01F8CC1EA0061E6EF /* XHDiscoveryMaskView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XHDiscoveryMaskView.xib; sourceTree = "<group>"; };
 		41A18DAF1F5D33B2007C0284 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -824,7 +818,6 @@
 		41F8BCED1F6F9802005C1CDF /* XHDiscoveryIntegralCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHDiscoveryIntegralCell.swift; sourceTree = "<group>"; };
 		41F8BCEE1F6F9802005C1CDF /* XHDiscoveryIntegralCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHDiscoveryIntegralCell.xib; sourceTree = "<group>"; };
 		41F8BCF11F6F9A37005C1CDF /* XHDiscoveryGoodsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHDiscoveryGoodsModel.swift; sourceTree = "<group>"; };
-		41F8BCF31F6FA4F6005C1CDF /* XHLottoryRegularController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHLottoryRegularController.swift; sourceTree = "<group>"; };
 		41F8BCF51F6FAE8D005C1CDF /* XHLottoryRegularCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHLottoryRegularCell.swift; sourceTree = "<group>"; };
 		41F8BCF61F6FAE8D005C1CDF /* XHLottoryRegularCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHLottoryRegularCell.xib; sourceTree = "<group>"; };
 		41F946031F5F9A770037041B /* XHOrderStatusSalesReturnCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHOrderStatusSalesReturnCell.swift; sourceTree = "<group>"; };
@@ -912,7 +905,6 @@
 		41FC1D051F4D474600A2EA72 /* XHGoodsListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHGoodsListModel.swift; sourceTree = "<group>"; };
 		41FC1D071F4D606C00A2EA72 /* XHGoodsDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHGoodsDetailModel.swift; sourceTree = "<group>"; };
 		41FC1D091F4D81AE00A2EA72 /* XHGoodsDetail_TableView_ContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHGoodsDetail_TableView_ContentCell.swift; sourceTree = "<group>"; };
-		41FE00151F70B3F000E96EE5 /* XHWinningMsgController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHWinningMsgController.swift; sourceTree = "<group>"; };
 		41FE00171F70B92900E96EE5 /* XHWinning_mineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHWinning_mineCell.swift; sourceTree = "<group>"; };
 		41FE00181F70B92900E96EE5 /* XHWinning_mineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHWinning_mineCell.xib; sourceTree = "<group>"; };
 		41FE001B1F70C53300E96EE5 /* XHMyWinningModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHMyWinningModel.swift; sourceTree = "<group>"; };
@@ -921,8 +913,6 @@
 		41FE00211F70DF6600E96EE5 /* XHWinning_luckyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHWinning_luckyCell.swift; sourceTree = "<group>"; };
 		41FE00221F70DF6600E96EE5 /* XHWinning_luckyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHWinning_luckyCell.xib; sourceTree = "<group>"; };
 		41FE00251F70E06900E96EE5 /* XHLuckyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHLuckyModel.swift; sourceTree = "<group>"; };
-		41FE00291F70EEBE00E96EE5 /* XHShakeLuckyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHShakeLuckyController.swift; sourceTree = "<group>"; };
-		41FE002A1F70EEBE00E96EE5 /* XHShakeLuckyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHShakeLuckyController.xib; sourceTree = "<group>"; };
 		41FE002E1F70F20200E96EE5 /* rock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rock.mp3; sourceTree = "<group>"; };
 		41FE002F1F70F20200E96EE5 /* rock_end.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rock_end.mp3; sourceTree = "<group>"; };
 		41FE00321F70FEF700E96EE5 /* XHShakeLuckyMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHShakeLuckyMaskView.swift; sourceTree = "<group>"; };
@@ -1553,10 +1543,6 @@
 			isa = PBXGroup;
 			children = (
 				41F8BCE11F6F6E27005C1CDF /* XHDiscoveryViewController.swift */,
-				41F8BCF31F6FA4F6005C1CDF /* XHLottoryRegularController.swift */,
-				41FE00151F70B3F000E96EE5 /* XHWinningMsgController.swift */,
-				41FE00291F70EEBE00E96EE5 /* XHShakeLuckyController.swift */,
-				41FE002A1F70EEBE00E96EE5 /* XHShakeLuckyController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2602,7 +2588,6 @@
 				7390A41E1F1CB5A800FC4473 /* XHNavigationController.swift */,
 				735DF4B21F1739D4001D0D65 /* XHNoti_Name_File.swift */,
 				735DF4B41F173AD5001D0D65 /* xhbsc-Bridge-Header.h */,
-				417665AC1F7CF5FE00D1F8D1 /* 抽奖浮窗2.gif */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -2803,7 +2788,6 @@
 				41FB6A321F34661600A10C51 /* XHGoodsDetail_TableView_firstCell.xib in Resources */,
 				7326DFCD1F2D8F6D002948F4 /* AGENCYB.TTF in Resources */,
 				41F20B2B1F679434003B6857 /* XHQRCoderPaymentOrderCell.xib in Resources */,
-				41FE002C1F70EEBE00E96EE5 /* XHShakeLuckyController.xib in Resources */,
 				410186CE1F4145DA0093089D /* XHPersonalOrder_accountCell.xib in Resources */,
 				41F7B1F31F3C26D3004AB507 /* XHShopSetting_inStoreView.xib in Resources */,
 				41F7B2841F3C5584004AB507 /* XHShopSettingDetailController.xib in Resources */,
@@ -2819,7 +2803,6 @@
 				737C318B1F1F2E6700905B0E /* XHHomeSellCollCell.xib in Resources */,
 				41FBB2A11F56536800F1201D /* XHOpenAmbassadorCell.xib in Resources */,
 				73F6028E1F25C5CD004F135C /* XHSearchResultController.xib in Resources */,
-				417665AD1F7CF74600D1F8D1 /* 抽奖浮窗2.gif in Resources */,
 				41A2D9891F737EEE00B00D13 /* XHXHB_UnfreezedCell.xib in Resources */,
 				4136BB9B1F7B806D00372711 /* XHMyShop_OfflineCell.xib in Resources */,
 				41FB6A221F344D2300A10C51 /* XHGoodsDetailBottomView.xib in Resources */,
@@ -3093,7 +3076,6 @@
 				41384C581F3D9545002044BE /* WQComposeView.swift in Sources */,
 				41F89D541F6B82210083436A /* XHMyShop_settingModel.swift in Sources */,
 				41FBB2AF1F569FD200F1201D /* XHShopProtocolController.swift in Sources */,
-				41F8BCF41F6FA4F6005C1CDF /* XHLottoryRegularController.swift in Sources */,
 				414989371F4EA8FA00D80139 /* XHClassifyRecommendModel.swift in Sources */,
 				410347241F6A68C60038696B /* XHMyShopOrderDetailModel.swift in Sources */,
 				41F5C98B1F57F31D001668F1 /* XHMyOrderModel.swift in Sources */,
@@ -3119,7 +3101,6 @@
 				410186C51F413BD00093089D /* XHPersonalOrder_ProductCell.swift in Sources */,
 				732091641F304445009B84F7 /* XHNetworkTools.swift in Sources */,
 				414989391F4EAC8E00D80139 /* XHClassifyHotModel.swift in Sources */,
-				41FE002B1F70EEBE00E96EE5 /* XHShakeLuckyController.swift in Sources */,
 				732091811F305A15009B84F7 /* XHRegisterViewController.swift in Sources */,
 				41FBC2E01F453C1F00E358A2 /* XPathQuery.m in Sources */,
 				41F7B1F51F3C344B004AB507 /* XHSelectImagesCollView.swift in Sources */,
@@ -3245,7 +3226,6 @@
 				411007231F3D5CBF00262186 /* XHShopsFukuanController.swift in Sources */,
 				411E13201FA039C7009C5847 /* ZLNavigationController.m in Sources */,
 				41384C5B1F3DB979002044BE /* XHBussinessOrderDetailController.swift in Sources */,
-				41FE00161F70B3F000E96EE5 /* XHWinningMsgController.swift in Sources */,
 				738DBCA41F2EC03500A53525 /* XHNoticeCell.swift in Sources */,
 				73C077901F171C7C00FDDAA5 /* AppDelegate.swift in Sources */,
 				737C318E1F1F2EB800905B0E /* XHClassifyController.swift in Sources */,

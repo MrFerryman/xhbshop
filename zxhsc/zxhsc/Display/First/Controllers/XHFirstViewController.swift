@@ -183,19 +183,6 @@ class XHFirstViewController: UIViewController, UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
-//        setupLottoryView()
-        
-//        loopView.layer.cornerRadius = 8
-//        loopView.layer.masksToBounds = true
-//        view.addSubview(loopView)
-//        loopView.snp.makeConstraints { (make) in
-//            make.left.equalTo(14)
-//            make.right.equalTo(-14)
-//            make.bottom.equalTo(-60)
-//            make.height.equalTo(25)
-//        }
-//        loopView.dataArr = loopStrArr
-//        view.bringSubview(toFront: loopView)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -271,31 +258,6 @@ class XHFirstViewController: UIViewController, UISearchBarDelegate {
                 self?.tableView.mj_header.endRefreshing()
             }
         }
-        
-//        let paraDict = ["prize_type": "3"]
-//        XHHomeViewModel.sharedInstance.getLuckyList(paraDict: paraDict, self) { [weak self] (result) in
-//            var luckyArr: [String] = []
-//            for model in result {
-//                let str = (model.bonus ?? "") + "  " + (model.user ?? "")
-//                luckyArr.append(str)
-//            }
-//            self?.loopStrArr = luckyArr
-//            self?.loopView.dataArr = luckyArr
-//        }
-        
-//        XHHomeViewModel.sharedInstance.getHomePlaneData(self) { [weak self] (result) in
-//            if result.count != 0 {
-//                self?.view.addSubview((self?.planeView)!)
-//                self?.planeView.infoString = "恭喜" + (result[0].user ?? "") + ",  抽奖获得" + (result[0].bonus ?? "")
-//                self?.planeView.frame = CGRect(x: kUIScreenWidth, y: 80, width: kUIScreenWidth, height: 50)
-//                self?.view.bringSubview(toFront: (self?.planeView)!)
-//                UIView.animate(withDuration: 10.0, animations: {
-//                    self?.planeView.frame = CGRect(x: -(kUIScreenWidth * 1.5), y: 80, width: kUIScreenWidth , height: 50)
-//                }, completion: { (finished) in
-//                    self?.planeView.removeFromSuperview()
-//                })
-//            }
-//        }
     }
     
     // MARK:- ======= 事件相关 ========

@@ -555,7 +555,7 @@ extension XHRequest {
                     success((response as! [String: Any])["text"] as! String)
                 }
             }else {
-                success("\((response as! [String: Any])["text"])")
+                success("\(String(describing: (response as! [String: Any])["text"]))")
             }
         }
         
