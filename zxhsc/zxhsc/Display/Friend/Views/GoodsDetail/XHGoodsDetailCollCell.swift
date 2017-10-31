@@ -32,6 +32,8 @@ class XHGoodsDetailCollCell: UICollectionViewCell, ZLPhotoPickerBrowserViewContr
     
     /// 是否是循环宝商城产品
     var isIntegralGoods: Bool = false
+    var is_nine_xi_goods: Bool = false
+    var is_fu_xiao_goods: Bool = false
     
     var goodsDetailModel: XHGoodsDetailModel? {
         didSet {
@@ -120,6 +122,8 @@ extension XHGoodsDetailCollCell: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell: XHGoodsDetail_TableView_firstCell = tableView.dequeueReusableCell(withIdentifier: reuseId_firstSection, for: indexPath) as! XHGoodsDetail_TableView_firstCell
+            cell.is_fu_xiao_goods = is_fu_xiao_goods
+            cell.is_jiu_xi_goods = is_nine_xi_goods
             cell.isIntegralGoods = isIntegralGoods
             cell.detailModel = goodsDetailModel?.detailData
             cell.bussinessShop = goodsDetailModel?.supplier

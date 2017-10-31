@@ -188,6 +188,8 @@
 		41F5229D1F8DEE6E0092C271 /* XHHomeLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F5229C1F8DEE6E0092C271 /* XHHomeLoopView.swift */; };
 		41F5C98B1F57F31D001668F1 /* XHMyOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F5C98A1F57F31D001668F1 /* XHMyOrderModel.swift */; };
 		41F5DB8C1F8C6D4C00D56C2E /* XHIntegral_PaymentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F5DB8B1F8C6D4C00D56C2E /* XHIntegral_PaymentController.swift */; };
+		41F5F5F61FA6C171007C0B26 /* XHAgentPhoneNumberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F5F5F41FA6C171007C0B26 /* XHAgentPhoneNumberController.swift */; };
+		41F5F5F71FA6C171007C0B26 /* XHAgentPhoneNumberController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F5F5F51FA6C171007C0B26 /* XHAgentPhoneNumberController.xib */; };
 		41F6EE4D1F905489003BAC57 /* XHHomeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F6EE4C1F905489003BAC57 /* XHHomeAlertView.swift */; };
 		41F6EE4F1F90549D003BAC57 /* XHHomeAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F6EE4E1F90549D003BAC57 /* XHHomeAlertView.xib */; };
 		41F71A331F3AA18F008A6D96 /* XHShoppingCartNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F71A311F3AA18F008A6D96 /* XHShoppingCartNormalCell.swift */; };
@@ -758,6 +760,8 @@
 		41F5229C1F8DEE6E0092C271 /* XHHomeLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHHomeLoopView.swift; sourceTree = "<group>"; };
 		41F5C98A1F57F31D001668F1 /* XHMyOrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHMyOrderModel.swift; sourceTree = "<group>"; };
 		41F5DB8B1F8C6D4C00D56C2E /* XHIntegral_PaymentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHIntegral_PaymentController.swift; sourceTree = "<group>"; };
+		41F5F5F41FA6C171007C0B26 /* XHAgentPhoneNumberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHAgentPhoneNumberController.swift; sourceTree = "<group>"; };
+		41F5F5F51FA6C171007C0B26 /* XHAgentPhoneNumberController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XHAgentPhoneNumberController.xib; sourceTree = "<group>"; };
 		41F6EE4C1F905489003BAC57 /* XHHomeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHHomeAlertView.swift; sourceTree = "<group>"; };
 		41F6EE4E1F90549D003BAC57 /* XHHomeAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XHHomeAlertView.xib; sourceTree = "<group>"; };
 		41F71A311F3AA18F008A6D96 /* XHShoppingCartNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHShoppingCartNormalCell.swift; sourceTree = "<group>"; };
@@ -2019,6 +2023,8 @@
 				41F87EF91F395B6300D054C6 /* XHShoppingCartController.swift */,
 				41F71A3F1F3AD62F008A6D96 /* XHConfirmOrderController.swift */,
 				41147C0A1F7A39CA009AED3C /* XHShopInnerCustomController.swift */,
+				41F5F5F41FA6C171007C0B26 /* XHAgentPhoneNumberController.swift */,
+				41F5F5F51FA6C171007C0B26 /* XHAgentPhoneNumberController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2851,6 +2857,7 @@
 				412FDE3D1F555E260073A153 /* XHOpenShopFooterView.xib in Resources */,
 				73F602821F259225004F135C /* XHSpecialCollViewCell.xib in Resources */,
 				4110072E1F3D83BD00262186 /* XHBussinessOrderCell.xib in Resources */,
+				41F5F5F71FA6C171007C0B26 /* XHAgentPhoneNumberController.xib in Resources */,
 				410186C61F413BD00093089D /* XHPersonalOrder_ProductCell.xib in Resources */,
 				4110071C1F3D475600262186 /* XHDatePickerView.xib in Resources */,
 				734B361F1F1B63F300D60D62 /* XHHomeAreaCell.xib in Resources */,
@@ -3290,6 +3297,7 @@
 				41384C661F3DC4E0002044BE /* XHBussinessOrderDetail_ShopCell.swift in Sources */,
 				732091661F3047B9009B84F7 /* XHCancelRequest.swift in Sources */,
 				4126F95C1F67DF210010EFFA /* XHPaymentOrderDetailModel.swift in Sources */,
+				41F5F5F61FA6C171007C0B26 /* XHAgentPhoneNumberController.swift in Sources */,
 				41BDD2B61F8E0169003231A1 /* XHHomePlaneView.swift in Sources */,
 				41F71A3C1F3AC1BD008A6D96 /* XHShoppingCartBottomView.swift in Sources */,
 				412204991F7361C30004C1D6 /* XHXHB_FreezedCell.swift in Sources */,

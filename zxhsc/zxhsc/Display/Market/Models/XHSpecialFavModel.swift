@@ -32,6 +32,8 @@ class XHSpecialFavModel: NSObject, Mappable, NSCoding {
     var times: CGFloat = 0
     var timesStr: String?
     
+    /// 积分
+    var integral: String?
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(id, forKey: "id")
@@ -39,6 +41,7 @@ class XHSpecialFavModel: NSObject, Mappable, NSCoding {
         aCoder.encode(title, forKey: "title")
         aCoder.encode(price, forKey: "price")
         aCoder.encode(xhb, forKey: "xhb")
+        aCoder.encode(integral, forKey: "integral")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,6 +50,7 @@ class XHSpecialFavModel: NSObject, Mappable, NSCoding {
         icon = aDecoder.decodeObject(forKey: "icon") as? String
         price = aDecoder.decodeObject(forKey: "price") as? String
         xhb = aDecoder.decodeObject(forKey: "xhb") as! CGFloat
+        integral = aDecoder.decodeObject(forKey: "integral") as? String
     }
     
     override init() {}
@@ -67,5 +71,6 @@ class XHSpecialFavModel: NSObject, Mappable, NSCoding {
         xhbStr <- map["xhd"]
         times <- map["times"]
         timesStr <- map["times"]
+        integral <- map["jifen"]
     }
 }

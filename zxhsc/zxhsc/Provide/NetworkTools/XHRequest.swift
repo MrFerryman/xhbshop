@@ -16,6 +16,7 @@ var isOpenShop: Bool = false
  /// baseURL
  var XHBaseURL: String {
     return "http://118.190.142.233/app.php?do="
+//    return "http://appback.zxhshop.cn/app.php?do="
  }
 
 enum XHNetDataType {
@@ -93,6 +94,7 @@ enum XHNetDataType {
     case getPaymentStyleList          // 获取支付方式
     case commitOrder_common     // 提交订单 ---- 普通订单
     case commitOrder_integral       // 提交订单 ---- 积分订单
+    case commitOrder_jiu_xi           // 提交订单 ---- 九玺订单
     case payment_getOrderDetail       // 订单付款中 查看订单详情
     case payment_getMyQRCoderImg  // 订单付款 获取二维码图片
     case testPaydayLimitMoney           // 测试当日限额
@@ -316,6 +318,8 @@ extension XHRequest {
             return commitOrder_common(parameters: parameters, failure: failure, success: success)
         case .commitOrder_integral:      // 提交积分订单
             return commitOrder_integral(parameters: parameters, failure: failure, success: success)
+        case .commitOrder_jiu_xi:           // 提交九玺订单
+            return commitOrder_jiu_xi(parameters: parameters, failure: failure, success: success)
         case .payment_getOrderDetail:      // 付款界面 查看订单详情
             return getPayment_orderDetail(parameters: parameters, failure: failure, success: success)
         case .payment_getMyQRCoderImg: // 付款 获取二维码支付
@@ -436,12 +440,19 @@ extension XHRequest {
         
         let manager = XHNetworkTools.instance.requestPOSTURL(url, params: paramDict, failure: { (errorType, error) in
             failure(errorType)
-        }) { (response) in
-            
-            if let text = (response as! [String: Any])["text"],  let user = Mapper<XHShopDetailModel>().map(JSONObject: text) {
-                success(user)
+        }) { [weak self] (response) in
+            if self?.xhbaseURL.range(of: "appback.zxhshop.cn") != nil {
+                if let text = (response as! [String: Any])["text"],  let user = Mapper<XHShopDetailModel>().mapArray(JSONObject: text) {
+                    success(user[0])
+                }else {
+                    success((response as! [String: Any])["text"]!)
+                }
             }else {
-                success((response as! [String: Any])["text"]!)
+                if let text = (response as! [String: Any])["text"],  let user = Mapper<XHShopDetailModel>().map(JSONObject: text) {
+                    success(user)
+                }else {
+                    success((response as! [String: Any])["text"]!)
+                }
             }
         }
         
@@ -1076,7 +1087,7 @@ extension XHRequest {
             return nil
         }
         
-        let url = "http://appback.zxhshop.cn/app.php?do=" + "withdraw_append" + "&c=" + "Balance"
+        let url = xhbaseURL + "withdraw_append" + "&c=" + "Balance"
         
         let token = SSKeychain.password(forService: userTokenName, account: "TOKEN")
         let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
@@ -2780,7 +2791,7 @@ extension XHRequest {
         return cancelRequest
     }
 
-    // MARK:- 提交订单   积分订单
+    // MARK:- 提交订单   积分订单 commitOrder_jiu_xi
     fileprivate func commitOrder_integral(parameters: [String: Any]?, failure:@escaping (ErrorType) -> Void, success:@escaping (String) -> Void) -> XHCancelRequest? {
         
         guard var paramDict = parameters else {
@@ -2815,6 +2826,41 @@ extension XHRequest {
         return cancelRequest
     }
 
+    // MARK:- 提交订单   九玺订单
+    fileprivate func commitOrder_jiu_xi(parameters: [String: Any]?, failure:@escaping (ErrorType) -> Void, success:@escaping (String) -> Void) -> XHCancelRequest? {
+        
+        guard var paramDict = parameters else {
+            failure(ErrorType.networkError)
+            return nil
+        }
+        
+        let token = SSKeychain.password(forService: userTokenName, account: "TOKEN")
+        let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
+        
+        paramDict["userid"] = userid
+        paramDict["userkey"] = token
+        
+        let url = xhbaseURL + "jx_addorder"
+        
+        let infoDictionary: Dictionary = Bundle.main.infoDictionary!
+        let version =  (infoDictionary["CFBundleShortVersionString"] as? String)!
+        paramDict["platformName"] = "iOS"
+        paramDict["platformVersion"] = version
+        
+        let manager = XHNetworkTools.instance.requestPOSTURL(url, params: paramDict, failure: { (errorType, error) in
+            failure(errorType)
+        }) { (response) in
+            if let text = (response as! [String: Any])["text"]{
+                success(text as! String)
+            }else {
+                success("未知错误")
+            }
+        }
+        
+        let cancelRequest = XHCancelRequest(request: manager)
+        return cancelRequest
+    }
+    
     // MARK:- 支付过程中 查看订单
     fileprivate func getPayment_orderDetail(parameters: [String: String]?, failure:@escaping (ErrorType) -> Void, success:@escaping (Any) -> Void) -> XHCancelRequest? {
         

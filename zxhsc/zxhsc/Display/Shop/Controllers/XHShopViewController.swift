@@ -34,12 +34,12 @@ class XHShopViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tabBarController?.tabBar.isHidden = false
         loadMyShop()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        tabBarController?.tabBar.isHidden = false
         TalkingData.trackPageBegin(viewName)
     }
     

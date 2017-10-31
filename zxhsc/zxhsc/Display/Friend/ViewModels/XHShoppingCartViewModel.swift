@@ -145,4 +145,23 @@ class XHShoppingCartViewModel: NSObject {
             dataArrClosure(sth as! String)
         })
     }
+    
+    /// MARK:- 提交九玺订单
+    static func commitOrder_jiu_xi(_ paraDict: [String: String], _ targetVc: UIViewController, dataArrClosure: @escaping ((_ result: String) -> ())) {
+        targetVc.showHud(in: targetVc.view)
+        _ = XHRequest.shareInstance.requestNetData(dataType: .commitOrder_jiu_xi, parameters: paraDict, failure: { (errorType) in
+            targetVc.hideHud()
+            var title: String?
+            switch errorType {
+            case .timeOut:
+                title = "网络请求超时，请重新请求~"
+            default:
+                title = "网络请求错误，请重新请求~"
+            }
+            targetVc.showHint(in: targetVc.view, hint: title!)
+        }, success: { (sth) in
+            targetVc.hideHud()
+            dataArrClosure(sth as! String)
+        })
+    }
 }

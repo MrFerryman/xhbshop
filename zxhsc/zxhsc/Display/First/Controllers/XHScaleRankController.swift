@@ -19,7 +19,7 @@ class XHScaleRankController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = "业绩指数排行"
+        title = "各省指数"
         setupTableView()
         loadData()
     }

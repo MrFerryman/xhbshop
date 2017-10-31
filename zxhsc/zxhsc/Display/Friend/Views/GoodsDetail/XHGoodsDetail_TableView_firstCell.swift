@@ -24,6 +24,22 @@ class XHGoodsDetail_TableView_firstCell: UITableViewCell {
         }
     }
     
+    var is_jiu_xi_goods: Bool = false {
+        didSet {
+            if is_jiu_xi_goods == true {
+                integralPriceL.isHidden = true
+            }
+        }
+    }
+    
+    var is_fu_xiao_goods: Bool = false {
+        didSet {
+            if is_fu_xiao_goods == true {
+                integralPriceL.isHidden = true
+            }
+        }
+    }
+    
     var detailModel: XHGoodsListModel? {
         didSet {
             productNameL.text = detailModel?.title
@@ -59,6 +75,8 @@ class XHGoodsDetail_TableView_firstCell: UITableViewCell {
                     }
                 }
                 returnL.text = ""
+            }else if is_jiu_xi_goods == true || is_fu_xiao_goods == true {
+                returnL.attributedText = nil
             }
         }
     }

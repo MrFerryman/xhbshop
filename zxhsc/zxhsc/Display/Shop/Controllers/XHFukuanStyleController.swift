@@ -57,7 +57,8 @@ class XHFukuanStyleController: UIViewController {
             
             self.totalPrice = totalPrice
             if totalInte != 0.0 {
-                headerView.totalPrice = "需支付: ￥\(totalPrice)" + " " + "+ 积分(循环宝):" + " " + "\(totalInte)"
+                let total = String(format: "%.2f", totalPrice)
+                headerView.totalPrice = "需支付: ￥\(total)" + " " + "+ 积分(循环宝):" + " " + "\(totalInte)"
             }else {
                 headerView.totalPrice = "需支付: ￥\(String(format: "%.2f", totalPrice))"
             }
@@ -68,6 +69,10 @@ class XHFukuanStyleController: UIViewController {
     
     /// 从哪个方向进来
     var comeFrom: ConfirmOrderFrom = .shoppingCart
+    /// 是否是九玺产品
+    var is_jiu_xi_order: Bool = false
+    /// 是否是复消产品
+    var is_fu_xiao_order: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

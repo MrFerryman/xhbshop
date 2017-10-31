@@ -83,8 +83,10 @@ class XHMyOrderTableViewCell: UITableViewCell {
                 let xhbResult = CGFloat(count) * CGFloat(xhb)
                 if xhbResult == 0.0 {
                     totalPriceL.text = "￥\(result)"
+                }else if result == 0.0, xhbResult != 0.0 {
+                    totalPriceL.text = "\(xhbResult)循环宝"
                 }else {
-                    totalPriceL.text = "￥\(result) + \(xhbResult)循环宝"
+                    totalPriceL.text = "￥\(String(format: "%.2f", result)) + \(xhbResult)循环宝"
                 }
             }
             

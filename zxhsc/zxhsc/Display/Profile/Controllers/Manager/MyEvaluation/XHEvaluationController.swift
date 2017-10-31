@@ -77,22 +77,28 @@ class XHEvaluationController: UIViewController {
                     }
                 }
             } else if self?.evaType == .checkPending || self?.evaType == .beEvaluation{
-                let modelArr = result as! [XHMyElavation_CheckPendingModel]
-                self?.checkPendingArr.append(contentsOf: modelArr)
-                if self?.checkPendingArr.count == 0 {
-                    self?.setupEmptyUI()
-                }else {
-                    self?.setupTableView()
-                    self?.tableView.reloadData()
-                }
-                
                 if self?.tableView.mj_footer != nil {
-                    if modelArr.count == 0 {
-                        self?.tableView.mj_footer.endRefreshingWithNoMoreData()
+                    self?.tableView.mj_footer.endRefreshing()
+                }
+                if result is [XHMyElavation_CheckPendingModel] {
+                    let modelArr = result as! [XHMyElavation_CheckPendingModel]
+                    self?.checkPendingArr.append(contentsOf: modelArr)
+                    if self?.checkPendingArr.count == 0 {
+                        self?.setupEmptyUI()
                     }else {
-                        self?.tableView.mj_footer.endRefreshing()
+                        self?.setupTableView()
+                        self?.tableView.reloadData()
+                    }
+                    if self?.tableView.mj_footer != nil {
+                        if modelArr.count == 0 {
+                            self?.tableView.mj_footer.endRefreshingWithNoMoreData()
+                        }else {
+                            self?.tableView.mj_footer.endRefreshing()
+                        }
                     }
                 }
+                
+                
             }
             else {
                 self?.hideHud()

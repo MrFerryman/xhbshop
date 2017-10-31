@@ -18,6 +18,9 @@ class XHGoodsDetailController: UIViewController, UIGestureRecognizerDelegate {
     fileprivate let reuseId_comment = "XHGoodsDetailController_collectionView_CELL_comment"
     
     var isIntegral: Bool = false
+    var is_19_9_goods: Bool = false
+    var is_jiu_xi_goods: Bool = false
+    var is_fu_xiao_goods: Bool = false
     
     var goodsId: String? {
         didSet {
@@ -44,7 +47,8 @@ class XHGoodsDetailController: UIViewController, UIGestureRecognizerDelegate {
         didSet {
             let confirmV = XHConfirmOrderController()
             confirmV.isIntegralGoods = self.isIntegral
-            
+            confirmV.is_fu_xiao_goods = is_fu_xiao_goods
+            confirmV.is_jiu_xi_goods = is_jiu_xi_goods
             let cartModel = XHShoppingCartModel()
             cartModel.id = addToShoppingCartBackID
             cartModel.goods_id = self.goodsDetailModel?.detailData?.goods_id
@@ -79,9 +83,16 @@ class XHGoodsDetailController: UIViewController, UIGestureRecognizerDelegate {
         showHud(in: view)
         let paraDict = ["goods_id": (goodsId)!]
         var requestType: XHNetDataType = .getGoodsDetail
-        if isIntegral == true {
+        if isIntegral == true, is_19_9_goods == false {
+            requestType = .getIntegral_goodsDetail
+        }else if isIntegral == true , is_19_9_goods == true {
+            requestType = .getIntegral_goodsDetail
+        }else if isIntegral == false, is_19_9_goods == false, is_jiu_xi_goods == true {
+            requestType = .getIntegral_goodsDetail
+        }else if isIntegral == false, is_19_9_goods == false, is_jiu_xi_goods == false, is_fu_xiao_goods == true {
             requestType = .getIntegral_goodsDetail
         }
+        
         _ = XHRequest.shareInstance.requestNetData(dataType: requestType, parameters: paraDict, failure: { [weak self] (errorType) in
            self?.hideHud()
             var title: String?
@@ -278,6 +289,8 @@ class XHGoodsDetailController: UIViewController, UIGestureRecognizerDelegate {
         }
         
         propertyView.isIntegralGoods = isIntegral
+        propertyView.is_fu_xiao_goods = is_fu_xiao_goods
+        propertyView.is_nine_xi_goods = is_jiu_xi_goods
         propertyView.goodsModel = goodsDetailModel
         propertyView.frame = CGRect(x: 0, y: KUIScreenHeight, width: kUIScreenWidth, height: 450)
         goodsMaskView.addSubview(propertyView)
@@ -336,13 +349,13 @@ class XHGoodsDetailController: UIViewController, UIGestureRecognizerDelegate {
         collectionView.register(XHGoodsDetailCollCell.self, forCellWithReuseIdentifier: reuseId_goods)
         collectionView.register(XHCommentCollCell.self, forCellWithReuseIdentifier: reuseId_comment)
         
-        if isIntegral == false {
+        if isIntegral == false, is_jiu_xi_goods == false, is_fu_xiao_goods == false {
             view.addSubview(bottomView)
             bottomView.snp.makeConstraints { (make) in
                 make.left.bottom.right.equalTo(view)
                 make.height.equalTo(44)
             }
-        }else {
+        }else  {
             view.addSubview(nowBuyButton)
             nowBuyButton.snp.makeConstraints({ (make) in
                 make.left.bottom.right.equalTo(view)
@@ -486,6 +499,8 @@ extension XHGoodsDetailController: UICollectionViewDelegate, UICollectionViewDat
         if indexPath.row == 0 {
             let cell: XHGoodsDetailCollCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId_goods, for: indexPath) as! XHGoodsDetailCollCell
             cell.isIntegralGoods = isIntegral
+            cell.is_nine_xi_goods = is_jiu_xi_goods
+            cell.is_fu_xiao_goods = is_fu_xiao_goods
             cell.goodsDetailModel = goodsDetailModel
             if goodsNum != nil {
                 cell.selectProperty = "\(property1?.value ?? "")" + " " + "\(property2?.value ?? "")" + " " + "“\(goodsNum ?? "")”"

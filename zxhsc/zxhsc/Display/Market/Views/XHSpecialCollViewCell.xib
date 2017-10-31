@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -82,8 +82,10 @@
             <size key="customSize" width="157" height="257"/>
             <connections>
                 <outlet property="imgView" destination="UsU-3q-lOg" id="nNp-aU-wen"/>
+                <outlet property="plusImgView" destination="qsa-WH-o0z" id="j0p-e4-h5F"/>
                 <outlet property="plusL" destination="Xy7-nA-hfk" id="ka2-8x-0oL"/>
                 <outlet property="priceL" destination="OQ3-y9-pE5" id="OwK-DW-D6r"/>
+                <outlet property="rebackImgView" destination="ob3-5j-j4F" id="rIU-Oy-W8p"/>
                 <outlet property="rebackL" destination="j4X-yn-l1L" id="vz8-lg-s1l"/>
                 <outlet property="titleL" destination="UlL-Sk-EQZ" id="Rlv-WI-Ern"/>
             </connections>

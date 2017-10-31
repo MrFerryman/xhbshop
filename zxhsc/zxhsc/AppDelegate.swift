@@ -47,20 +47,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSH
             }
         }
         
-//        XHTabbarViewModel().loadTabbarIconList { [weak self] (iconsList) in
-//            if iconsList.count > 0 {
-//
-//                self?.modifyTabbarIcon(0, tabbarC: tabbarC, img_normal: iconsList[0].home_unselected, img_selected: iconsList[0].home_selected, imgName: "home_icon")
-//
-//                self?.modifyTabbarIcon(1, tabbarC: tabbarC, img_normal: iconsList[0].class_unselected, img_selected: iconsList[0].class_selected, imgName: "class_icon")
-//
-//                self?.modifyTabbarIcon(2, tabbarC: tabbarC, img_normal: iconsList[0].shop_unselected, img_selected: iconsList[0].shop_selected, imgName: "shop_icon")
-//
-//                self?.modifyTabbarIcon(3, tabbarC: tabbarC, img_normal: iconsList[0].discovery_unselected, img_selected: iconsList[0].discovery_selected, imgName: "discover_icon")
-//
-//                self?.modifyTabbarIcon(4, tabbarC: tabbarC, img_normal: iconsList[0].profile_unselected, img_selected: iconsList[0].profile_selected, imgName: "profile_icon")
-//            }
-//        }
+        XHTabbarViewModel().loadTabbarIconList { [weak self] (iconsList) in
+            if iconsList.count > 0 {
+
+                self?.modifyTabbarIcon(0, tabbarC: tabbarC, img_normal: iconsList[0].home_unselected, img_selected: iconsList[0].home_selected, imgName: "home_icon")
+
+                self?.modifyTabbarIcon(1, tabbarC: tabbarC, img_normal: iconsList[0].class_unselected, img_selected: iconsList[0].class_selected, imgName: "class_icon")
+
+                self?.modifyTabbarIcon(2, tabbarC: tabbarC, img_normal: iconsList[0].shop_unselected, img_selected: iconsList[0].shop_selected, imgName: "shop_icon")
+
+                self?.modifyTabbarIcon(3, tabbarC: tabbarC, img_normal: iconsList[0].discovery_unselected, img_selected: iconsList[0].discovery_selected, imgName: "discover_icon")
+
+                self?.modifyTabbarIcon(4, tabbarC: tabbarC, img_normal: iconsList[0].profile_unselected, img_selected: iconsList[0].profile_selected, imgName: "profile_icon")
+            }
+        }
         
         _mapManager = BMKMapManager()
         // 如果要关注网络及授权验证事件，请设定generalDelegate参数
@@ -87,31 +87,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSH
     // MARK:- 修改tabbar图标
     private func modifyTabbarIcon(_ index: Int, tabbarC: XHTabBarController, img_normal: String?, img_selected: String?, imgName: String) {
         
-//        let resultStr = img_normal?.replacingOccurrences(of: ".png", with: "@2x.png")
-        let imgURL = XHImageBaseURL + img_normal!
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: URL(string: imgURL)!)
-            let normal_img = UIImage(data: data!)
-            let filePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first! + img_normal!
-           
-            if ((try? UIImagePNGRepresentation(normal_img!)?.write(to: URL(fileURLWithPath: filePath), options: .atomic)) != nil) {
-                tabbarC.childViewControllers[index].tabBarItem.image = UIImage(contentsOfFile: filePath)
-            }
-        }
-        
         let imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
-        imgView.sd_setImage(with: URL(string: XHImageBaseURL + (img_normal ?? imgName)), placeholderImage: UIImage(named: imgName), options: .progressiveDownload, progress: { (resiveP, exceptP, url) in
-            print(exceptP)
-        }) { (image, error, cachaType, url)  in
-            
+        let url = URL(string: XHImageBaseURL + (img_normal ?? ""))
+        imgView.sd_setImage(with: url, placeholderImage:  UIImage(named: imgName)) { (image, error, chacheType, url) in
+            tabbarC.childViewControllers[index].tabBarItem.image = image?.withRenderingMode(.alwaysOriginal)
         }
-        
-        tabbarC.childViewControllers[index].tabBarItem.image = imgView.image
+        tabbarC.childViewControllers[index].tabBarItem.image = imgView.image?.withRenderingMode(.alwaysOriginal)
         
         let imgView0 = UIImageView()
-        imgView0.sd_setImage(with: URL(string: XHImageBaseURL + (img_selected ?? imgName)), placeholderImage: UIImage(named: imgName), options: .progressiveDownload, completed: { (image, error, cachaType, url) in
-            tabbarC.childViewControllers[index].tabBarItem.selectedImage = image
-        })
+        imgView0.sd_setImage(with:  URL(string: XHImageBaseURL + (img_selected ?? "")), placeholderImage: UIImage(named: imgName + "_selected"))
+        tabbarC.childViewControllers[index].tabBarItem.selectedImage = imgView0.image?.withRenderingMode(.alwaysOriginal)
     }
 
     /// MARK:- 初始化分享

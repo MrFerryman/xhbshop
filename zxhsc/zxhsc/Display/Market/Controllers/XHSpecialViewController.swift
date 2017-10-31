@@ -29,6 +29,11 @@ class XHSpecialViewController: UIViewController {
         }
     }
     
+    /// 是否是九玺产品
+    var is_nineXi: Bool = false
+    /// 是否是复消专区
+    var is_fu_xiao_zone: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -155,6 +160,8 @@ extension XHSpecialViewController: UICollectionViewDelegate, UICollectionViewDat
     // cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: XHSpecialCollViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as! XHSpecialCollViewCell
+        cell.is_fu_xiao_goods = is_fu_xiao_zone
+        cell.isNineXI_goods = is_nineXi
         cell.sessionGoodsM = sessionModel.goodsArr[indexPath.row]
         return cell
     }
@@ -162,6 +169,10 @@ extension XHSpecialViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = sessionModel.goodsArr[indexPath.row]
         let goodsDetailV = XHGoodsDetailController()
+        goodsDetailV.is_fu_xiao_goods = is_fu_xiao_zone
+        goodsDetailV.is_jiu_xi_goods = is_nineXi
+        goodsDetailV.isIntegral = model.integral == nil ? false : true
+        goodsDetailV.is_19_9_goods = model.integral == nil ? false : true
         goodsDetailV.goodsId = model.id
         navigationController?.pushViewController(goodsDetailV, animated: true)
     }

@@ -19,6 +19,10 @@ class XHSpecialCollViewCell: UICollectionViewCell {
     
     @IBOutlet weak var plusL: UILabel! // 倍数
     
+    @IBOutlet weak var rebackImgView: UIImageView!
+    
+    @IBOutlet weak var plusImgView: UIImageView!
+    
     var sessionGoodsM: XHSpecialFavModel? {
         didSet {
             if sessionGoodsM?.icon != nil {
@@ -44,12 +48,52 @@ class XHSpecialCollViewCell: UICollectionViewCell {
             }else {
                 plusL.text = "\(String(describing: (sessionGoodsM?.times)!))" + "倍"
             }
+            
+            if sessionGoodsM?.integral != nil || isNineXI_goods == true || is_fu_xiao_goods == true {
+                rebackL.isHidden = true
+                plusL.isHidden = true
+                rebackImgView.isHidden = true
+                plusImgView.isHidden = true
+                integralL.isHidden = false
+                
+                if isNineXI_goods == true || is_fu_xiao_goods == true {
+                    integralL.text = ""
+                }else {
+                    let integral = NSString(string: (sessionGoodsM?.integral)!).floatValue
+                    integralL.text = "+" + String(format: "%.2f", integral)
+                }
+            }else {
+                rebackL.isHidden = false
+                plusL.isHidden = false
+                rebackImgView.isHidden = false
+                plusImgView.isHidden = false
+                integralL.isHidden = true
+            }
         }
     }
+    
+    /// 是否是九玺产品
+    var isNineXI_goods: Bool = false
+    /// 是否是复消专区
+    var is_fu_xiao_goods: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         rebackL.backgroundColor = UIColor(patternImage: UIImage(named: "special_Rectangle_red")!)
+        addSubview(integralL)
+        integralL.snp.makeConstraints { (make) in
+            make.centerY.equalTo(priceL)
+            make.right.equalTo(self).offset(-3)
+        }
     }
 
+    private lazy var integralL: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.textColor = .white
+        label.layer.cornerRadius = 3
+        label.layer.masksToBounds = true
+        label.backgroundColor = XHRgbColorFromHex(rgb: 0x53B6FF)
+        return label
+    }()
 }

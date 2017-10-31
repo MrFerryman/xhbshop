@@ -36,6 +36,24 @@ class XHGoodsDetail_goodsPropertyView: UIView {
         }
     }
     
+    /// 是否是九玺产品
+    var is_nine_xi_goods: Bool = false {
+        didSet {
+            if is_nine_xi_goods == true {
+                integralPriceL.isHidden = true
+            }
+        }
+    }
+    
+    /// 是否是复消产品
+    var is_fu_xiao_goods: Bool = false {
+        didSet {
+            if is_fu_xiao_goods == true {
+                integralPriceL.isHidden = true
+            }
+        }
+    }
+    
     var goodsModel: XHGoodsDetailModel? {
         didSet {
             
@@ -258,7 +276,7 @@ class XHGoodsDetail_goodsPropertyView: UIView {
             make.height.equalTo(1)
         }
         
-        if isIntegralGoods == true {
+        if isIntegralGoods == true || is_nine_xi_goods == true || is_fu_xiao_goods == true {
             nowBuyBtn.snp.makeConstraints { (make) in
                 make.left.bottom.right.equalTo(self)
                 make.height.equalTo(44)

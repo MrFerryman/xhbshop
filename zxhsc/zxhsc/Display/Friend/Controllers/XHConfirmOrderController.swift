@@ -52,6 +52,10 @@ class XHConfirmOrderController: UIViewController {
     /// 从哪进来的
     var comeFrom: ConfirmOrderFrom = .shoppingCart
     var isIntegralGoods: Bool = false
+    var is_jiu_xi_goods: Bool = false
+    var is_fu_xiao_goods: Bool = false
+    /// 代理商电话
+    fileprivate var agentNum: String?
     
     fileprivate let reuseId = "XHConfirmOrderController_reuseId"
     fileprivate var addresseeModel: XHMyAdressModel? {
@@ -62,7 +66,6 @@ class XHConfirmOrderController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupNav()
         
         setupTableView()
@@ -116,8 +119,9 @@ class XHConfirmOrderController: UIViewController {
             para.append(innerArr)
         }
         
-        if isIntegralGoods == true {
+        if isIntegralGoods == true || is_fu_xiao_goods == true {
             let paraDict = ["num": "\((ordersArr[0].buyCount)!)","spid": (ordersArr[0].goods_id)!, "aid": (self.addresseeModel?.address_id)!, "bqid": (ordersArr[0].tab_Id)!]
+           
             XHShoppingCartViewModel.commitOrder_integral(paraDict, self, dataArrClosure: { [weak self] (result) in
                 let orderId = NSString(string: result).integerValue
                 if orderId != 0 {
@@ -125,6 +129,9 @@ class XHConfirmOrderController: UIViewController {
                     pay.shoppingCartList = (self?.ordersArr)!
                     pay.comeFrom = (self?.comeFrom)!
                     pay.orderId = result
+                    if self?.is_fu_xiao_goods == true {
+                        pay.comeFrom = ConfirmOrderFrom.integral_goods
+                    }
                     if NSString(string: (self?.ordersArr[0].price)!).floatValue == 0.0, NSString(string: (self?.ordersArr[0].integral)!).floatValue != 0.0 {
                         let integralPay = XHIntegral_PaymentController()
                         integralPay.comeFrom = (self?.comeFrom)!
@@ -151,6 +158,25 @@ class XHConfirmOrderController: UIViewController {
                     XHAlertController.showAlertSigleAction(title: "提示", message: result, confirmTitle: "确定", confirmComplete: nil)
                 }
             })
+        }
+    }
+    
+    // MARK:- 提交九玺订单
+    private func commitOrder_jiu_xi() {
+        let paraDict = ["num": "\((ordersArr[0].buyCount)!)","spid": (ordersArr[0].goods_id)!, "aid": (self.addresseeModel?.address_id)!, "bqid": (ordersArr[0].tab_Id)!, "agent_phone": agentNum!]
+        XHShoppingCartViewModel.commitOrder_jiu_xi(paraDict, self) { [weak self] (result) in
+            let orderId = NSString(string: result).integerValue
+            if orderId != 0 {
+                let pay = XHFukuanStyleController()
+                pay.is_jiu_xi_order = (self?.is_jiu_xi_goods)!
+                pay.shoppingCartList = (self?.ordersArr)!
+                pay.comeFrom = ConfirmOrderFrom.integral_goods
+                pay.orderId = result
+               
+                self?.navigationController?.pushViewController(pay, animated: true)
+            }else {
+                XHAlertController.showAlertSigleAction(title: "提示", message: result, confirmTitle: "确定", confirmComplete: nil)
+            }
         }
     }
     
@@ -199,8 +225,40 @@ class XHConfirmOrderController: UIViewController {
         
         // 提交订单按钮点击事件
         bottomView.confirmButtonClickedClosure = { [weak self] in
-           
+            if self?.is_jiu_xi_goods == true {
+                self?.view.addSubview((self?.agentNumVc.view)!)
+                self?.addChildViewController((self?.agentNumVc)!)
+                self?.agentNumVc.view.snp.makeConstraints({ (make) in
+                    make.edges.equalTo((self?.view)!)
+                })
+                self?.agentNumVc.view.alpha = 0
+                UIView.animate(withDuration: 0.5, animations: {
+                    self?.agentNumVc.view.alpha = 1.0
+                })
+                
+                return
+            }
             self?.commitOrder()
+        }
+        
+        agentNumVc.cancelButtonClickedClosure = {
+            UIView.animate(withDuration: 0.5, animations: { [weak self] in
+                self?.agentNumVc.view.alpha = 0
+            }, completion: { [weak self] (finished) in
+                self?.agentNumVc.view.removeFromSuperview()
+                self?.agentNumVc.removeFromParentViewController()
+            })
+        }
+        
+        agentNumVc.confirmButtonClickedClosure = { [weak self] phoneNum in
+            self?.agentNum = phoneNum
+            UIView.animate(withDuration: 0.5, animations: {
+                self?.agentNumVc.view.alpha = 0
+            }, completion: { (finished) in
+                self?.agentNumVc.view.removeFromSuperview()
+                self?.agentNumVc.removeFromParentViewController()
+                self?.commitOrder_jiu_xi()
+            })
         }
     }
     private func setupNav() {
@@ -227,6 +285,8 @@ class XHConfirmOrderController: UIViewController {
     private lazy var headerView: XHConfirmOrderHeaderView = Bundle.main.loadNibNamed("XHConfirmOrderHeaderView", owner: self, options: nil)?.last as! XHConfirmOrderHeaderView
     /// footerView
     private lazy var footerView: XHConfirmOrderFooterView = Bundle.main.loadNibNamed("XHConfirmOrderFooterView", owner: self, options: nil)?.last as! XHConfirmOrderFooterView
+    // 代理商手机号
+    private lazy var agentNumVc: XHAgentPhoneNumberController = XHAgentPhoneNumberController()
 }
 
 extension XHConfirmOrderController: UITableViewDelegate, UITableViewDataSource {
