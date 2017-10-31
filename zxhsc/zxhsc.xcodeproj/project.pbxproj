@@ -403,12 +403,8 @@
 		73494CE71F2B274A00CB2EB1 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 73494CE21F2B274A00CB2EB1 /* City.m */; };
 		73494CE81F2B274A00CB2EB1 /* Province.m in Sources */ = {isa = PBXBuildFile; fileRef = 73494CE41F2B274A00CB2EB1 /* Province.m */; };
 		73494CEA1F2B29DC00CB2EB1 /* XHPickerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73494CE91F2B29DC00CB2EB1 /* XHPickerViewManager.swift */; };
-		734B361E1F1B63F300D60D62 /* XHHomeAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B361C1F1B63F300D60D62 /* XHHomeAreaCell.swift */; };
-		734B361F1F1B63F300D60D62 /* XHHomeAreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 734B361D1F1B63F300D60D62 /* XHHomeAreaCell.xib */; };
 		734B36221F1B8DB000D60D62 /* XHHomeNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B36201F1B8DB000D60D62 /* XHHomeNewsCell.swift */; };
 		734B36231F1B8DB000D60D62 /* XHHomeNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 734B36211F1B8DB000D60D62 /* XHHomeNewsCell.xib */; };
-		734B36261F1B92E900D60D62 /* XHPlatformCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B36241F1B92E900D60D62 /* XHPlatformCell.swift */; };
-		734B36271F1B92E900D60D62 /* XHPlatformCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 734B36251F1B92E900D60D62 /* XHPlatformCell.xib */; };
 		734B36291F1B9C5D00D60D62 /* XHHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B36281F1B9C5D00D60D62 /* XHHomeHeaderView.swift */; };
 		734B363A1F1B9EB700D60D62 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 734B362D1F1B9EB700D60D62 /* TAAbstractDotView.m */; };
 		734B363B1F1B9EB700D60D62 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 734B362F1F1B9EB700D60D62 /* TAAnimatedDotView.m */; };
@@ -981,12 +977,8 @@
 		73494CE31F2B274A00CB2EB1 /* Province.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Province.h; sourceTree = "<group>"; };
 		73494CE41F2B274A00CB2EB1 /* Province.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Province.m; sourceTree = "<group>"; };
 		73494CE91F2B29DC00CB2EB1 /* XHPickerViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHPickerViewManager.swift; sourceTree = "<group>"; };
-		734B361C1F1B63F300D60D62 /* XHHomeAreaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHHomeAreaCell.swift; sourceTree = "<group>"; };
-		734B361D1F1B63F300D60D62 /* XHHomeAreaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHHomeAreaCell.xib; sourceTree = "<group>"; };
 		734B36201F1B8DB000D60D62 /* XHHomeNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHHomeNewsCell.swift; sourceTree = "<group>"; };
 		734B36211F1B8DB000D60D62 /* XHHomeNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHHomeNewsCell.xib; sourceTree = "<group>"; };
-		734B36241F1B92E900D60D62 /* XHPlatformCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHPlatformCell.swift; sourceTree = "<group>"; };
-		734B36251F1B92E900D60D62 /* XHPlatformCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHPlatformCell.xib; sourceTree = "<group>"; };
 		734B36281F1B9C5D00D60D62 /* XHHomeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHHomeHeaderView.swift; sourceTree = "<group>"; };
 		734B362C1F1B9EB700D60D62 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
 		734B362D1F1B9EB700D60D62 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
@@ -2354,12 +2346,8 @@
 		73C077C31F171EA100FDDAA5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				734B361C1F1B63F300D60D62 /* XHHomeAreaCell.swift */,
-				734B361D1F1B63F300D60D62 /* XHHomeAreaCell.xib */,
 				734B36201F1B8DB000D60D62 /* XHHomeNewsCell.swift */,
 				734B36211F1B8DB000D60D62 /* XHHomeNewsCell.xib */,
-				734B36251F1B92E900D60D62 /* XHPlatformCell.xib */,
-				734B36241F1B92E900D60D62 /* XHPlatformCell.swift */,
 				734B36281F1B9C5D00D60D62 /* XHHomeHeaderView.swift */,
 				737C31841F1F2E6700905B0E /* hotSell */,
 				4132AFAA1F42D3480045D37F /* XHHome_DigitalCell.swift */,
@@ -2779,7 +2767,6 @@
 				41F407EC1F4ACC9000D5AC68 /* XHNewsTableCell.xib in Resources */,
 				41F71A481F3AECA4008A6D96 /* XHConfirmOrderFooterView.xib in Resources */,
 				41F7B1EB1F3C203B004AB507 /* XHShopSettingCell.xib in Resources */,
-				734B36271F1B92E900D60D62 /* XHPlatformCell.xib in Resources */,
 				73B9F81B1F298E0F004042CF /* XHRecommendViewCell.xib in Resources */,
 				4132AFAD1F42D3480045D37F /* XHHome_DigitalCell.xib in Resources */,
 				734B36231F1B8DB000D60D62 /* XHHomeNewsCell.xib in Resources */,
@@ -2843,7 +2830,6 @@
 				41F5F5F71FA6C171007C0B26 /* XHAgentPhoneNumberController.xib in Resources */,
 				410186C61F413BD00093089D /* XHPersonalOrder_ProductCell.xib in Resources */,
 				4110071C1F3D475600262186 /* XHDatePickerView.xib in Resources */,
-				734B361F1F1B63F300D60D62 /* XHHomeAreaCell.xib in Resources */,
 				7326A1F81F32C909005CF17D /* XHBussFirstSectionCell.xib in Resources */,
 				738F19491F2D891300D3E005 /* XHAuthenBankController.xib in Resources */,
 				411EFC6D1F90851D004933F4 /* XHMyBalance_DetailCell.xib in Resources */,
@@ -2970,7 +2956,6 @@
 				"${BUILT_PRODUCTS_DIR}/ALCameraViewController/ALCameraViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/HUPhotoBrowser/HUPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -2993,7 +2978,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALCameraViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HUPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -3212,7 +3196,6 @@
 				411E13181FA039C7009C5847 /* ZLPhotoPickerBrowserPhotoImageView.m in Sources */,
 				4122049E1F737CAB0004C1D6 /* XHProfileViewModel.swift in Sources */,
 				737C318C1F1F2E6700905B0E /* XHHotSellTableCell.swift in Sources */,
-				734B36261F1B92E900D60D62 /* XHPlatformCell.swift in Sources */,
 				41FB8E781F38352E007E53B1 /* XHMyOrderButtonView.swift in Sources */,
 				73DC6EFC1F316B7D00358739 /* XHWalletDetailCell.swift in Sources */,
 				41FBC2DE1F453C1F00E358A2 /* TFHpple.m in Sources */,
@@ -3332,7 +3315,6 @@
 				732091951F305C9A009B84F7 /* XHForgetPasswordController.swift in Sources */,
 				41B153331F73ABE3006DE52A /* XHCycle_UnfreezedCell.swift in Sources */,
 				410474441F972E1D00339F57 /* XHJudgeImageAlertView.swift in Sources */,
-				734B361E1F1B63F300D60D62 /* XHHomeAreaCell.swift in Sources */,
 				7390A41D1F1C7D7C00FC4473 /* XHRichLabel.swift in Sources */,
 				41F89D521F6B6B850083436A /* XHTempUserModel.swift in Sources */,
 				41A4007C1F8C921A00F94E93 /* XHIntegralPay_ProInfoCell.swift in Sources */,
