@@ -15,6 +15,7 @@ class XHOrderDetailController: UIViewController {
         didSet {
             page = 0
             cancelRequest?.cancelRequest()
+            setupEmptyUI()
             loadData()
         }
     }
@@ -54,7 +55,7 @@ class XHOrderDetailController: UIViewController {
     fileprivate func loadData() {
         var type: String = "0" // 0 - 全部 1 - 待发货 2 - 已发货 3 - 待付款 4 - 已完成
         switch orderType {
-        case .all: // 全部
+        case .all, .jiu_xi_goods: // 全部
             type = "0"
         case .obligation: // 待付款
             type = "3"
@@ -68,7 +69,13 @@ class XHOrderDetailController: UIViewController {
             break
         }
         page += 1
-        let paraDict = ["status": type, "page": "\(page)"]
+        var paraDict = ["status": type, "page": "\(page)"]
+        
+        if orderType == .jiu_xi_goods {
+            paraDict["style"] = "1"
+        }else {
+            paraDict["style"] = "0"
+        }
         showHud(in: view)
         cancelRequest = XHRequest.shareInstance.requestNetData(dataType: .getMyOrderList, parameters: paraDict, failure: { [weak self] (errorType) in
             self?.hideHud()

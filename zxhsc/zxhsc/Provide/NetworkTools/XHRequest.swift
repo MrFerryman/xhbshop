@@ -1767,7 +1767,10 @@ extension XHRequest {
         paramDict["userid"] = userid
         paramDict["userkey"] = token
         
-        let url = xhbaseURL +  "my_order_list" + "&c=" + "MyOrder"
+        let style = paramDict["style"]
+        
+        let lastUrl = (style == "1" ? "my_jx_order" : "my_order_list")
+        let url = xhbaseURL +  lastUrl + "&c=" + "MyOrder"
         
         let infoDictionary: Dictionary = Bundle.main.infoDictionary!
         let version =  (infoDictionary["CFBundleShortVersionString"] as? String)!

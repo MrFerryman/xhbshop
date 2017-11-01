@@ -15,6 +15,7 @@ enum OrderType {
     case shipped    // 已发货
     case finished   // 已完成
     case canceled  // 已取消
+    case jiu_xi_goods // 九玺产品
 }
 
 
@@ -76,11 +77,18 @@ class XHMyOrderController: UIViewController, XHPageViewControllerDelegate {
            setupPageView()
             TalkingData.trackPageBegin("线上订单页面")
             TalkingData.trackPageEnd("线下订单页面")
-        }else {
+            TalkingData.trackPageEnd("九玺订单页面")
+        }else if  sender.selectedSegmentIndex == 1 {
             setupOfflineView()
             TalkingData.trackPageBegin("线下订单页面")
             TalkingData.trackPageEnd("线上订单页面")
+            TalkingData.trackPageEnd("九玺订单页面")
             loadData()
+        }else {
+            setup_Jiu_xi_view()
+            TalkingData.trackPageBegin("九玺订单页面")
+            TalkingData.trackPageEnd("线上订单页面")
+            TalkingData.trackPageEnd("线下订单页面")
         }
     }
     
@@ -111,13 +119,31 @@ class XHMyOrderController: UIViewController, XHPageViewControllerDelegate {
     // MARK:- 布局线下消费订单视图
     private func setupOfflineView() {
         pageViewController.view.removeFromSuperview()
+        jiuxiViewC.view.removeFromSuperview()
+        jiuxiViewC.removeFromParentViewController()
         setupTableView()
+    }
+    
+    // MARK:- 布局九玺产品订单视图
+    private func setup_Jiu_xi_view() {
+        pageViewController.view.removeFromSuperview()
+        emptyL.removeFromSuperview()
+        emptyImgView.removeFromSuperview()
+        tableView.removeFromSuperview()
+        view.addSubview(jiuxiViewC.view)
+        self.addChildViewController(jiuxiViewC)
+        jiuxiViewC.view.snp.makeConstraints { (make) in
+            make.left.bottom.right.equalTo(view)
+            make.top.equalTo(topView.snp.bottom)
+        }
+        jiuxiViewC.orderType = .jiu_xi_goods
     }
     
     private func setupTableView() {
         emptyL.removeFromSuperview()
         emptyImgView.removeFromSuperview()
-        
+        jiuxiViewC.view.removeFromSuperview()
+        jiuxiViewC.removeFromParentViewController()
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.left.bottom.right.equalTo(view)
@@ -133,6 +159,9 @@ class XHMyOrderController: UIViewController, XHPageViewControllerDelegate {
     // MARK:- 布局空页面
     private func setupEmptyUI() {
         tableView.removeFromSuperview()
+        jiuxiViewC.view.removeFromSuperview()
+        jiuxiViewC.removeFromParentViewController()
+        pageViewController.view.removeFromSuperview()
         
         view.backgroundColor = XHRgbColorFromHex(rgb: 0xf4f6f7)
         view.addSubview(emptyImgView)
@@ -177,7 +206,7 @@ class XHMyOrderController: UIViewController, XHPageViewControllerDelegate {
     }()
     
     private lazy var segmentControl: UISegmentedControl = {
-        let items = ["线上订单", "线下订单"]
+        let items = ["线上订单", "线下订单", "九玺订单"]
         let segmentC = UISegmentedControl(items: items)
         segmentC.selectedSegmentIndex = 0
         segmentC.tintColor = XHRgbColorFromHex(rgb: 0xea2000)
@@ -195,6 +224,8 @@ class XHMyOrderController: UIViewController, XHPageViewControllerDelegate {
         tableView.estimatedSectionHeaderHeight = 0
         return tableView
     }()
+    
+    private lazy var jiuxiViewC: XHOrderDetailController = XHOrderDetailController()
     
     // 空页面图片
     private lazy var emptyImgView: UIImageView = UIImageView(image: UIImage(named: "order_nothing"))
