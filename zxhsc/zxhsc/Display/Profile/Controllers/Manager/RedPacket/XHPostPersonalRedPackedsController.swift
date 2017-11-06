@@ -9,7 +9,8 @@
 import UIKit
 
 class XHPostPersonalRedPackedsController: UIViewController {
-
+    @IBOutlet weak var topCon: NSLayoutConstraint!
+    
     @IBOutlet weak var moneyTF: UITextField!
     
     
@@ -19,6 +20,7 @@ class XHPostPersonalRedPackedsController: UIViewController {
     
     @IBOutlet weak var putInButton: UIButton!
     
+    @IBOutlet weak var topHeightCon: NSLayoutConstraint!
     /// 是否是个人红包
     var isPersonalRedPacketes: Bool = true {
         didSet {
@@ -38,9 +40,19 @@ class XHPostPersonalRedPackedsController: UIViewController {
             countView.isHidden = false
         }
         
+        if kUIScreenWidth == 320 {
+            topHeightCon.constant = 155
+        }
+        
         putInButton.layer.cornerRadius = 6
         putInButton.layer.masksToBounds = true
         setupNav()
+        
+        if KUIScreenHeight == 812 {
+            topCon.constant = 90
+        }else {
+            topCon.constant = 64
+        }
     }
 
     override func didReceiveMemoryWarning() {

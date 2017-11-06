@@ -42,6 +42,13 @@ class XHScaleRankController: UIViewController {
             if self?.tableView.mj_header != nil {
                 self?.tableView.mj_header.endRefreshing()
             }
+            
+            if self?.scaleList.count == 0 {
+                self?.tableView.tableFooterView = self?.footerView
+                self?.footerView.title = "暂无相关数据"
+            }else {
+                self?.tableView.tableFooterView = nil
+            }
         }
     }
     
@@ -81,6 +88,8 @@ class XHScaleRankController: UIViewController {
         tableView.separatorStyle = .none
         return tableView
     }()
+    
+    private lazy var footerView: XHTableFooterView = XHTableFooterView()
 }
 
 extension XHScaleRankController: UITableViewDelegate, UITableViewDataSource {

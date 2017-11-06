@@ -239,7 +239,11 @@ class XHProfileViewController: UIViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(view)
-            make.bottom.equalTo(-44)
+            if KUIScreenHeight == 812 {
+                make.bottom.equalTo(-75)
+            }else {
+                make.bottom.equalTo(-44)
+            }
         }
     }
     

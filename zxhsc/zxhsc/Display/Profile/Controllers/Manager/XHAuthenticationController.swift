@@ -11,6 +11,9 @@ import UIKit
 var isEmpty_Authentication: Bool = false
 
 class XHAuthenticationController: UIViewController {
+    
+    @IBOutlet weak var topCon: NSLayoutConstraint!
+    
     @IBOutlet weak var navView: UIView!
     
     @IBOutlet weak var unEmptyView: UIView! // 非空界面
@@ -48,6 +51,12 @@ class XHAuthenticationController: UIViewController {
         
         let item = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         navigationItem.backBarButtonItem = item
+        
+        if KUIScreenHeight == 812 {
+            topCon.constant = 90
+        }else {
+            topCon.constant = 64
+        }
     }
 
     override func didReceiveMemoryWarning() {

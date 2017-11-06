@@ -10,6 +10,8 @@ import UIKit
 
 class XHWithdrawalController: UIViewController {
 
+    @IBOutlet weak var topHeightCon: NSLayoutConstraint!
+    
     @IBOutlet weak var accountL: UILabel!
     
     @IBOutlet weak var moneyTF: UITextField!
@@ -32,6 +34,11 @@ class XHWithdrawalController: UIViewController {
         getBalanceExplain()
         commitBtn.layer.cornerRadius = 8
         commitBtn.layer.masksToBounds = true
+        if KUIScreenHeight == 812 {
+            topHeightCon.constant = 90
+        }else {
+            topHeightCon.constant = 64
+        }
     }
 
     override func didReceiveMemoryWarning() {

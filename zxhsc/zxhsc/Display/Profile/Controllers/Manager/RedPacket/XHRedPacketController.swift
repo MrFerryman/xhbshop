@@ -10,6 +10,8 @@ import UIKit
 
 class XHRedPacketController: UIViewController {
 
+    @IBOutlet weak var topCon: NSLayoutConstraint!
+    
     @IBOutlet weak var upImage_heightCon: NSLayoutConstraint!
     
     @IBOutlet weak var redHeightCon: NSLayoutConstraint!
@@ -31,6 +33,11 @@ class XHRedPacketController: UIViewController {
         personalButton.adjustsImageWhenHighlighted = true
         
         setupNav()
+        if KUIScreenHeight == 812 {
+            topCon.constant = 90
+        }else {
+            topCon.constant = 64
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

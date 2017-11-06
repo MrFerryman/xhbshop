@@ -10,6 +10,8 @@ import UIKit
 
 class XHModifyPasswordController: UIViewController {
 
+    @IBOutlet weak var topCon: NSLayoutConstraint!
+    
     @IBOutlet weak var oldPasswordTF: UITextField!
     
     @IBOutlet weak var newPasswordTF: UITextField!
@@ -27,7 +29,11 @@ class XHModifyPasswordController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if KUIScreenHeight == 812 {
+            topCon.constant = 90
+        }else {
+            topCon.constant = 64
+        }
     }
 
     override func didReceiveMemoryWarning() {

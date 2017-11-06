@@ -182,7 +182,11 @@ class XHBussinessShopController: UIViewController {
         tableView.snp.makeConstraints { (make) in
             if isMyShop == false {
                 make.left.right.equalTo(view)
-                make.bottom.equalTo(-44)
+                if KUIScreenHeight == 812 {
+                    make.bottom.equalTo(-75)
+                }else {
+                    make.bottom.equalTo(-44)
+                }
             }else {
                 make.left.right.bottom.equalTo(view)
             }

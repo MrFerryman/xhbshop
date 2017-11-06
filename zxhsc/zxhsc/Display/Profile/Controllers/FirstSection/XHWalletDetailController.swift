@@ -38,7 +38,11 @@ class XHWalletDetailController: UIViewController, XHPageViewControllerDelegate {
 
         pageMenuController.view.snp.makeConstraints { (make) in
             make.left.bottom.right.equalTo(view)
-            make.top.equalTo(64)
+            if KUIScreenHeight == 812 {
+                make.top.equalTo(90)
+            }else {
+                make.top.equalTo(64)
+            }
         }
     }
     

@@ -60,9 +60,14 @@ class XHMyCycleController: UIViewController {
         pageMenuController.tipBtnHighlightedColor = XHRgbColorFromHex(rgb: 0xea2000)
         pageMenuController.sliderColor = XHRgbColorFromHex(rgb: 0xea2000)
         pageMenuController.tipBtnFontSize = 14
+        automaticallyAdjustsScrollViewInsets = true
         pageMenuController.view.snp.makeConstraints { (make) in
             make.left.bottom.right.equalTo(view)
-            make.top.equalTo(64)
+            if KUIScreenHeight == 812 {
+                make.top.equalTo(90)
+            }else {
+                make.top.equalTo(64)
+            }
         }
     }
     

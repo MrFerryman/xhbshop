@@ -15,8 +15,8 @@ import SSKeychain
 var isOpenShop: Bool = false
  /// baseURL
  var XHBaseURL: String {
-    return "http://118.190.142.233/app.php?do="
-//    return "http://appback.zxhshop.cn/app.php?do="
+//    return "http://118.190.142.233/app.php?do="
+    return "http://appback.zxhshop.cn/app.php?do="
  }
 
 enum XHNetDataType {

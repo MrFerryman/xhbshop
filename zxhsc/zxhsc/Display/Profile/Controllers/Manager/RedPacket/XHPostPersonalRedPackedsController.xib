@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,6 +15,8 @@
                 <outlet property="countView" destination="3jQ-a7-CqB" id="jIl-iS-30Y"/>
                 <outlet property="moneyTF" destination="psa-K3-h88" id="oRR-gc-ukx"/>
                 <outlet property="putInButton" destination="0MK-5j-j6v" id="yK7-Xf-NYj"/>
+                <outlet property="topCon" destination="gM0-7Z-1hd" id="ARJ-KB-bI6"/>
+                <outlet property="topHeightCon" destination="sMo-Ja-oD6" id="qmr-nv-4Gp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,7 +33,7 @@
                     </constraints>
                 </view>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_post_bg" translatesAutoresizingMaskIntoConstraints="NO" id="OjR-sH-f3s">
-                    <rect key="frame" x="17.5" y="84" width="340" height="543"/>
+                    <rect key="frame" x="17.5" y="84" width="340" height="540"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucg-dP-eXs">
                     <rect key="frame" x="37.5" y="284" width="300" height="44"/>
@@ -108,13 +110,13 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCq-a5-wns">
-                    <rect key="frame" x="138" y="475" width="99.5" height="48"/>
+                    <rect key="frame" x="138" y="472" width="99.5" height="48"/>
                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                     <color key="textColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0MK-5j-j6v">
-                    <rect key="frame" x="37.5" y="543" width="300" height="44"/>
+                    <rect key="frame" x="37.5" y="540" width="300" height="44"/>
                     <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="IKf-c2-1Js"/>
@@ -131,12 +133,13 @@
             <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="SCo-ah-iex" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0JH-YH-ctZ"/>
+                <constraint firstAttribute="trailing" secondItem="OjR-sH-f3s" secondAttribute="trailing" constant="17.5" id="1EW-gO-ZPz"/>
+                <constraint firstItem="OjR-sH-f3s" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17.5" id="Atz-42-lgz"/>
                 <constraint firstItem="SCo-ah-iex" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EFl-2F-8JI"/>
                 <constraint firstItem="0MK-5j-j6v" firstAttribute="top" secondItem="oCq-a5-wns" secondAttribute="bottom" constant="20" id="Eqe-J4-mXW"/>
                 <constraint firstItem="0MK-5j-j6v" firstAttribute="leading" secondItem="OjR-sH-f3s" secondAttribute="leading" constant="20" id="GRm-Dc-DZb"/>
                 <constraint firstItem="3jQ-a7-CqB" firstAttribute="top" secondItem="ucg-dP-eXs" secondAttribute="bottom" constant="20" id="K2L-mQ-s0K"/>
                 <constraint firstAttribute="trailing" secondItem="SCo-ah-iex" secondAttribute="trailing" id="KrS-p6-lcV"/>
-                <constraint firstAttribute="bottom" secondItem="OjR-sH-f3s" secondAttribute="bottom" constant="40" id="Lpc-HG-bQT"/>
                 <constraint firstItem="ucg-dP-eXs" firstAttribute="leading" secondItem="OjR-sH-f3s" secondAttribute="leading" constant="20" id="PoO-Q8-MVZ"/>
                 <constraint firstItem="3jQ-a7-CqB" firstAttribute="leading" secondItem="ucg-dP-eXs" secondAttribute="leading" id="Rws-dH-9br"/>
                 <constraint firstItem="0MK-5j-j6v" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bGD-Pb-pFb"/>

@@ -150,7 +150,11 @@ class XHMyAddressController: UIViewController {
         view.addSubview(topView)
         topView.snp.makeConstraints { (make) in
             make.left.top.right.equalTo(view)
-            make.height.equalTo(64)
+            if KUIScreenHeight == 812 {
+                make.height.equalTo(90)
+            }else {
+                make.height.equalTo(64)
+            }
         }
         
         let rightItem = UIBarButtonItem(image: UIImage(named: "address_add_image")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(addAddress))

@@ -37,6 +37,7 @@ class XHDoCommentController: UIViewController, ZLPhotoPickerViewControllerDelega
     /// 上传的图片数组
     private var iconUrlsArr: [String] = []
     
+    @IBOutlet weak var topCon: NSLayoutConstraint!
     /// 评价模型
     var model: XHMyValuationModel? {
         didSet {
@@ -56,6 +57,12 @@ class XHDoCommentController: UIViewController, ZLPhotoPickerViewControllerDelega
         
         productNameL.text = model?.pro_name
         commentTextView.delegate = self
+        
+        if KUIScreenHeight == 812 {
+            topCon.constant = 90
+        }else {
+            topCon.constant = 64
+        }
     }
 
     override func didReceiveMemoryWarning() {

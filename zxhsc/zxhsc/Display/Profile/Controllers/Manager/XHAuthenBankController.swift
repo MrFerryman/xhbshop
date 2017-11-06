@@ -10,6 +10,7 @@ import UIKit
 
 class XHAuthenBankController: UIViewController {
 
+    @IBOutlet weak var topCon: NSLayoutConstraint!
     @IBOutlet weak var cardNumberTF: UITextField! // 银行卡号
     
     @IBOutlet weak var openAreaBtn: UIButton!
@@ -61,6 +62,12 @@ class XHAuthenBankController: UIViewController {
         phoneNumberTF.text = bankModel?.phoneNum
         
         title = "银行卡认证"
+        
+        if KUIScreenHeight == 812 {
+            topCon.constant = 90
+        }else {
+            topCon.constant = 64
+        }
     }
 
     

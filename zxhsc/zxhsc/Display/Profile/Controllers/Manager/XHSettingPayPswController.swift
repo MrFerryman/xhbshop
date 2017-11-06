@@ -10,6 +10,7 @@ import UIKit
 
 class XHSettingPayPswController: UIViewController {
 
+    @IBOutlet weak var topCon: NSLayoutConstraint!
     
     @IBOutlet weak var payTF: UITextField! // 支付密码
     
@@ -28,6 +29,12 @@ class XHSettingPayPswController: UIViewController {
         commitButton.layer.masksToBounds = true
         
         setupNav()
+        
+        if KUIScreenHeight == 812 {
+            topCon.constant = 90
+        }else {
+            topCon.constant = 64
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

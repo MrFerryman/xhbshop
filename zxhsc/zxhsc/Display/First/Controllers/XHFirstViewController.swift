@@ -431,7 +431,24 @@ class XHFirstViewController: UIViewController, UISearchBarDelegate {
             goodsDetailV.goodsId = sessionModel.id
             navigationController?.pushViewController(goodsDetailV, animated: true)
         default:
-            break
+            switch (sessionModel.id)! {
+            case "24":
+                let minusDouble = XHSpecialViewController()
+                    setupChildViewController()
+                    minusDouble.is_fu_xiao_zone = true
+                    minusDouble.sessionId = "24"
+                    minusDouble.title = "复消专区"
+                    navigationController?.pushViewController(minusDouble, animated: true)
+            case "26":
+                let nineXi = XHSpecialViewController()
+                setupChildViewController()
+                nineXi.is_nineXi = true
+                nineXi.sessionId = "26"
+                nineXi.title = "九玺专区"
+                navigationController?.pushViewController(nineXi, animated: true)
+            default:
+                break
+            }
         }
     }
     
@@ -598,24 +615,11 @@ extension XHFirstViewController: UITableViewDelegate, UITableViewDataSource {
                     self?.tabBarController?.selectedIndex = 1
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: noti_name_jumpToClassRow), object: self, userInfo: ["row": "特惠专区"])
                 case 1003:
-//                    self?.tabBarController?.selectedIndex = 1
-//                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: noti_name_jumpToClassRow), object: self, userInfo: ["row": "汽车专区"])
-                    let minusDouble = XHSpecialViewController()
-                    self?.setupChildViewController()
-                    minusDouble.is_fu_xiao_zone = true
-                    minusDouble.sessionId = "24"
-                    minusDouble.title = "复消专区"
-                    self?.navigationController?.pushViewController(minusDouble, animated: true)
+                    self?.tabBarController?.selectedIndex = 1
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: noti_name_jumpToClassRow), object: self, userInfo: ["row": "汽车专区"])
                 case 1004:
-//                    self?.tabBarController?.selectedIndex = 1
-//                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: noti_name_jumpToClassRow), object: self, userInfo: ["row": "房屋地产"])
-                    let nineXi = XHSpecialViewController()
-                    self?.setupChildViewController()
-                    nineXi.is_nineXi = true
-                    nineXi.sessionId = "26"
-                    nineXi.title = "九玺专区"
-                    
-                    self?.navigationController?.pushViewController(nineXi, animated: true)
+                    self?.tabBarController?.selectedIndex = 1
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: noti_name_jumpToClassRow), object: self, userInfo: ["row": "房屋地产"])
                 default:
                     break
                 }

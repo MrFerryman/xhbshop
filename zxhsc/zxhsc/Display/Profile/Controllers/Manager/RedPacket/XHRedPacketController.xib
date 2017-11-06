@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,6 +16,7 @@
                 <outlet property="personalButton" destination="jT6-8N-yl2" id="Ev5-68-bBO"/>
                 <outlet property="redHeightCon" destination="89a-yV-dQu" id="h7I-nR-02h"/>
                 <outlet property="redWidthCon" destination="mNV-OR-Ydo" id="dJG-b0-F82"/>
+                <outlet property="topCon" destination="NRx-Jr-HhW" id="aFX-Uh-mAP"/>
                 <outlet property="upImage_heightCon" destination="jVG-o8-Uqb" id="XAo-Gz-5mL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -45,16 +46,16 @@
                         <color key="titleColor" red="0.36862745098039218" green="0.38431372549019605" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4v-We-hA1">
-                    <rect key="frame" x="197.5" y="408" width="160" height="200"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4v-We-hA1">
+                    <rect key="frame" x="197.5" y="404" width="160" height="200"/>
                     <state key="normal" backgroundImage="red_group"/>
                     <state key="highlighted" backgroundImage="red_group"/>
                     <connections>
                         <action selector="groupRedPackedButtonDidClicked:" destination="-1" eventType="touchUpInside" id="xVB-In-lzb"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jT6-8N-yl2">
-                    <rect key="frame" x="18" y="408" width="160" height="200"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jT6-8N-yl2">
+                    <rect key="frame" x="18" y="404" width="160" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="89a-yV-dQu"/>
                         <constraint firstAttribute="width" constant="160" id="mNV-OR-Ydo"/>
@@ -75,12 +76,12 @@
                 <constraint firstItem="2g2-dU-9Ro" firstAttribute="top" secondItem="HqV-5L-TWF" secondAttribute="bottom" id="I3M-kb-zOB"/>
                 <constraint firstItem="U4v-We-hA1" firstAttribute="bottom" secondItem="jT6-8N-yl2" secondAttribute="bottom" id="LfU-TO-sDI"/>
                 <constraint firstItem="HqV-5L-TWF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OHe-lU-Akc"/>
-                <constraint firstItem="gA0-Ym-wRk" firstAttribute="top" secondItem="jT6-8N-yl2" secondAttribute="bottom" constant="12" id="Qso-mU-Jv8"/>
                 <constraint firstAttribute="bottom" secondItem="gA0-Ym-wRk" secondAttribute="bottom" constant="20" id="V7p-XI-cvZ"/>
                 <constraint firstAttribute="trailing" secondItem="2g2-dU-9Ro" secondAttribute="trailing" id="XPZ-r1-MPM"/>
                 <constraint firstItem="jT6-8N-yl2" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-10" id="cSS-C5-hFj"/>
                 <constraint firstItem="2g2-dU-9Ro" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="m0T-t2-QAe"/>
                 <constraint firstItem="U4v-We-hA1" firstAttribute="width" secondItem="jT6-8N-yl2" secondAttribute="width" id="mMB-Ao-GJ3"/>
+                <constraint firstItem="jT6-8N-yl2" firstAttribute="top" secondItem="2g2-dU-9Ro" secondAttribute="bottom" constant="20" id="oES-fi-ORb"/>
                 <constraint firstItem="gA0-Ym-wRk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yDN-I4-YjD"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="54.5"/>

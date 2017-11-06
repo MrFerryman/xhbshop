@@ -10,6 +10,7 @@ import UIKit
 
 class XHForgetPasswordController: UIViewController {
 
+    @IBOutlet weak var topCon: NSLayoutConstraint!
     @IBOutlet weak var phoneNumTF: UITextField!
     
     @IBOutlet weak var newPasswordTF: UITextField!
@@ -33,7 +34,11 @@ class XHForgetPasswordController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        if KUIScreenHeight == 812 {
+            topCon.constant = 90
+        }else {
+            topCon.constant = 64
+        }
     }
     
     override func viewWillLayoutSubviews() {

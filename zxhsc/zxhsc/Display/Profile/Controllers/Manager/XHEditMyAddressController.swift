@@ -10,6 +10,7 @@ import UIKit
 
 class XHEditMyAddressController: UIViewController {
 
+    @IBOutlet weak var topCon: NSLayoutConstraint!
     @IBOutlet weak var nameTF: UITextField!
     
     @IBOutlet weak var phoneNumTF: UITextField!
@@ -43,6 +44,12 @@ class XHEditMyAddressController: UIViewController {
         }
         
         detailLocationTV.text = myAddressModel?.street
+        
+        if KUIScreenHeight == 812 {
+            topCon.constant = 90
+        }else {
+            topCon.constant = 64
+        }
         
         setupBasic()
     }

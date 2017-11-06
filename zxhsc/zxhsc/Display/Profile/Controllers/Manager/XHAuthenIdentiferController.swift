@@ -10,6 +10,7 @@ import UIKit
 
 class XHAuthenIdentiferController: UIViewController {
     
+    @IBOutlet weak var topCon: NSLayoutConstraint!
     
     @IBOutlet weak var nameTF: UITextField!
 
@@ -31,6 +32,11 @@ class XHAuthenIdentiferController: UIViewController {
         idenNumTF.text = myBankModel?.idCardNum
         
         setupNav()
+        if KUIScreenHeight == 812 {
+            topCon.constant = 90
+        }else {
+            topCon.constant = 64
+        }
     }
 
     override func didReceiveMemoryWarning() {

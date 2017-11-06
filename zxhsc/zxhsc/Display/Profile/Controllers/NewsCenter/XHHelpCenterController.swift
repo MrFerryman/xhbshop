@@ -88,7 +88,11 @@ class XHHelpCenterController: UIViewController {
         view.addSubview(topView)
         topView.snp.makeConstraints { (make) in
             make.left.top.right.equalTo(view)
-            make.height.equalTo(64)
+            if KUIScreenHeight == 812 {
+                make.height.equalTo(90)
+            }else {
+                make.height.equalTo(64)
+            }
         }
         
         UIApplication.shared.statusBarStyle = .default

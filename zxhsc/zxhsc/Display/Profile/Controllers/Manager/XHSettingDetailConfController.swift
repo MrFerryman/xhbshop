@@ -10,6 +10,7 @@ import UIKit
 
 class XHSettingDetailConfController: UIViewController {
 
+    @IBOutlet weak var topCon: NSLayoutConstraint!
     @IBOutlet weak var textField: UITextField! // 文本输入框
     
     @IBOutlet weak var saveButton: UIButton! // 保存按钮
@@ -35,6 +36,12 @@ class XHSettingDetailConfController: UIViewController {
             textField.text = userModel?.name
         case .nickname:
             textField.text = userModel?.nickname
+        }
+        
+        if KUIScreenHeight == 812 {
+            topCon.constant = 90
+        }else {
+            topCon.constant = 64
         }
     }
     
