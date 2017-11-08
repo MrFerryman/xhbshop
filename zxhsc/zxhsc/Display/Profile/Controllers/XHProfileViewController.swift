@@ -541,14 +541,14 @@ extension XHProfileViewController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 return 30
             }else {
-                let token = SSKeychain.password(forService: userTokenName, account: "TOKEN")
-                let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
+//                let token = SSKeychain.password(forService: userTokenName, account: "TOKEN")
+//                let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
                 
-                if token != nil, userid != nil  {
-                    return profile_manage_perRowHeight * 4
-                }else {
-                    return profile_manage_perRowHeight * 3
-                }
+//                if token != nil, userid != nil  {
+                return profile_manage_perRowHeight * 4
+//                }else {
+//                    return profile_manage_perRowHeight * 3
+//                }
             }
             
         case "news":

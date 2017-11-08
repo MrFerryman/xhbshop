@@ -23,6 +23,9 @@ class XHGoodsListModel: Mappable {
     /// 价格
     var price: String?
     
+    /// 原价
+    var listprice: String?
+    
     /// 循环宝
     var xhb: CGFloat = 0
     
@@ -53,6 +56,7 @@ class XHGoodsListModel: Mappable {
         title <- map["title"]
         icon <- map["pic"]
         price <- map["price"]
+        listprice <- map["listprice"]
         integral <- map["jifenduihuan"]
         content <- map["content"]
         xhb <- map["xhd"]

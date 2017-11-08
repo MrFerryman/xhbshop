@@ -101,6 +101,8 @@
 		411EFC6C1F90851D004933F4 /* XHMyBalance_DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411EFC6A1F90851D004933F4 /* XHMyBalance_DetailCell.swift */; };
 		411EFC6D1F90851D004933F4 /* XHMyBalance_DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411EFC6B1F90851D004933F4 /* XHMyBalance_DetailCell.xib */; };
 		41200D0F1FB2B26C00F543D6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41200D0E1FB2B25F00F543D6 /* CFNetwork.framework */; };
+		41200D4C1FB2D19D00F543D6 /* XHExchangeXHBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41200D4A1FB2D19D00F543D6 /* XHExchangeXHBController.swift */; };
+		41200D4D1FB2D19D00F543D6 /* XHExchangeXHBController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41200D4B1FB2D19D00F543D6 /* XHExchangeXHBController.xib */; };
 		412204991F7361C30004C1D6 /* XHXHB_FreezedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412204971F7361C20004C1D6 /* XHXHB_FreezedCell.swift */; };
 		4122049A1F7361C30004C1D6 /* XHXHB_FreezedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412204981F7361C20004C1D6 /* XHXHB_FreezedCell.xib */; };
 		4122049C1F737A060004C1D6 /* XHXHB_UnfreezedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4122049B1F737A060004C1D6 /* XHXHB_UnfreezedModel.swift */; };
@@ -667,6 +669,8 @@
 		411EFC6A1F90851D004933F4 /* XHMyBalance_DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHMyBalance_DetailCell.swift; sourceTree = "<group>"; };
 		411EFC6B1F90851D004933F4 /* XHMyBalance_DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XHMyBalance_DetailCell.xib; sourceTree = "<group>"; };
 		41200D0E1FB2B25F00F543D6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		41200D4A1FB2D19D00F543D6 /* XHExchangeXHBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHExchangeXHBController.swift; sourceTree = "<group>"; };
+		41200D4B1FB2D19D00F543D6 /* XHExchangeXHBController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XHExchangeXHBController.xib; sourceTree = "<group>"; };
 		412204971F7361C20004C1D6 /* XHXHB_FreezedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHXHB_FreezedCell.swift; sourceTree = "<group>"; };
 		412204981F7361C20004C1D6 /* XHXHB_FreezedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XHXHB_FreezedCell.xib; sourceTree = "<group>"; };
 		4122049B1F737A060004C1D6 /* XHXHB_UnfreezedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHXHB_UnfreezedModel.swift; sourceTree = "<group>"; };
@@ -2194,6 +2198,8 @@
 				73B9F8281F29F134004042CF /* XHWithdrawalController.swift */,
 				73B9F8291F29F134004042CF /* XHWithdrawalController.xib */,
 				73494CC51F2ACCA000CB2EB1 /* XHMyContactsController.swift */,
+				41200D4A1FB2D19D00F543D6 /* XHExchangeXHBController.swift */,
+				41200D4B1FB2D19D00F543D6 /* XHExchangeXHBController.xib */,
 			);
 			name = "Manager(管理)";
 			path = Manager;
@@ -2790,6 +2796,7 @@
 				41FB8E761F382EC5007E53B1 /* XHMyOrderTableViewCell.xib in Resources */,
 				41FB6A321F34661600A10C51 /* XHGoodsDetail_TableView_firstCell.xib in Resources */,
 				7326DFCD1F2D8F6D002948F4 /* AGENCYB.TTF in Resources */,
+				41200D4D1FB2D19D00F543D6 /* XHExchangeXHBController.xib in Resources */,
 				41F20B2B1F679434003B6857 /* XHQRCoderPaymentOrderCell.xib in Resources */,
 				410186CE1F4145DA0093089D /* XHPersonalOrder_accountCell.xib in Resources */,
 				41F7B1F31F3C26D3004AB507 /* XHShopSetting_inStoreView.xib in Resources */,
@@ -3378,6 +3385,7 @@
 				735DF4491F172173001D0D65 /* XHFirstViewController.swift in Sources */,
 				41063B891F53EE71009A3348 /* CCZTrotingAttribute.m in Sources */,
 				4119FF3F1F623C25005FE31C /* XHShoppingCartViewModel.swift in Sources */,
+				41200D4C1FB2D19D00F543D6 /* XHExchangeXHBController.swift in Sources */,
 				41F71A541F3B2365008A6D96 /* XHShopFooterView.swift in Sources */,
 				41F407E81F4ACB9900D5AC68 /* XHNewsViewController.swift in Sources */,
 				41F71A4B1F3AF07A008A6D96 /* XHConfirmOrderCell.swift in Sources */,

@@ -40,7 +40,7 @@
 		<key>mg_icon</key>
 		<string>17icon_zhuanXHB</string>
 		<key>mg_targetVc</key>
-		<string>XHRedPacketController</string>
+		<string>XHExchangeXHBController</string>
 	</dict>
 	<dict>
 		<key>mg_title</key>

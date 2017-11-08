@@ -58,6 +58,19 @@ class XHGoodsDetail_TableView_firstCell: UITableViewCell {
                 returnL.attributedText = returnL.richLableWithRedImage(" \(String(describing: (detailModel?.xhb)!))(\(String(format: "%.1f", bei))倍)", fontSize: 10, imgName: "shop_yuanbao")
             }
             
+            if detailModel?.listprice != nil, detailModel?.listprice != detailModel?.price {
+                addSubview(listPriceL)
+                listPriceL.snp.makeConstraints({ (make) in
+                    make.centerY.equalTo(priceL)
+                    make.left.equalTo(priceL.snp.right).offset(12)
+                })
+                
+                let attri = NSMutableAttributedString(string: (detailModel?.listprice)!)
+                let strLength = NSString(string: (detailModel?.listprice)!).length
+                attri.addAttributes([NSAttributedStringKey.strikethroughStyle: 1], range: NSRange(location: 0, length: strLength))
+                listPriceL.attributedText = attri
+            }
+            
             if isIntegralGoods == true {
                 integralPriceL.isHidden = false
                 if detailModel?.integral != nil {
@@ -102,5 +115,12 @@ class XHGoodsDetail_TableView_firstCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    
+    private lazy var listPriceL: UILabel = {
+        let label = UILabel()
+        label.textColor = XHRgbColorFromHex(rgb: 0x666666)
+        label.font = UIFont.systemFont(ofSize: 14)
+        return label
+    }()
     
 }

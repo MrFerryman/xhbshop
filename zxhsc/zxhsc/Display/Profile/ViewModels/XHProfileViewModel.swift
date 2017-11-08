@@ -73,4 +73,23 @@ class XHProfileViewModel: NSObject {
                 failure(error)
         })
     }
+    
+    // MARK:- 转宝请求
+    class func post_exchange_xhb(target: UIViewController, paramter: [String: String], success: @escaping ((Any) -> ())) {
+        target.showHud(in: target.view, hint: "发送中...", yOffset: 0)
+        _ = XHRequest.shareInstance.requestNetData(dataType: .post_exchange_xhb, parameters: paramter, failure: { (errorType) in
+            target.hideHud()
+            var title: String?
+            switch errorType {
+            case .timeOut:
+                title = "网络请求超时，请重新请求~"
+            default:
+                title = "网络请求错误，请重新请求~"
+            }
+            target.showHint(in: target.view, hint: title!)
+        }, success: { (str) in
+            target.hideHud()
+            success(str)
+        })
+    }
 }

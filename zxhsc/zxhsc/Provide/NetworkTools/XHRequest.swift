@@ -76,6 +76,7 @@ enum XHNetDataType {
     case redPackets_send               // 发红包
     case getMyRedPacketsList       // 我的红包列表
     case getWechatPaymentDetail // 获取微信支付的订单信息
+    case post_exchange_xhb           // 转宝
     
     // MARK:- 商盟
     case getFriendClassesList          // 获取商盟 分类列表
@@ -286,6 +287,8 @@ extension XHRequest {
             return getMyRedPacketsList(parameters: parameters, failure: failure, success: success)
         case .getWechatPaymentDetail: // 获取微信支付订单信息
             return getWechatPaymentDetail(parameters: parameters, failure: failure, success: success)
+        case .post_exchange_xhb:           // 转宝接口
+            return post_exchange_xhb(parameters: parameters, failure: failure, success: success)
             
             // MARK:- 商盟
         case .getFriendClassesList:    // 获取商盟 分类列表
@@ -2252,7 +2255,7 @@ extension XHRequest {
         return cancelRequest
     }
     
-    // MARK:- 请求 微信支付订单详情
+    // MARK:- 请求 微信支付订单详情 post_exchange_xhb
     fileprivate func getWechatPaymentDetail(parameters: [String: String]?, failure:@escaping (ErrorType) -> Void, success:@escaping (Any) -> Void) -> XHCancelRequest? {
         
         guard var paramDict = parameters else {
@@ -2281,6 +2284,45 @@ extension XHRequest {
                 success(modelArr)
             }else {
                 success((response as! [String: Any])["text"])
+            }
+        }
+        
+        let cancelRequest = XHCancelRequest(request: manager)
+        return cancelRequest
+    }
+    
+    // MARK:- 转宝 请求
+    fileprivate func post_exchange_xhb(parameters: [String: String]?, failure:@escaping (ErrorType) -> Void, success:@escaping (Any) -> Void) -> XHCancelRequest? {
+        
+        guard var paramDict = parameters else {
+            failure(ErrorType.networkError)
+            return nil
+        }
+        
+        let token = SSKeychain.password(forService: userTokenName, account: "TOKEN")
+        let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
+        
+        paramDict["userid"] = userid
+        paramDict["userkey"] = token
+        
+        let url = xhbaseURL + "attorn_xhb"
+        
+        let infoDictionary: Dictionary = Bundle.main.infoDictionary!
+        let version =  (infoDictionary["CFBundleShortVersionString"] as? String)!
+        paramDict["platformName"] = "iOS"
+        paramDict["platformVersion"] = version
+        
+        let manager = XHNetworkTools.instance.requestPOSTURL(url, params: paramDict, failure: { (errorType, error) in
+            failure(errorType)
+        }) { (response) in
+            if let text = (response as! [String: Any])["status"] {
+                if (text as! NSNumber) == 1  {
+                    success("转宝成功")
+                }else {
+                    success((response as! [String: Any])["text"])
+                }
+            }else {
+                success("未知错误~")
             }
         }
         
