@@ -36,6 +36,22 @@
 	</dict>
 	<dict>
 		<key>mg_title</key>
+		<string>转循环宝</string>
+		<key>mg_icon</key>
+		<string>17icon_zhuanXHB</string>
+		<key>mg_targetVc</key>
+		<string>XHRedPacketController</string>
+	</dict>
+	<dict>
+		<key>mg_title</key>
+		<string>红包</string>
+		<key>mg_icon</key>
+		<string>profile_redP</string>
+		<key>mg_targetVc</key>
+		<string>XHRedPacketController</string>
+	</dict>
+	<dict>
+		<key>mg_title</key>
 		<string>大额支付</string>
 		<key>mg_icon</key>
 		<string>16icon_daezhifu</string>
@@ -89,14 +105,6 @@
 		<string>profile_guanyu</string>
 		<key>mg_targetVc</key>
 		<string>XHAboutController</string>
-	</dict>
-	<dict>
-		<key>mg_title</key>
-		<string>红包</string>
-		<key>mg_icon</key>
-		<string>profile_redP</string>
-		<key>mg_targetVc</key>
-		<string>XHRedPacketController</string>
 	</dict>
 	<dict>
 		<key>mg_title</key>

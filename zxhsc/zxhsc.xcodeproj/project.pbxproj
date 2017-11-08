@@ -48,6 +48,9 @@
 		41063B8A1F53EE71009A3348 /* CCZTrotingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41063B871F53EE71009A3348 /* CCZTrotingLabel.m */; };
 		41063B8C1F541724009A3348 /* XHHomeBannerGoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41063B8B1F541724009A3348 /* XHHomeBannerGoodsModel.swift */; };
 		410A4DE61F58F3530032DAAA /* XHMyOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A4DE51F58F3530032DAAA /* XHMyOrderViewModel.swift */; };
+		410A931B1FB02FFA000C3395 /* XHRedPacketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A931A1FB02FFA000C3395 /* XHRedPacketsViewModel.swift */; };
+		410A931D1FB03AA8000C3395 /* XHRedPacketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A931C1FB03AA8000C3395 /* XHRedPacketModel.swift */; };
+		410A931F1FB05872000C3395 /* XHPaymentWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A931E1FB05872000C3395 /* XHPaymentWindow.swift */; };
 		410AE66A1F3331D700C1DF4B /* XHDoCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410AE6681F3331D700C1DF4B /* XHDoCommentController.swift */; };
 		410AE66B1F3331D700C1DF4B /* XHDoCommentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410AE6691F3331D700C1DF4B /* XHDoCommentController.xib */; };
 		411007191F3D475600262186 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 411007121F3D475600262186 /* NSDate+Extension.m */; };
@@ -97,6 +100,7 @@
 		411EFC691F908386004933F4 /* XHMyBalance_UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411EFC671F908386004933F4 /* XHMyBalance_UserCell.xib */; };
 		411EFC6C1F90851D004933F4 /* XHMyBalance_DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411EFC6A1F90851D004933F4 /* XHMyBalance_DetailCell.swift */; };
 		411EFC6D1F90851D004933F4 /* XHMyBalance_DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411EFC6B1F90851D004933F4 /* XHMyBalance_DetailCell.xib */; };
+		41200D0F1FB2B26C00F543D6 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41200D0E1FB2B25F00F543D6 /* CFNetwork.framework */; };
 		412204991F7361C30004C1D6 /* XHXHB_FreezedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412204971F7361C20004C1D6 /* XHXHB_FreezedCell.swift */; };
 		4122049A1F7361C30004C1D6 /* XHXHB_FreezedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412204981F7361C20004C1D6 /* XHXHB_FreezedCell.xib */; };
 		4122049C1F737A060004C1D6 /* XHXHB_UnfreezedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4122049B1F737A060004C1D6 /* XHXHB_UnfreezedModel.swift */; };
@@ -171,6 +175,7 @@
 		41F407EB1F4ACC9000D5AC68 /* XHNewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F407E91F4ACC9000D5AC68 /* XHNewsTableCell.swift */; };
 		41F407EC1F4ACC9000D5AC68 /* XHNewsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F407EA1F4ACC9000D5AC68 /* XHNewsTableCell.xib */; };
 		41F407EE1F4ACDEF00D5AC68 /* XHNewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F407ED1F4ACDEF00D5AC68 /* XHNewsModel.swift */; };
+		41F42F671FB1A67C00DCBD3D /* XHWechatOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F42F661FB1A67C00DCBD3D /* XHWechatOrderModel.swift */; };
 		41F494161F9D7AFE008B3E4B /* XHMyRedPackectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F494151F9D7AFE008B3E4B /* XHMyRedPackectsController.swift */; };
 		41F494181F9D7EC6008B3E4B /* XHMyRPDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F494171F9D7EC6008B3E4B /* XHMyRPDetailController.swift */; };
 		41F4941B1F9D80A3008B3E4B /* XHMyRPDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F494191F9D80A3008B3E4B /* XHMyRPDetailCell.swift */; };
@@ -579,6 +584,9 @@
 		41063B871F53EE71009A3348 /* CCZTrotingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCZTrotingLabel.m; sourceTree = "<group>"; };
 		41063B8B1F541724009A3348 /* XHHomeBannerGoodsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHHomeBannerGoodsModel.swift; sourceTree = "<group>"; };
 		410A4DE51F58F3530032DAAA /* XHMyOrderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHMyOrderViewModel.swift; sourceTree = "<group>"; };
+		410A931A1FB02FFA000C3395 /* XHRedPacketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHRedPacketsViewModel.swift; sourceTree = "<group>"; };
+		410A931C1FB03AA8000C3395 /* XHRedPacketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHRedPacketModel.swift; sourceTree = "<group>"; };
+		410A931E1FB05872000C3395 /* XHPaymentWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHPaymentWindow.swift; sourceTree = "<group>"; };
 		410AE6681F3331D700C1DF4B /* XHDoCommentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHDoCommentController.swift; sourceTree = "<group>"; };
 		410AE6691F3331D700C1DF4B /* XHDoCommentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHDoCommentController.xib; sourceTree = "<group>"; };
 		411007111F3D475600262186 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
@@ -658,6 +666,7 @@
 		411EFC671F908386004933F4 /* XHMyBalance_UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XHMyBalance_UserCell.xib; sourceTree = "<group>"; };
 		411EFC6A1F90851D004933F4 /* XHMyBalance_DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHMyBalance_DetailCell.swift; sourceTree = "<group>"; };
 		411EFC6B1F90851D004933F4 /* XHMyBalance_DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XHMyBalance_DetailCell.xib; sourceTree = "<group>"; };
+		41200D0E1FB2B25F00F543D6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		412204971F7361C20004C1D6 /* XHXHB_FreezedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHXHB_FreezedCell.swift; sourceTree = "<group>"; };
 		412204981F7361C20004C1D6 /* XHXHB_FreezedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XHXHB_FreezedCell.xib; sourceTree = "<group>"; };
 		4122049B1F737A060004C1D6 /* XHXHB_UnfreezedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHXHB_UnfreezedModel.swift; sourceTree = "<group>"; };
@@ -733,6 +742,7 @@
 		41F407E91F4ACC9000D5AC68 /* XHNewsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHNewsTableCell.swift; sourceTree = "<group>"; };
 		41F407EA1F4ACC9000D5AC68 /* XHNewsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHNewsTableCell.xib; sourceTree = "<group>"; };
 		41F407ED1F4ACDEF00D5AC68 /* XHNewsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHNewsModel.swift; sourceTree = "<group>"; };
+		41F42F661FB1A67C00DCBD3D /* XHWechatOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHWechatOrderModel.swift; sourceTree = "<group>"; };
 		41F494151F9D7AFE008B3E4B /* XHMyRedPackectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHMyRedPackectsController.swift; sourceTree = "<group>"; };
 		41F494171F9D7EC6008B3E4B /* XHMyRPDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHMyRPDetailController.swift; sourceTree = "<group>"; };
 		41F494191F9D80A3008B3E4B /* XHMyRPDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHMyRPDetailCell.swift; sourceTree = "<group>"; };
@@ -1108,19 +1118,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41F4A71E1F9EDC3000F6007B /* libc++.tbd in Frameworks */,
+				41200D0F1FB2B26C00F543D6 /* CFNetwork.framework in Frameworks */,
+				41F87F271F39791C00D054C6 /* libicucore.tbd in Frameworks */,
 				41F4A7231F9EDC8300F6007B /* AdSupport.framework in Frameworks */,
 				41F4A7221F9EDC7A00F6007B /* CoreTelephony.framework in Frameworks */,
 				41F4A7211F9EDC7100F6007B /* CoreMotion.framework in Frameworks */,
 				41F4A7201F9EDC6800F6007B /* Security.framework in Frameworks */,
 				41F4A71F1F9EDC5B00F6007B /* SystemConfiguration.framework in Frameworks */,
 				41F87F291F39792600D054C6 /* libz.tbd in Frameworks */,
-				41F87F271F39791C00D054C6 /* libicucore.tbd in Frameworks */,
 				41F4A7271F9EDDE800F6007B /* libTalkingData.a in Frameworks */,
 				41A18DB01F5D33B2007C0284 /* WebKit.framework in Frameworks */,
 				41FBC2D61F453B5A00E358A2 /* libxml2.2.tbd in Frameworks */,
 				41F87F2F1F39795000D054C6 /* libsqlite3.tbd in Frameworks */,
 				41F87F2D1F39793C00D054C6 /* JavaScriptCore.framework in Frameworks */,
-				41F4A71E1F9EDC3000F6007B /* libc++.tbd in Frameworks */,
 				41F87F2B1F39793400D054C6 /* libstdc++.tbd in Frameworks */,
 				66DD3A9780A3F4BC73D00EF8 /* Pods_zxhsc.framework in Frameworks */,
 			);
@@ -1613,6 +1624,8 @@
 				41F946111F5FBE2F0037041B /* XHLogisticsModel.swift */,
 				41FE300F1F7E334F00B63400 /* XHMyValuationModel.swift */,
 				416BE34A1F8B4F2A005D5B80 /* XHMyElavation_CheckPendingModel.swift */,
+				410A931C1FB03AA8000C3395 /* XHRedPacketModel.swift */,
+				41F42F661FB1A67C00DCBD3D /* XHWechatOrderModel.swift */,
 			);
 			path = Manage;
 			sourceTree = "<group>";
@@ -1961,6 +1974,7 @@
 				41FBB2A81F568C7F00F1201D /* XHGetProtocolViewModel.swift */,
 				410A4DE51F58F3530032DAAA /* XHMyOrderViewModel.swift */,
 				4122049D1F737CAB0004C1D6 /* XHProfileViewModel.swift */,
+				410A931A1FB02FFA000C3395 /* XHRedPacketsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -2160,6 +2174,7 @@
 				41FBC2D31F4539EE00E358A2 /* XHHTMLViewController.swift */,
 				41FC1D011F4D1B4F00A2EA72 /* XHTableFooterView.swift */,
 				4105C8441F60E373003D653B /* XHString+Extetion.swift */,
+				410A931E1FB05872000C3395 /* XHPaymentWindow.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -2621,6 +2636,7 @@
 		E209F5A9319EEF09E8A3C40C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41200D0E1FB2B25F00F543D6 /* CFNetwork.framework */,
 				41F4A71D1F9EDC3000F6007B /* libc++.tbd */,
 				41F4A71C1F9EDC0600F6007B /* SystemConfiguration.framework */,
 				41F4A71B1F9EDBF400F6007B /* Security.framework */,
@@ -3115,6 +3131,7 @@
 				41F71A501F3B1DC1008A6D96 /* XHShopHeaderView.swift in Sources */,
 				41FBB2A01F56536800F1201D /* XHOpenAmbassadorCell.swift in Sources */,
 				412FDE3F1F5568400073A153 /* XHOpenShopFooterView.swift in Sources */,
+				410A931F1FB05872000C3395 /* XHPaymentWindow.swift in Sources */,
 				41384C5E1F3DBC04002044BE /* XHBussinessOrderDetail_BesicCell.swift in Sources */,
 				411E13301FA03CAC009C5847 /* DALabeledCircularProgressView.m in Sources */,
 				41F494181F9D7EC6008B3E4B /* XHMyRPDetailController.swift in Sources */,
@@ -3124,6 +3141,7 @@
 				410186DA1F417DFF0093089D /* XHFukuanStyleHeaderView.swift in Sources */,
 				411EFC6C1F90851D004933F4 /* XHMyBalance_DetailCell.swift in Sources */,
 				41FC1D021F4D1B4F00A2EA72 /* XHTableFooterView.swift in Sources */,
+				41F42F671FB1A67C00DCBD3D /* XHWechatOrderModel.swift in Sources */,
 				41F8BCE21F6F6E27005C1CDF /* XHDiscoveryViewController.swift in Sources */,
 				41FBB2A91F568C7F00F1201D /* XHGetProtocolViewModel.swift in Sources */,
 				41FB6A351F346F0200A10C51 /* XHGoodsDetail_TableView_shopCell.swift in Sources */,
@@ -3210,6 +3228,7 @@
 				411E13141FA039C7009C5847 /* ZLPhotoPickerBrowserPhoto.m in Sources */,
 				411007231F3D5CBF00262186 /* XHShopsFukuanController.swift in Sources */,
 				411E13201FA039C7009C5847 /* ZLNavigationController.m in Sources */,
+				410A931D1FB03AA8000C3395 /* XHRedPacketModel.swift in Sources */,
 				41384C5B1F3DB979002044BE /* XHBussinessOrderDetailController.swift in Sources */,
 				738DBCA41F2EC03500A53525 /* XHNoticeCell.swift in Sources */,
 				73C077901F171C7C00FDDAA5 /* AppDelegate.swift in Sources */,
@@ -3225,6 +3244,7 @@
 				7390A41F1F1CB5A800FC4473 /* XHNavigationController.swift in Sources */,
 				41F946051F5F9A770037041B /* XHOrderStatusSalesReturnCell.swift in Sources */,
 				41F9460F1F5FB1450037041B /* XHLogisticsDetailCell.swift in Sources */,
+				410A931B1FB02FFA000C3395 /* XHRedPacketsViewModel.swift in Sources */,
 				41FBB2A31F56625100F1201D /* XHFactorJoinViewModel.swift in Sources */,
 				73B9F8251F29E25B004042CF /* XHFriendClassModel.swift in Sources */,
 				410A4DE61F58F3530032DAAA /* XHMyOrderViewModel.swift in Sources */,

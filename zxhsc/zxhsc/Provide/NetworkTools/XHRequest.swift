@@ -73,6 +73,9 @@ enum XHNetDataType {
     case confirmGotSales               // 确认收货
     case getMyValuationList          // 获取我的评价列表
     case commitMyValuation         // 提交我的评价
+    case redPackets_send               // 发红包
+    case getMyRedPacketsList       // 我的红包列表
+    case getWechatPaymentDetail // 获取微信支付的订单信息
     
     // MARK:- 商盟
     case getFriendClassesList          // 获取商盟 分类列表
@@ -277,7 +280,12 @@ extension XHRequest {
             return commitMyValuation(parameters: parameters, failure: failure, success: success)
         case .postPayment_integral:  // 积分支付
             return postPayment_integral(parameters: parameters, failure: failure, success: success)
-            
+        case .redPackets_send:         // 发红包
+            return redPackets_send(parameters: parameters, failure: failure, success: success)
+        case .getMyRedPacketsList:  // 请求我的红包列表
+            return getMyRedPacketsList(parameters: parameters, failure: failure, success: success)
+        case .getWechatPaymentDetail: // 获取微信支付订单信息
+            return getWechatPaymentDetail(parameters: parameters, failure: failure, success: success)
             
             // MARK:- 商盟
         case .getFriendClassesList:    // 获取商盟 分类列表
@@ -2127,7 +2135,7 @@ extension XHRequest {
         return cancelRequest
     }
     
-    // MARK:- 积分支付
+    // MARK:- 积分支付 redPackets_send
     fileprivate func postPayment_integral(parameters: [String: String]?, failure:@escaping (ErrorType) -> Void, success:@escaping (Any) -> Void) -> XHCancelRequest? {
         
         guard var paramDict = parameters else {
@@ -2160,6 +2168,119 @@ extension XHRequest {
                 }
             }else {
                 success("未知错误~")
+            }
+        }
+        
+        let cancelRequest = XHCancelRequest(request: manager)
+        return cancelRequest
+    }
+    
+    // MARK:- 发红包
+    fileprivate func redPackets_send(parameters: [String: String]?, failure:@escaping (ErrorType) -> Void, success:@escaping (Any) -> Void) -> XHCancelRequest? {
+        
+        guard var paramDict = parameters else {
+            failure(ErrorType.networkError)
+            return nil
+        }
+        
+        let token = SSKeychain.password(forService: userTokenName, account: "TOKEN")
+        let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
+        
+        paramDict["userid"] = userid
+        paramDict["userkey"] = token
+        
+        let url = xhbaseURL + "redpacke_send"
+        
+        let infoDictionary: Dictionary = Bundle.main.infoDictionary!
+        let version =  (infoDictionary["CFBundleShortVersionString"] as? String)!
+        paramDict["platformName"] = "iOS"
+        paramDict["platformVersion"] = version
+        
+        let manager = XHNetworkTools.instance.requestPOSTURL(url, params: paramDict, failure: { (errorType, error) in
+            failure(errorType)
+        }) { (response) in
+            if let text = (response as! [String: Any])["status"] {
+                if (text as! NSNumber) == 1  {
+                    if let result = (((response as! [String: Any])["text"]) as? Array<Any>)?[1] {
+                        success(result as! String)
+                    }
+                }else {
+                    success((response as! [String: Any])["text"])
+                }
+            }else {
+                success("未知错误~")
+            }
+        }
+        
+        let cancelRequest = XHCancelRequest(request: manager)
+        return cancelRequest
+    }
+    
+    // MARK:- 请求 我的红包列表 getWechatPaymentDetail
+    fileprivate func getMyRedPacketsList(parameters: [String: String]?, failure:@escaping (ErrorType) -> Void, success:@escaping (Any) -> Void) -> XHCancelRequest? {
+        
+        guard var paramDict = parameters else {
+            failure(ErrorType.networkError)
+            return nil
+        }
+        
+        let token = SSKeychain.password(forService: userTokenName, account: "TOKEN")
+        let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
+        
+        paramDict["userid"] = userid
+        paramDict["userkey"] = token
+        
+        let url = xhbaseURL + "redpackge_list"
+        
+        let infoDictionary: Dictionary = Bundle.main.infoDictionary!
+        let version =  (infoDictionary["CFBundleShortVersionString"] as? String)!
+        paramDict["platformName"] = "iOS"
+        paramDict["platformVersion"] = version
+        
+        let manager = XHNetworkTools.instance.requestPOSTURL(url, params: paramDict, failure: { (errorType, error) in
+            failure(errorType)
+        }) { (response) in
+                
+            if let result = (response as! [String: Any])["text"], let modelArr = Mapper<XHRedPacketModel>().mapArray(JSONObject: result) {
+                success(modelArr)
+            }else {
+                success((response as! [String: Any])["text"])
+            }
+        }
+        
+        let cancelRequest = XHCancelRequest(request: manager)
+        return cancelRequest
+    }
+    
+    // MARK:- 请求 微信支付订单详情
+    fileprivate func getWechatPaymentDetail(parameters: [String: String]?, failure:@escaping (ErrorType) -> Void, success:@escaping (Any) -> Void) -> XHCancelRequest? {
+        
+        guard var paramDict = parameters else {
+            failure(ErrorType.networkError)
+            return nil
+        }
+        
+        let token = SSKeychain.password(forService: userTokenName, account: "TOKEN")
+        let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
+        
+        paramDict["userid"] = userid
+        paramDict["userkey"] = token
+        
+        let url = xhbaseURL + "ewm"
+        
+        let infoDictionary: Dictionary = Bundle.main.infoDictionary!
+        let version =  (infoDictionary["CFBundleShortVersionString"] as? String)!
+        paramDict["platformName"] = "iOS"
+        paramDict["platformVersion"] = version
+        
+        let manager = XHNetworkTools.instance.requestPOSTURL(url, params: paramDict, failure: { (errorType, error) in
+            failure(errorType)
+        }) { (response) in
+            
+            if let result = (response as! [String: Any])["text"], let modelArr = Mapper<XHWechatOrderModel>().map(JSONObject: result) {
+                success(modelArr)
+            }else {
+                success((response as! [String: Any])["text"])
             }
         }
         

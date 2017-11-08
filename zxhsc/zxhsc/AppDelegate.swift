@@ -11,7 +11,7 @@ import IQKeyboardManagerSwift
 import SSKeychain
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSHRegisterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSHRegisterDelegate, WXApiDelegate {
 
     var window: UIWindow?
     var _mapManager: BMKMapManager?
@@ -81,6 +81,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSH
         TalkingData.sessionStarted("apicloud_A6991570638622", withChannelId: "App Store")
         TalkingData.setExceptionReportEnabled(true)
         
+        /* 微信支付相关 */
+        WXApi.registerApp("wx9dfc4b2157c65590", enableMTA: true)
+        
         return true
     }
     
@@ -130,6 +133,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSH
         })
     }
     
+    // MARK:- ********* 微信支付相关 ***************
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return WXApi.handleOpen(url, delegate: self)
+    }
+    
+    func onResp(_ resp: BaseResp!) {
+        if resp is PayResp {
+            let response = resp as! PayResp
+            switch response.errCode {
+            case WXSuccess.rawValue:
+                print("支付成功!")
+            default:
+                print("支付失败，retcode = \(resp.errCode)")
+            }
+        }
+    }
     
     // MARK:- ********** 有关推送 ****************
     // 注册APNs成功并上报DeviceToken

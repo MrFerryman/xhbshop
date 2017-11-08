@@ -47,7 +47,7 @@ class XHMyRedPackectsController: UIViewController {
             if KUIScreenHeight == 812 {
                 make.top.equalTo(90)
             }else {
-                make.top.equalTo(90)
+                make.top.equalTo(64)
             }
         }
     }
@@ -62,7 +62,6 @@ class XHMyRedPackectsController: UIViewController {
         self.view.addSubview(pageMenu.view)
         return pageMenu
     }()
-
 }
 
 extension XHMyRedPackectsController: XHPageViewControllerDelegate {
@@ -72,9 +71,11 @@ extension XHMyRedPackectsController: XHPageViewControllerDelegate {
         case 0:
             TalkingData.trackPageBegin("发出的红包列表视图")
             TalkingData.trackPageEnd("收到的红包列表视图")
+            controller.red_type = .post
         case 1:
             TalkingData.trackPageEnd("发出的红包列表视图")
             TalkingData.trackPageBegin("收到的红包列表视图")
+            controller.red_type = .get
         default:
             break
         }

@@ -18,6 +18,12 @@ class XHMyRPDetailCell: UITableViewCell {
     
     @IBOutlet weak var xhbL: UILabel!
     
+    var redModel: XHRedPacketModel? {
+        didSet {
+            
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
