@@ -622,5 +622,5 @@ extension XHProfileViewController: UITableViewDelegate, UITableViewDataSource {
             webView.urlStr = "http://wx2.zxhshop.cn/download/wliao.html"
             self.navigationController?.pushViewController(webView, animated: true)
         }
-    }
+    } 
 }
