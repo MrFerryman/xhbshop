@@ -147,28 +147,28 @@ class XHSettingConfigController: UIViewController {
         let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let camaraA = UIAlertAction(title: "拍照", style: .default) { (action) in
-            let cameraViewController = CameraViewController(croppingEnabled: true, allowsLibraryAccess: true) { [weak self] image, asset in
+            let cameraViewController = CameraViewController(croppingParameters: .init(isEnabled: true, allowResizing: true, allowMoving: true, minimumSize: CGSize(width: 22, height: 22)), allowsLibraryAccess: true, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true, completion: { [weak self] (image, asset) in
                 if image != nil {
                     self?.uploadPicture(image: image!, asset: asset!)
                 }
                 self?.dismiss(animated: true, completion: {
                     self?.tableView.reloadData()
                 })
-            }
+            })
             
             self.present(cameraViewController, animated: true, completion: nil)
         }
         alertVC.addAction(camaraA)
         
         let albumA = UIAlertAction(title: "从相册选择", style: .default) { (action) in
-            let libraryViewController = CameraViewController.imagePickerViewController(croppingEnabled: true) { [weak self] image, asset in
+            let libraryViewController = CameraViewController.imagePickerViewController(croppingParameters: .init(isEnabled: true, allowResizing: true, allowMoving: true, minimumSize: CGSize(width: 22, height: 22)), completion: { [weak self] (image, asset) in
                 if image != nil {
                     self?.uploadPicture(image: image!, asset: asset!)
                 }
                 self?.dismiss(animated: true, completion: {
                     self?.tableView.reloadData()
                 })
-            }
+            })
             
             self.present(libraryViewController, animated: true, completion: nil)
         }

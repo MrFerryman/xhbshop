@@ -136,12 +136,17 @@ class XHScanViewController: LBXScanViewController {
         btnPhoto.center = CGPoint(x: bottomItemsView!.frame.width * 3 / 4, y: bottomItemsView!.frame.height/2)
         btnPhoto.setImage(UIImage(named: "CodeScan.bundle/qrcode_scan_btn_photo_nor"), for: UIControlState.normal)
         btnPhoto.setImage(UIImage(named: "CodeScan.bundle/qrcode_scan_btn_photo_down"), for: UIControlState.highlighted)
-        btnPhoto.addTarget(self, action: #selector(LBXScanViewController.openPhotoAlbum), for: UIControlEvents.touchUpInside)
+        btnPhoto.addTarget(self, action: #selector(openAlbum), for: UIControlEvents.touchUpInside)
         
         bottomItemsView?.addSubview(btnFlash)
         bottomItemsView?.addSubview(btnPhoto)
         
         self.view .addSubview(bottomItemsView!)
+    }
+    
+    // MARK:- 打开相册
+    @objc private func openAlbum() {
+        self.openPhotoAlbum()
     }
     
     //开关闪光灯

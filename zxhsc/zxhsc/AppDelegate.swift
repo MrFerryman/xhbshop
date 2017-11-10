@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSH
         TalkingData.setExceptionReportEnabled(true)
         
         /* 微信支付相关 */
-        WXApi.registerApp("wx9dfc4b2157c65590", enableMTA: true)
+        WXApi.registerApp("wx9dfc4b2157c65590", enableMTA: false)
         
         return true
     }
