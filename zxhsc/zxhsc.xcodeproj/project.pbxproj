@@ -142,6 +142,7 @@
 		4149893D1F4EE51E00D80139 /* XHSpecialFavModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149893C1F4EE51E00D80139 /* XHSpecialFavModel.swift */; };
 		414989401F4EEA3700D80139 /* XHSpecialFavCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4149893E1F4EEA3700D80139 /* XHSpecialFavCollCell.swift */; };
 		414989411F4EEA3700D80139 /* XHSpecialFavCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4149893F1F4EEA3700D80139 /* XHSpecialFavCollCell.xib */; };
+		4152695F1FB59C0B00F0D18D /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4152695E1FB59C0B00F0D18D /* libc++abi.tbd */; };
 		416BE34B1F8B4F2A005D5B80 /* XHMyElavation_CheckPendingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416BE34A1F8B4F2A005D5B80 /* XHMyElavation_CheckPendingModel.swift */; };
 		41829DCF1F8CC1CF0061E6EF /* XHDiscoveryMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41829DCE1F8CC1CF0061E6EF /* XHDiscoveryMaskView.swift */; };
 		41829DD11F8CC1EA0061E6EF /* XHDiscoveryMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41829DD01F8CC1EA0061E6EF /* XHDiscoveryMaskView.xib */; };
@@ -710,6 +711,7 @@
 		4149893C1F4EE51E00D80139 /* XHSpecialFavModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHSpecialFavModel.swift; sourceTree = "<group>"; };
 		4149893E1F4EEA3700D80139 /* XHSpecialFavCollCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHSpecialFavCollCell.swift; sourceTree = "<group>"; };
 		4149893F1F4EEA3700D80139 /* XHSpecialFavCollCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XHSpecialFavCollCell.xib; sourceTree = "<group>"; };
+		4152695E1FB59C0B00F0D18D /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
 		416BE34A1F8B4F2A005D5B80 /* XHMyElavation_CheckPendingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHMyElavation_CheckPendingModel.swift; sourceTree = "<group>"; };
 		41829DCE1F8CC1CF0061E6EF /* XHDiscoveryMaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHDiscoveryMaskView.swift; sourceTree = "<group>"; };
 		41829DD01F8CC1EA0061E6EF /* XHDiscoveryMaskView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XHDiscoveryMaskView.xib; sourceTree = "<group>"; };
@@ -1126,6 +1128,7 @@
 				41200D0F1FB2B26C00F543D6 /* CFNetwork.framework in Frameworks */,
 				41F87F271F39791C00D054C6 /* libicucore.tbd in Frameworks */,
 				41F4A7231F9EDC8300F6007B /* AdSupport.framework in Frameworks */,
+				4152695F1FB59C0B00F0D18D /* libc++abi.tbd in Frameworks */,
 				41F4A7221F9EDC7A00F6007B /* CoreTelephony.framework in Frameworks */,
 				41F4A7211F9EDC7100F6007B /* CoreMotion.framework in Frameworks */,
 				41F4A7201F9EDC6800F6007B /* Security.framework in Frameworks */,
@@ -2642,6 +2645,7 @@
 		E209F5A9319EEF09E8A3C40C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4152695E1FB59C0B00F0D18D /* libc++abi.tbd */,
 				41200D0E1FB2B25F00F543D6 /* CFNetwork.framework */,
 				41F4A71D1F9EDC3000F6007B /* libc++.tbd */,
 				41F4A71C1F9EDC0600F6007B /* SystemConfiguration.framework */,
@@ -3602,7 +3606,6 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"WeChatSDKFull\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.zxhshop.zxhsc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3660,7 +3663,6 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"WeChatSDKFull\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.zxhshop.zxhsc;
 				PRODUCT_NAME = "$(TARGET_NAME)";

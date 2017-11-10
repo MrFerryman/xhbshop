@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSH
         TalkingData.setExceptionReportEnabled(true)
         
         /* 微信支付相关 */
-        WXApi.registerApp("wx9dfc4b2157c65590", enableMTA: false)
+        WXApi.registerApp("wx9dfc4b2157c65590")
         
         return true
     }
@@ -138,14 +138,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKGeneralDelegate, JPUSH
         return WXApi.handleOpen(url, delegate: self)
     }
     
+    
     func onResp(_ resp: BaseResp!) {
         if resp is PayResp {
             let response = resp as! PayResp
             switch response.errCode {
             case WXSuccess.rawValue:
-                print("支付成功!")
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTI_PAYMENT_SUCCESS), object: nil)
             default:
-                print("支付失败，retcode = \(resp.errCode)")
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTI_PAYMENT_FAILURE), object: nil)
             }
         }
     }

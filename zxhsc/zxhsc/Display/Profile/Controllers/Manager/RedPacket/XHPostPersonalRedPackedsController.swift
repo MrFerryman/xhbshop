@@ -9,7 +9,7 @@
 import UIKit
 import SSKeychain
 
-class XHPostPersonalRedPackedsController: UIViewController {
+class XHPostPersonalRedPackedsController: UIViewController, WXApiDelegate {
     @IBOutlet weak var topCon: NSLayoutConstraint!
     
     @IBOutlet weak var moneyTF: UITextField!
@@ -37,6 +37,10 @@ class XHPostPersonalRedPackedsController: UIViewController {
         }
     }
     fileprivate var viewName = ""
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +70,9 @@ class XHPostPersonalRedPackedsController: UIViewController {
         }
         
         moneyTF.addTarget(self, action: #selector(textFieldValueChanged(textField:)), for: .editingChanged)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(payment_notification_success), name: NSNotification.Name(rawValue: NOTI_PAYMENT_SUCCESS), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(payment_notification_failure), name: NSNotification.Name(rawValue: NOTI_PAYMENT_FAILURE), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,6 +88,19 @@ class XHPostPersonalRedPackedsController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         TalkingData.trackPageEnd(viewName)
+    }
+    
+    // MARK:- 支付成功的通知
+    @objc private func payment_notification_success() {
+        XHAlertController.showAlertSigleAction(title: "提示", message: "支付成功", confirmTitle: "确定", confirmComplete: { [weak self] in
+            let red = XHMyRedPackectsController()
+            self?.navigationController?.pushViewController(red, animated: true)
+        })
+    }
+    
+    // MARK:- 支付失败的通知
+    @objc private func payment_notification_failure() {
+        XHAlertController.showAlertSigleAction(title: "提示", message: "支付失败", confirmTitle: "确定", confirmComplete: nil)
     }
     
     @objc private func textFieldValueChanged(textField: UITextField) {

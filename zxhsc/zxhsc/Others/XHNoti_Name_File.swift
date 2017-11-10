@@ -16,6 +16,12 @@ let market_hotsell_perItemHeight: CGFloat = (kUIScreenWidth == 320 ? 172 : 217)
 /// 商城 热卖商城 各item之间的间距
 let market_hotSell_margin: CGFloat = 13
 
+/// 支付成功通知
+let NOTI_PAYMENT_SUCCESS: String = "ZXHSHOP_NOTI_PAYMENT_SUCCESS"
+/// 支付失败通知
+let NOTI_PAYMENT_FAILURE: String = "ZXHSHOP_NOTI_PAYMENT_FAILURE"
+
+
 func judgeIfLogin() -> Bool {
     let token = SSKeychain.password(forService: userTokenName, account: "TOKEN")
     let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
