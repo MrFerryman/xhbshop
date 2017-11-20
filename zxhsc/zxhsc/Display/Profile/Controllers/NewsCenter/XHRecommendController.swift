@@ -129,7 +129,12 @@ class XHRecommendController: UIViewController {
             let url = "http://wx2.zxhshop.cn/index.php?m=Reg&cid=" + (userid ?? "")
             let sharedUrl = URL(string: url)
             
-            XHSharedManager.sharedInstance.shared(sharedText: sharedText, saveImage: saveImage, sharedUrl: sharedUrl, sharedTitle: sharedTitle)
+            let activityItems = [sharedTitle, sharedText, saveImage!, sharedUrl!] as [Any]
+            let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+            activityVC.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.postToFacebook, UIActivityType.message, UIActivityType.copyToPasteboard, UIActivityType.mail, UIActivityType.print]
+            
+            present(activityVC, animated: true, completion: nil)
+//            XHSharedManager.sharedInstance.shared(sharedText: sharedText, saveImage: saveImage, sharedUrl: sharedUrl, sharedTitle: sharedTitle)
         }else {
             showHint(in: view, hint: "数据请求中，请稍后再试~")
         }
