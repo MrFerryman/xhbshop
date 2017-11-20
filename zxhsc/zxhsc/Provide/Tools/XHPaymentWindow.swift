@@ -318,6 +318,9 @@ extension XHPaymentWindow: UITableViewDelegate, UITableViewDataSource {
                     }
                 }
                 tableView.reloadData()
+                if self?.isBanlancePay == true {
+                    tableView.scrollToRow(at: IndexPath(item: 0, section: 1), at: .bottom, animated: true)
+                }
             }
             return cell
         }
@@ -344,6 +347,10 @@ extension XHPaymentWindow: UITableViewDelegate, UITableViewDataSource {
                 }
             }
             tableView.reloadData()
+            if isBanlancePay == true {
+                tableView.scrollToRow(at: IndexPath(item: 0, section: 1), at: .bottom, animated: true)
+            }
+            
         }
     }
     
@@ -359,6 +366,9 @@ extension XHPaymentWindow: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if isBanlancePay == true, section == 1 {
+            return 10
+        }
         return 0.01
     }
     

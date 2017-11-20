@@ -20,7 +20,8 @@ let market_hotSell_margin: CGFloat = 13
 let NOTI_PAYMENT_SUCCESS: String = "ZXHSHOP_NOTI_PAYMENT_SUCCESS"
 /// 支付失败通知
 let NOTI_PAYMENT_FAILURE: String = "ZXHSHOP_NOTI_PAYMENT_FAILURE"
-
+/// 导航栏高度
+let nav_height: CGFloat = (KUIScreenHeight == 812 ? 84 : 64)
 
 func judgeIfLogin() -> Bool {
     let token = SSKeychain.password(forService: userTokenName, account: "TOKEN")

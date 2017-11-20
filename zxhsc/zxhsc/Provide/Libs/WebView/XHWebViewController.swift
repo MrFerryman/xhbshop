@@ -26,8 +26,11 @@ class XHWebViewController: UIViewController, WKScriptMessageHandler, WKNavigatio
     /// OC调用js代码的回调
     var OCCallJSMethodClosure: (() -> String)?
     
+    /// 返回按钮点击事件回调
+    var backBarButtonClickedClosure: (() -> ())?
+    
   
-    fileprivate var progressView: UIProgressView! = UIProgressView(frame: CGRect(x: 0, y: 64, width: kUIScreenWidth, height: 2))
+    fileprivate var progressView: UIProgressView! = UIProgressView(frame: CGRect(x: 0, y: nav_height, width: kUIScreenWidth, height: 2))
     
     deinit {
         webView.configuration.userContentController.removeScriptMessageHandler(forName: "move")
@@ -38,15 +41,13 @@ class XHWebViewController: UIViewController, WKScriptMessageHandler, WKNavigatio
         super.viewDidLoad()
 
         setupWebView()
+        
+        setupNav()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @objc private func clickDismiss()  {
-        self.dismiss(animated: true, completion: nil)
     }
 
     private func setupWebView() {
@@ -63,6 +64,15 @@ class XHWebViewController: UIViewController, WKScriptMessageHandler, WKNavigatio
         
         view.addSubview(webView)
         view.addSubview(self.progressView)
+    }
+    
+    private func setupNav() {
+        let navItem = UIBarButtonItem(image: UIImage(named: "Back Chevron"), style: .plain, target: self, action: #selector(back))
+        navigationItem.backBarButtonItem = navItem
+    }
+    
+    @objc private func back() {
+        backBarButtonClickedClosure?()
     }
     
     private lazy var config: WKWebViewConfiguration = {

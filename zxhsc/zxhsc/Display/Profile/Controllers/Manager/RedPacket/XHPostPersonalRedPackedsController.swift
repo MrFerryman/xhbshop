@@ -130,27 +130,54 @@ class XHPostPersonalRedPackedsController: UIViewController, WXApiDelegate {
     
     // MARK:- 支付
     private func payment(currentZhifuStyle: String, orderId: String, password: String?) {
+        
+        
+        
         switch currentZhifuStyle {
         
         case "联动优势支付":
             let baseURL = "http://wx2.zxhshop.cn/alipay/liandongpay/index.php?id="
-            let webView = XHWebViewController()
+            
             let order_ID: String =  orderId + "_rl"
             
             let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
             let url = baseURL + order_ID + "&hyid=" + userid! + "&jine=" + moneyTF.text!
             
+            let webView = XHWebViewController()
             webView.urlStr = url
             navigationController?.pushViewController(webView, animated: true)
-
+            webView.backBarButtonClickedClosure = {
+                let alertC = UIAlertController(title: "提示", message: "支付是否完成？", preferredStyle: .alert)
+                let confirmA = UIAlertAction(title: "朕已完成支付", style: .default, handler: { [weak self] (action) in
+                    let red = XHMyRedPackectsController()
+                    self?.navigationController?.pushViewController(red, animated: true)
+                })
+                alertC.addAction(confirmA)
+                
+                let cancelA = UIAlertAction(title: "支付失败", style: .cancel, handler: nil)
+                alertC.addAction(cancelA)
+                UIApplication.shared.keyWindow?.rootViewController?.present(alertC, animated: true, completion: nil)
+            }
         case "快钱支付":
             let baseURL = "http://appback.zxhshop.cn/"
-            let webView = XHWebViewController()
             let url = baseURL + "shop_kuaiqian_fukuan_cart.php?&order_id=" + orderId + "&oid=" +  "1"
-                webView.urlStr = url
+            
+            let webView = XHWebViewController()
+            webView.urlStr = url
            
             navigationController?.pushViewController(webView, animated: true)
-            
+            webView.backBarButtonClickedClosure = {
+                let alertC = UIAlertController(title: "提示", message: "支付是否完成？", preferredStyle: .alert)
+                let confirmA = UIAlertAction(title: "朕已完成支付", style: .default, handler: { [weak self] (action) in
+                    let red = XHMyRedPackectsController()
+                    self?.navigationController?.pushViewController(red, animated: true)
+                })
+                alertC.addAction(confirmA)
+                
+                let cancelA = UIAlertAction(title: "支付失败", style: .cancel, handler: nil)
+                alertC.addAction(cancelA)
+                UIApplication.shared.keyWindow?.rootViewController?.present(alertC, animated: true, completion: nil)
+            }
         case "余额支付":
             
             if NSString(string: password!).length >= 6 {
@@ -167,17 +194,30 @@ class XHPostPersonalRedPackedsController: UIViewController, WXApiDelegate {
             }else {
                 showHint(in: view, hint: "请输入正确的支付密码")
             }
+            
         case "快捷通支付": // 快捷通支付
             let baseURL = "http://wx2.zxhshop.cn/alipay/kjtpay/index.php?id="
-            let webView = XHWebViewController()
             let order_ID: String = orderId + "_rl"
             
             let userid = SSKeychain.password(forService: userTokenName, account: "USERID")
             let url = baseURL + order_ID + "&hyid=" + userid! + "&jine=" + moneyTF.text!
             
+            let webView = XHWebViewController()
             webView.urlStr = url
             navigationController?.pushViewController(webView, animated: true)
             
+            webView.backBarButtonClickedClosure = {
+                let alertC = UIAlertController(title: "提示", message: "支付是否完成？", preferredStyle: .alert)
+                let confirmA = UIAlertAction(title: "朕已完成支付", style: .default, handler: { [weak self] (action) in
+                    let red = XHMyRedPackectsController()
+                    self?.navigationController?.pushViewController(red, animated: true)
+                })
+                alertC.addAction(confirmA)
+                
+                let cancelA = UIAlertAction(title: "支付失败", style: .cancel, handler: nil)
+                alertC.addAction(cancelA)
+                UIApplication.shared.keyWindow?.rootViewController?.present(alertC, animated: true, completion: nil)
+            }
         case "微信支付":
             let paraDict = ["oid": "6", "ewm_order_id": orderId]
             XHRedPacketsViewModel.getWechatPaymentOrderDetail(target: self, paramter: paraDict, success: { (result) in

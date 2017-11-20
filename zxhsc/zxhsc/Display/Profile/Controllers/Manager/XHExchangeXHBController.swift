@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import SSKeychain
 
 class XHExchangeXHBController: UIViewController {
 
+    @IBOutlet weak var freezed_xhbL: UILabel! // 当前冻结循环宝
+    
+    @IBOutlet weak var activity_xhbL: UILabel! // 当前正在激励循环宝
+    
     @IBOutlet weak var navHeightCon: NSLayoutConstraint!
     
     @IBOutlet weak var accountTF: UITextField!
@@ -45,6 +50,8 @@ class XHExchangeXHBController: UIViewController {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:))))
         
         accountTF.addTarget(self, action: #selector(customerPhoneNumberEditDidEnd), for: .editingDidEnd)
+        
+        getUserEarning()
     }
 
     @IBAction func confirmButtonClicked(_ sender: UIButton) {
@@ -92,6 +99,41 @@ class XHExchangeXHBController: UIViewController {
         freezedButton.isSelected = false
         current_XHB_type = 2
     }
+    
+    // MARK:- 获取用户收益
+    private func getUserEarning() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        _ = XHRequest.shareInstance.requestNetData(dataType: .getUserEarning, failure: { [weak self] (errorType) in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            var title: String?
+            switch errorType {
+            case .timeOut:
+                title = "网络请求超时，请重新请求~"
+            default:
+                title = "网络请求错误，请重新请求~"
+            }
+            self?.showHint(in: (self?.view)!, hint: title!)
+        }) { [weak self] (sth) in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            if sth is XHUserEarningModel {
+                let userE = sth as! XHUserEarningModel
+                self?.freezed_xhbL.text = "\(userE.xhb_freezed)个"
+                self?.activity_xhbL.text = "\(String(describing: (userE.xhb_now ?? 0)))个"
+            }else {
+                let str = sth as! String
+                self?.showHint(in: (self?.view)!, hint: str)
+                
+                if str == "请重新登陆！" {
+                    SSKeychain.deletePassword(forService: userTokenName, account: "TOKEN")
+                    SSKeychain.deletePassword(forService: userTokenName, account: "USERID")
+                   let login = XHLoginController()
+                    let nav = XHNavigationController(rootViewController: login)
+                    self?.present(nav, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
     
     // MARK:- 消费者手机号输入完成后的方法
     @objc private func customerPhoneNumberEditDidEnd() {
