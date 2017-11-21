@@ -167,12 +167,6 @@ class XHCycleDetailController: UIViewController {
         return tableView
     }()
     
-    private lazy var topView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
-    
     // 空页面图片
     private lazy var emptyImgView: UIImageView = UIImageView(image: UIImage(named: "wallet_empty_image"))
     

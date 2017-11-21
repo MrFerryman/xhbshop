@@ -18,7 +18,7 @@ class XHFukuanStyleController: UIViewController {
     fileprivate let viewName = "付款_选择付款方式页"
     
     /// 标识支付方式
-    fileprivate var currentZhifuStyle: String = "易宝支付"
+    fileprivate var currentZhifuStyle: String = "微信支付"
     
     /// 可用余额
     fileprivate var banlance: CGFloat = 0.0 {
@@ -166,6 +166,12 @@ class XHFukuanStyleController: UIViewController {
             }
         }
         
+        let wechat = XHFukuanStyleModel()
+        wechat.title = "微信支付"
+        wechat.iconsArr = ["payment_wechat"]
+        wechat.isSelected = true
+        styleList.append(wechat)
+        
         if banlance > totalPrice {
             let yu_e = XHFukuanStyleModel()
             yu_e.title = "余额支付"
@@ -301,6 +307,25 @@ class XHFukuanStyleController: UIViewController {
             
             webView.urlStr = url
             navigationController?.pushViewController(webView, animated: true)
+            
+        case "微信支付":
+            var paraDict = [ "ewm_order_id": orderId!]
+            paraDict["oid"] = (comeFrom == .myOrder ? "1" : "2")
+            XHRedPacketsViewModel.getWechatPaymentOrderDetail(target: self, paramter: paraDict, success: { (result) in
+                if result is XHWechatOrderModel {
+                    let model = result as! XHWechatOrderModel
+                    let request = PayReq()
+                    request.partnerId = "61957544"
+                    request.prepayId = model.prepay_id
+                    request.package = model.package
+                    request.nonceStr = model.nonce_str
+                    request.timeStamp = UInt32(NSString(string: model.timestamp!).intValue)
+                    request.sign = model.sign
+                    WXApi.send(request)
+                }else {
+                    XHAlertController.showAlertSigleAction(title: "提示", message: "\(result)", confirmTitle: "确定", confirmComplete: nil)
+                }
+            })
         default:
             break
         }

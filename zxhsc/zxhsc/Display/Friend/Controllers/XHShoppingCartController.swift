@@ -37,10 +37,6 @@ class XHShoppingCartController: UIViewController, UIGestureRecognizerDelegate, U
         super.viewDidLoad()
         view.backgroundColor = XHRgbColorFromHex(rgb: 0xf4f6f7)
         setupNav()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         loadData()
     }
 

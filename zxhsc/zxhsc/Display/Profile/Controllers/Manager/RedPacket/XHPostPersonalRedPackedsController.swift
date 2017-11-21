@@ -291,7 +291,7 @@ class XHPostPersonalRedPackedsController: UIViewController, WXApiDelegate {
     
     private func judge() -> Bool {
         if NSString(string: moneyTF.text!).floatValue < 1.0 || NSString(string: moneyTF.text!).floatValue > 200 {
-            showHint(in: view, hint: "红包金额不能少于 1 元，且不能大于200，请重新输入~")
+            XHAlertController.showAlertSigleAction(title: "提示", message: "红包金额不能少于 1 元，且不能大于200，请重新输入~", confirmTitle: "确定", confirmComplete: nil)
             return false
         }
         
