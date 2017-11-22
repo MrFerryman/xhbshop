@@ -107,21 +107,21 @@ class WQComposeView: UIView {
     
             let x = childButtonMargin * CGFloat(col + 1) + childButtonW * CGFloat(col)
             
-            let y = (childButtonMargin - 25) * CGFloat(row) + childButtonH * CGFloat(row) + KUIScreenHeight
+            var y = (childButtonMargin - 25) * CGFloat(row) + childButtonH * CGFloat(row) + KUIScreenHeight
+            
+            if kUIScreenWidth == 320 {
+                y -= 40
+            }
             
             button.frame = CGRect(x: x, y: y, width: childButtonW, height: childButtonH)
             addSubview(button)
             
-            
             // 添加到数组
             composeButtons.append(button)
         }
-        
-        
     }
     // MARK:-- 添加按钮动画的方法
     fileprivate func addButtonAnmation(_ button: UIView,time: CFTimeInterval,type: ComposeAnimationType) {
-        
         
         let anim = POPSpringAnimation(propertyNamed: kPOPViewCenter)
         

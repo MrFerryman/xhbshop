@@ -14,6 +14,8 @@ class XHSearchManager: NSObject, PYSearchViewControllerDelegate {
     /// 搜索结果商品的点击事件
     var searchResultGoodsDetailItemClickedClosure: ((_ model: XHSpecialFavModel) -> ())?
     
+    fileprivate var time: Int = 0
+    fileprivate var targetVc: UIViewController?
     // 单例创建
     static let instance = XHSearchManager()
     private override init() {}
@@ -21,8 +23,8 @@ class XHSearchManager: NSObject, PYSearchViewControllerDelegate {
     func pushSearchViewController(targetVc: UIViewController?, placeholdStr: String, isAnimation: Bool, searchDidResult: PYDidSearchBlock?) {
         
         targetVc?.tabBarController?.tabBar.isHidden = true
+        self.targetVc = targetVc
         
-//        let hotSearches = ["阿胶糕", "洗发水","阿胶糕", "洗发水", "阿胶糕", "洗发水", "阿胶糕", "洗发水"]
         let hotSearches = Array<String>()
         let searchVC = PYSearchViewController(hotSearches: hotSearches, searchBarPlaceholder: placeholdStr) { [weak self] (searchVc, searchBar, searchText) in
             
@@ -54,8 +56,11 @@ class XHSearchManager: NSObject, PYSearchViewControllerDelegate {
         searchResultVc.view.removeFromSuperview()
         searchViewController.searchBar.text = ""
         searchViewController.searchBar.resignFirstResponder()
+        time += 1
+        if time == 2 {
+            targetVc?.navigationController?.popViewController(animated: true)
+        }
     }
-    
     // MARK:- 懒加载
     // 搜索结果控制器
     private lazy var searchResultVc: XHSearchResultController = XHSearchResultController()

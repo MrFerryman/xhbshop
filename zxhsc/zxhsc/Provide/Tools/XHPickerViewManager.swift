@@ -176,7 +176,6 @@ extension XHPickerViewManager: UIPickerViewDelegate, UIPickerViewDataSource {
         pickerLabel?.text = self.pickerView(pickerView, titleForRow: row, forComponent: component)
         
         return pickerLabel!
-
     }
     
 }

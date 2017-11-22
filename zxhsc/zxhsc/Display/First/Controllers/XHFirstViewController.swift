@@ -307,6 +307,7 @@ class XHFirstViewController: UIViewController, UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
         tabBarController?.tabBar.isHidden = true
+        searchBar.resignFirstResponder()
         XHSearchManager.instance.pushSearchViewController(targetVc: self, placeholdStr: "请输入商品或品牌关键字", isAnimation: false) { (searchVc, searchBar, textString) in }
         
         XHSearchManager.instance.searchResultGoodsDetailItemClickedClosure = { [weak self] model in
