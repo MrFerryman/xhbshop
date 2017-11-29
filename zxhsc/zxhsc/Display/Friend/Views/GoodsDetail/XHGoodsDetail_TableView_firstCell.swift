@@ -61,13 +61,13 @@ class XHGoodsDetail_TableView_firstCell: UITableViewCell {
             if detailModel?.listprice != nil, detailModel?.listprice != detailModel?.price {
                 addSubview(listPriceL)
                 listPriceL.snp.makeConstraints({ (make) in
-                    make.centerY.equalTo(priceL)
-                    make.left.equalTo(priceL.snp.right).offset(12)
+                    make.bottom.equalTo(priceL)
+                    make.left.equalTo(integralPriceL.snp.right).offset(3)
                 })
                 
-                let attri = NSMutableAttributedString(string: (detailModel?.listprice)!)
+                let attri = NSMutableAttributedString(string: "￥" +  (detailModel?.listprice)!)
                 let strLength = NSString(string: (detailModel?.listprice)!).length
-                attri.addAttributes([NSAttributedStringKey.strikethroughStyle: 1], range: NSRange(location: 0, length: strLength))
+                attri.addAttributes([NSAttributedStringKey.strikethroughStyle: 1], range: NSRange(location: 1, length: strLength))
                 listPriceL.attributedText = attri
             }
             
@@ -119,7 +119,7 @@ class XHGoodsDetail_TableView_firstCell: UITableViewCell {
     private lazy var listPriceL: UILabel = {
         let label = UILabel()
         label.textColor = XHRgbColorFromHex(rgb: 0x666666)
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: 12)
         return label
     }()
     

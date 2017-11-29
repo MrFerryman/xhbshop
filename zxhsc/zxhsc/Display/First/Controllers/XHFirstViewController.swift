@@ -431,6 +431,15 @@ class XHFirstViewController: UIViewController, UISearchBarDelegate {
             goodsDetailV.isIntegral = true
             goodsDetailV.goodsId = sessionModel.id
             navigationController?.pushViewController(goodsDetailV, animated: true)
+        case 8:
+            setupChildViewController()
+            let goodsDetailV = XHGoodsDetailController()
+            goodsDetailV.is_fu_xiao_goods = false
+            goodsDetailV.is_jiu_xi_goods = true
+            goodsDetailV.isIntegral = false
+            goodsDetailV.is_19_9_goods = false
+            goodsDetailV.goodsId = sessionModel.id
+            navigationController?.pushViewController(goodsDetailV, animated: true)
         default:
             switch (sessionModel.id)! {
             case "24":
